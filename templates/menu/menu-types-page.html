@@ -1,0 +1,64 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/menu-types-page.css' %}" rel="stylesheet"/>
+
+    <div class="menu-types-page-container">
+        {% include  'common/navbar.html' %}
+        <menu-types-wrapper
+                class="menu-types-wrapper"
+                rootclassname="menu-typesundefined"
+        >
+            <!--MenuTypes component-->
+            <div
+                    class="menu-types-container1 thq-section-padding menu-typesroot-class-name"
+            >
+                <div
+                        class="menu-types-max-width thq-section-padding thq-section-max-width"
+                >
+                    <h1>
+                        <fragment class="menu-types-page-fragment32">
+                            <span class="menu-types-page-text32">Menu Types</span>
+                        </fragment>
+                    </h1>
+                    <hr class="menu-types-separator1"/>
+                    <div class="menu-types-container2">
+                <span class="menu-types-text11">
+                  <fragment class="menu-types-page-fragment27">
+                    <span class="menu-types-page-text27">Menu Type:&nbsp;</span>
+                  </fragment>
+                </span>
+                        <span class="menu-types-text12">
+                  <fragment class="menu-types-page-fragment29">
+                    <span class="menu-types-page-text29">Ncode:</span>
+                  </fragment>
+                </span>
+                        <span class="menu-types-text13">
+                  <fragment class="menu-types-page-fragment28">
+                    <span class="menu-types-page-text28">Seasonal Menu</span>
+                  </fragment>
+                </span>
+                        <span class="menu-types-text14">
+                  <fragment class="menu-types-page-fragment30">
+                    <span class="menu-types-page-text30">100</span>
+                  </fragment>
+                </span>
+                    </div>
+                    <button type="button" class="menu-types-button button">
+                <span>
+                  <fragment class="menu-types-page-fragment31">
+                    <span class="menu-types-page-text31">Edit</span>
+                  </fragment>
+                </span>
+                    </button>
+                    <hr class="menu-types-separator2"/>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/pavaj_garden_74-1500w.jpeg' %}"
+                        class="menu-types-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="menu-types-container3"></div>
+            </div>
+        </menu-types-wrapper>
+ {% endblock %}

@@ -1,0 +1,174 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/book-a-table.css' %}" rel="stylesheet"/>
+
+    <div class="book-a-table-container">
+        {% include  'common/navbar.html' %}
+        <booking-form-wrapper class="booking-form-wrapper">
+            <!--BookingForm component-->
+            <div class="booking-form-container1 thq-section-padding">
+                <div
+                        class="booking-form-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="booking-form-form-root">
+                        <div class="booking-form-form1">
+                            <h2 class="booking-form-text10 thq-heading-2">
+                                <fragment class="book-a-table-fragment30">
+                                    <span class="book-a-table-text30">Make a booking</span>
+                                </fragment>
+                            </h2>
+                            <form class="booking-form-form2">
+                                <div class="booking-form-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Full Name
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Enter your full name"
+                                            class="booking-form-textinput1 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="booking-form-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Email
+                                    </label>
+                                    <input
+                                            type="email"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Enter your email"
+                                            class="booking-form-textinput2 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="booking-form-email3">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Phone Number
+                                    </label>
+                                    <input
+                                            type="tel"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Phone Number"
+                                            class="booking-form-textinput3 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="booking-form-email4">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Date
+                                    </label>
+                                    <input
+                                            type="date"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Date"
+                                            class="booking-form-textinput4 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="booking-form-email5">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Hour
+                                    </label>
+                                    <input
+                                            type="time"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Time"
+                                            class="booking-form-textinput5 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="booking-form-email6">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Number of guests
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Choose number of guests"
+                                            class="booking-form-textinput6 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="booking-form-password">
+                                    <div class="booking-form-container2">
+                                        <label
+                                                for="thq-sign-in-3-password"
+                                                class="thq-body-large"
+                                        >
+                                            Additional information
+                                        </label>
+                                    </div>
+                                    <textarea
+                                            placeholder="Any preferences or notes?"
+                                            class="booking-form-textarea textarea"
+                                    ></textarea>
+                                </div>
+                            </form>
+                            <div class="booking-form-container3">
+                                <input
+                                        type="checkbox"
+                                        checked="true"
+                                        class="booking-form-checkbox"
+                                />
+                                <span class="booking-form-text18">
+                      <fragment class="book-a-table-fragment27">
+                        <span class="book-a-table-text27">
+                          I confirm that I have read and agree to the Privacy
+                          Policy and Data Protection Terms.
+                        </span>
+                      </fragment>
+                    </span>
+                            </div>
+                            <div class="booking-form-container4">
+                                <button
+                                        type="submit"
+                                        class="booking-form-button thq-button-filled"
+                                >
+                      <span class="booking-form-text19 thq-body-small">
+                        <fragment class="book-a-table-fragment29">
+                          <span class="book-a-table-text29">Book Now</span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="booking-form-separator"/>
+                    <span class="booking-form-text20">
+                <fragment class="book-a-table-fragment28">
+                  <span class="book-a-table-text28">
+                    Please note: Your reservation is not confirmed until you
+                    receive a confirmation email or a call from our team.
+                  </span>
+                </fragment>
+              </span>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc08380.jpg-1500w.jpeg' %}"
+                        class="booking-form-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="booking-form-container5"></div>
+            </div>
+        </booking-form-wrapper>
+{% endblock %}

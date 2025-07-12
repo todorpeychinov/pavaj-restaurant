@@ -1,0 +1,130 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/add-item-to-menu.css' %}" rel="stylesheet"/>
+
+    <div class="add-item-to-menu-container">
+        {% include  'common/navbar.html' %}
+        <add-a-meal-wrapper class="add-a-meal-wrapper">
+            <!--AddAMeal component-->
+            <div class="add-a-meal-container1 thq-section-padding">
+                <div
+                        class="add-a-meal-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="add-a-meal-form-root">
+                        <div class="add-a-meal-form1">
+                            <h2 class="add-a-meal-text10 thq-heading-2">
+                                <fragment class="add-item-to-menu-fragment30">
+                                    <span class="add-item-to-menu-text30">Add to menu</span>
+                                </fragment>
+                            </h2>
+                            <form class="add-a-meal-form2">
+                                <div class="add-a-meal-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Meal
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Meal"
+                                            class="add-a-meal-textinput1 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="add-a-meal-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Category
+                                    </label>
+                                </div>
+                                <select>
+                                    <option value="Option 1">Option 1</option>
+                                    <option value="Option 2">Option 2</option>
+                                    <option value="Option 3">Option 3</option>
+                                </select>
+                                <span class="add-a-meal-text13">
+                      <fragment class="add-item-to-menu-fragment27">
+                        <span class="add-item-to-menu-text27">Description</span>
+                      </fragment>
+                    </span>
+                                <textarea
+                                        placeholder="Description"
+                                        class="add-a-meal-textarea textarea"
+                                ></textarea>
+                                <span class="add-a-meal-text14">
+                      <fragment class="add-item-to-menu-fragment28">
+                        <span class="add-item-to-menu-text28">Weight</span>
+                      </fragment>
+                    </span>
+                                <input
+                                        type="number"
+                                        id="thq-sign-in-3-email"
+                                        required="true"
+                                        placeholder="Weight"
+                                        class="add-a-meal-textinput2 thq-input thq-body-large"
+                                />
+                                <div class="add-a-meal-email3">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Is Vegan
+                                    </label>
+                                    <input type="checkbox" checked="true"/>
+                                </div>
+                                <div class="add-a-meal-email4">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Is Vegetarian
+                                    </label>
+                                    <input type="checkbox" checked="true"/>
+                                </div>
+                                <div class="add-a-meal-email5">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Is Gluten Free
+                                    </label>
+                                    <input type="checkbox" checked="true"/>
+                                </div>
+                                <div class="add-a-meal-email6">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Allergens
+                                    </label>
+                                </div>
+                            </form>
+                            <div class="add-a-meal-container2">
+                                <button
+                                        type="submit"
+                                        class="add-a-meal-button thq-button-filled"
+                                >
+                      <span class="add-a-meal-text19 thq-body-small">
+                        <fragment class="add-item-to-menu-fragment29">
+                          <span class="add-item-to-menu-text29">Add meal</span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc08139-1500w.jpg' %}"
+                        class="add-a-meal-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="add-a-meal-container3"></div>
+            </div>
+        </add-a-meal-wrapper>
+{% endblock %}

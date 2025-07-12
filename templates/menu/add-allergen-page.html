@@ -1,0 +1,101 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/add-allergen-page.css' %}" rel="stylesheet"/>
+
+    <div class="add-allergen-page-container">
+        {% include  'common/navbar.html' %}
+        <add-allergen-wrapper
+                class="add-allergen-wrapper"
+                rootclassname="add-allergenundefined"
+        >
+            <!--AddAllergen component-->
+            <div
+                    class="add-allergen-container1 thq-section-padding add-allergenroot-class-name"
+            >
+                <div
+                        class="add-allergen-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="add-allergen-form-root">
+                        <div class="add-allergen-form1">
+                            <h2 class="add-allergen-text1 thq-heading-2">
+                                <fragment class="add-allergen-page-fragment28">
+                                    <span class="add-allergen-page-text28">Add Allergen</span>
+                                </fragment>
+                            </h2>
+                            <form class="add-allergen-form2">
+                                <div class="add-allergen-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Allergen
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Allergen"
+                                            class="add-allergen-textinput1 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="add-allergen-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Icon
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Enter icon URL (optional)"
+                                            class="add-allergen-textinput2 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="add-allergen-password">
+                                    <div class="add-allergen-container2">
+                                        <label
+                                                for="thq-sign-in-3-password"
+                                                class="thq-body-large"
+                                        >
+                                            Ncode
+                                        </label>
+                                        <div class="add-allergen-hide-password"></div>
+                                    </div>
+                                    <input
+                                            type="number"
+                                            id="thq-sign-in-3-password"
+                                            required="true"
+                                            placeholder="Enter unique code..."
+                                            class="add-allergen-textinput3 thq-input thq-body-large"
+                                    />
+                                </div>
+                            </form>
+                            <div class="add-allergen-container3">
+                                <button
+                                        type="submit"
+                                        class="add-allergen-button thq-button-filled"
+                                >
+                      <span class="add-allergen-text5 thq-body-small">
+                        <fragment class="add-allergen-page-fragment27">
+                          <span class="add-allergen-page-text27">
+                            Add Allergen
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
+                        class="add-allergen-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="add-allergen-container4"></div>
+            </div>
+        </add-allergen-wrapper>
+ {% endblock %}

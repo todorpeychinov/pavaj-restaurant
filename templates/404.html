@@ -1,0 +1,36 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/404.css' %}" rel="stylesheet"/>
+
+    <div class="page1-container">
+        {% include  'common/navbar.html' %}
+        <not-found2-wrapper class="not-found2-wrapper">
+            <!--NotFound2 component-->
+            <div class="not-found2-container1 thq-section-padding">
+                <div class="not-found2-container2">
+                    <h1 class="not-found2-text1 thq-heading-1">404</h1>
+                    <h2 class="not-found2-text2 thq-heading-2">
+                        <fragment class="page1-fragment28">
+                            <span class="page1-text28">Page not found</span>
+                        </fragment>
+                    </h2>
+                    <button
+                            class="not-found2-button thq-button-outline thq-button-filled"
+                    >
+                <span class="thq-body-small">
+                  <fragment class="page1-fragment27">
+                    <span class="page1-text27">Back to homepage</span>
+                  </fragment>
+                </span>
+                    </button>
+                </div>
+                <img
+                        alt="image"
+                        src="{% static 'img/dsc08300.jpg-1500w.jpeg' %}"
+                        class="not-found2-image"
+                />
+                <div class="not-found2-container3"></div>
+            </div>
+        </not-found2-wrapper>
+{% endblock %}

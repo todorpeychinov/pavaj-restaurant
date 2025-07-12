@@ -1,0 +1,130 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/sent-inquiry.css' %}" rel="stylesheet"/>
+
+    <div class="sent-inquiry-container">
+        {% include  'common/navbar.html' %}
+        <make-inquiry-wrapper class="make-inquiry-wrapper">
+            <!--MakeInquiry component-->
+            <div class="make-inquiry-container1 thq-section-padding">
+                <div
+                        class="make-inquiry-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="make-inquiry-form-root">
+                        <div class="make-inquiry-form1">
+                            <h2 class="make-inquiry-text10 thq-heading-2">
+                                <fragment class="sent-inquiry-fragment29">
+                      <span class="sent-inquiry-text29">
+                        Your Request, Our Priority
+                      </span>
+                                </fragment>
+                            </h2>
+                            <h3 class="make-inquiry-text11">
+                                <fragment class="sent-inquiry-fragment28">
+                      <span class="sent-inquiry-text28">
+                        Submit your inquiry and our team will get in touch.
+                      </span>
+                                </fragment>
+                            </h3>
+                            <form class="make-inquiry-form2">
+                                <div class="make-inquiry-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Full Name
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Full Name"
+                                            class="make-inquiry-textinput1 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="make-inquiry-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Email
+                                    </label>
+                                    <input
+                                            type="email"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Email address"
+                                            class="make-inquiry-textinput2 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="make-inquiry-email3">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Phone Number
+                                    </label>
+                                    <input
+                                            type="tel"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Phone Number"
+                                            class="make-inquiry-textinput3 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="make-inquiry-email4">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Subject
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Email address"
+                                            class="make-inquiry-textinput4 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="make-inquiry-password">
+                                    <div class="make-inquiry-container2">
+                                        <label
+                                                for="thq-sign-in-3-password"
+                                                class="thq-body-large"
+                                        >
+                                            Message
+                                        </label>
+                                        <div class="make-inquiry-hide-password"></div>
+                                    </div>
+                                    <textarea
+                                            placeholder="Enter your message here..."
+                                            class="make-inquiry-textarea textarea"
+                                    ></textarea>
+                                </div>
+                            </form>
+                            <div class="make-inquiry-container3">
+                                <button
+                                        type="submit"
+                                        class="make-inquiry-button thq-button-filled"
+                                >
+                      <span class="make-inquiry-text17 thq-body-small">
+                        <fragment class="sent-inquiry-fragment27">
+                          <span class="sent-inquiry-text27">Sent Inquiry</span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/pavaj-restaurant-plovdiv%20(2)-1500w.jpg' %}"
+                        class="make-inquiry-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="make-inquiry-container4"></div>
+            </div>
+        </make-inquiry-wrapper>
+{% endblock %}

@@ -30,7 +30,7 @@ class MenuCategory(TimeStampedUserTrackedModel, HistoryMixin):
 
 
 class Allergen(TimeStampedUserTrackedModel, HistoryMixin):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     ncode = models.PositiveIntegerField(unique=True)
     icon = models.URLField(blank=True, null=True)
 
@@ -40,7 +40,7 @@ class Allergen(TimeStampedUserTrackedModel, HistoryMixin):
 
 class MenuItem(TimeStampedUserTrackedModel, HistoryMixin):
     category = models.ForeignKey(MenuCategory, on_delete=models.CASCADE, related_name='items')
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True, null=True)
     is_vegan = models.BooleanField(default=False)
     is_vegetarian = models.BooleanField(default=False)

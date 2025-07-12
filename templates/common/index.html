@@ -1,0 +1,860 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet"/>
+
+    <div class="home-container">
+    {% include  'common/navbar.html' %}
+    <hero4-wrapper class="hero4-wrapper">
+        <!--Hero4 component-->
+        <div class="hero4-header13">
+            <video
+                    src="{% static 'img/compressed.mov' %}"
+                    loop="true"
+                    muted="true"
+                    autoplay="true"
+                    class="hero4-video"
+            ></video>
+            <div class="hero4-content thq-section-padding">
+                <div class="hero4-max-width thq-flex-row thq-section-max-width">
+                    <div class="hero4-column1">
+                        <h1 class="thq-heading-1 hero4-text1">
+                            <fragment class="home-fragment29">
+                      <span class="home-text119">
+                        <span>Welcome to PAVAJ</span>
+                        <br/>
+                        <span>Where Taste Meets Soul</span>
+                        <br/>
+                      </span>
+                            </fragment>
+                        </h1>
+                    </div>
+                    <div class="hero4-column2">
+                        <p class="thq-body-large hero4-text2">
+                            <fragment class="home-fragment28">
+                      <span class="home-text118">
+                        Experience a journey of flavors in the heart of
+                        Plovdiv’s creative district. At Pavaj, we craft seasonal
+                        dishes from local, high-quality ingredients — many grown
+                        in our own garden. With every bite, we aim to connect
+                        taste, story, and emotion.
+                      </span>
+                            </fragment>
+                        </p>
+                        <div class="hero4-actions">
+                            <button class="thq-button-filled hero4-button">
+                      <span class="thq-body-small">
+                        <fragment class="home-fragment27">
+                          <span class="home-text117">Explore the Menu</span>
+                        </fragment>
+                      </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </hero4-wrapper>
+    <hero3-wrapper class="hero3-wrapper">
+        <!--Hero3 component-->
+        <div class="hero3-header9">
+            <img
+                    alt="Fine dining restaurant interior"
+                    src="{% static 'img/pavaj_garden_39-1500w.jpeg' %}"
+                    class="thq-img-ratio-16-9"
+            />
+            <div class="hero3-content thq-section-padding">
+                <div class="hero3-max-width thq-flex-row thq-section-max-width">
+                    <div class="hero3-column1">
+                        <h1 class="thq-heading-1 hero3-text1">
+                            <fragment class="home-fragment31">
+                      <span class="home-text125">
+                        PAVAJ – From Our Garden to Your Plate
+                      </span>
+                            </fragment>
+                        </h1>
+                    </div>
+                    <div class="hero3-column2">
+                        <p class="thq-body-large hero3-text2">
+                            <fragment class="home-fragment30">
+                      <span class="home-text124">
+                        Locally grown. Carefully selected. Authentically
+                        served.Discover the flavors of the season, rooted in our
+                        own soil.
+                      </span>
+                            </fragment>
+                        </p>
+                        <div class="hero3-actions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </hero3-wrapper>
+    <features24-wrapper class="features24-wrapper">
+        <!--Features24 component-->
+        <div class="thq-section-padding">
+            <div class="features24-container2 thq-section-max-width">
+                <div class="features24-image-container">
+                    <img
+                            alt="Delicious Food"
+                            src="{% static 'img/pavaj_garden_20-1400w.jpeg' %}"
+                            class="features24-image1 thq-img-ratio-16-9"
+                    />
+                </div>
+                <div class="features24-tabs-menu">
+                    <div class="features24-tab-horizontal1">
+                        <div class="features24-divider-container1">
+                            <div class="features24-container3"></div>
+                        </div>
+                        <div class="features24-content1">
+                            <h2 class="thq-heading-2">
+                                <fragment class="home-fragment32">
+                        <span class="home-text126">
+                          Locally Sourced Ingredients
+                        </span>
+                                </fragment>
+                            </h2>
+                            <span class="thq-body-small">
+                      <fragment class="home-fragment35">
+                        <span class="home-text129">
+                          We work closely with small farms and local producers
+                          to bring you the freshest and highest-quality
+                          ingredients from the region.
+                        </span>
+                      </fragment>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="features24-tab-horizontal2">
+                        <div class="features24-divider-container2">
+                            <div class="features24-container4"></div>
+                        </div>
+                        <div class="features24-content2">
+                            <h2 class="thq-heading-2">
+                                <fragment class="home-fragment33">
+                                    <span class="home-text127">Seasonal Specials</span>
+                                </fragment>
+                            </h2>
+                            <span class="thq-body-small">
+                      <fragment class="home-fragment36">
+                        <span class="home-text130">
+                          Our menu evolves with the seasons. Discover daily and
+                          seasonal dishes that reflect the rhythms of nature and
+                          the richness of each time of year.
+                        </span>
+                      </fragment>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="features24-tab-horizontal3">
+                        <div class="features24-divider-container3">
+                            <div class="features24-container5"></div>
+                        </div>
+                        <div class="features24-content3">
+                            <h2 class="thq-heading-2">
+                                <fragment class="home-fragment34">
+                                    <span class="home-text128">From Our Own Garden</span>
+                                </fragment>
+                            </h2>
+                            <span class="thq-body-small">
+                      <fragment class="home-fragment37">
+                        <span class="home-text131">
+                          Many of our vegetables come directly from our own
+                          garden in the village of Izbeglii — grown with care,
+                          served with pride.
+                        </span>
+                      </fragment>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </features24-wrapper>
+    <features251-wrapper class="features251-wrapper">
+        <!--Features251 component-->
+        <div class="thq-section-padding">
+            <div class="features251-container2 thq-section-max-width">
+                <div class="features251-tabs-menu">
+                    <div class="features251-tab-horizontal1">
+                        <div class="features251-divider-container1">
+                            <div class="features251-container3"></div>
+                        </div>
+                        <div class="features251-content1">
+                            <h2 class="thq-heading-2">
+                                <fragment class="home-fragment38">
+                        <span class="home-text132">
+                          Curated Wine &amp; Rakia Selection
+                        </span>
+                                </fragment>
+                            </h2>
+                            <span class="thq-body-small">
+                      <fragment class="home-fragment41">
+                        <span class="home-text135">
+                          Enjoy a handpicked collection of premium Bulgarian
+                          wines and rakia, carefully selected to complement
+                          every flavor on your plate.
+                        </span>
+                      </fragment>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="features251-tab-horizontal2">
+                        <div class="features251-divider-container2">
+                            <div class="features251-container4"></div>
+                        </div>
+                        <div class="features251-content2">
+                            <h2 class="thq-heading-2">
+                                <fragment class="home-fragment39">
+                        <span class="home-text133">
+                          Balkan Cuisine, Reimagined
+                        </span>
+                                </fragment>
+                            </h2>
+                            <span class="thq-body-small">
+                      <fragment class="home-fragment42">
+                        <span class="home-text136">
+                          We reinterpret traditional Balkan recipes with
+                          creativity and soul, crafting unique dishes you won’t
+                          find anywhere else.
+                        </span>
+                      </fragment>
+                    </span>
+                        </div>
+                    </div>
+                    <div class="features251-tab-horizontal3">
+                        <div class="features251-divider-container3">
+                            <div class="features251-container5"></div>
+                        </div>
+                        <div class="features251-content3">
+                            <h2 class="thq-heading-2">
+                                <fragment class="home-fragment40">
+                        <span class="home-text134">
+                          Atmosphere That Inspires
+                        </span>
+                                </fragment>
+                            </h2>
+                            <span class="thq-body-small">
+                      <fragment class="home-fragment43">
+                        <span class="home-text137">
+                          Tucked in the heart of Plovdiv’s creative district
+                          Kapana, our space offers a cozy, artistic setting for
+                          unforgettable dining experiences.
+                        </span>
+                      </fragment>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="features251-image-container">
+                    <img
+                            alt="Gourmet Menu Image"
+                            src="{% static 'img/dsc08139-1400w.jpg' %}"
+                            class="features251-image1 thq-img-ratio-16-9"
+                    />
+                </div>
+            </div>
+        </div>
+    </features251-wrapper>
+    <features4-wrapper class="features4-wrapper">
+        <!--Features4 component-->
+        <div class="features4-layout301 thq-section-padding">
+            <div class="features4-max-width thq-section-max-width">
+                <h2 class="features4-text10 thq-heading-2">
+                    <fragment class="home-fragment44">
+                        <span class="home-text138">Explore the Essence of PAVAJ</span>
+                    </fragment>
+                </h2>
+                <div class="features4-row thq-grid-auto-300">
+                    <div class="features4-feature1">
+                        <img
+                                alt="Gourmet Dishes Image"
+                                src="{% static 'img/pavaj_garden_55-600w.jpeg' %}"
+                                class="thq-img-ratio-4-3"
+                        />
+                        <div class="features4-content1 thq-flex-column">
+                            <div class="features4-section-title1 thq-flex-column">
+                                <h3 class="features4-title1 thq-heading-3">
+                                    <fragment class="home-fragment45">
+                          <span class="home-text139">
+                            <span>The Taste of the Season</span>
+                            <br/>
+                            <br/>
+                          </span>
+                                    </fragment>
+                                </h3>
+                                <span class="features4-description1 thq-body-small">
+                        <fragment class="home-fragment53">
+                          <span class="home-text150">
+                            <span>
+                              Our seasonal creations reflect the natural
+                              abundance of each time of year — elegantly
+                              presented, thoughtfully composed, and always
+                              freshly harvested.
+                            </span>
+                            <br/>
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                            <div class="features4-action5 thq-flex-row">
+                                <button class="thq-button-flat">
+                        <span class="thq-body-small">
+                          <fragment class="home-fragment49">
+                            <span class="home-text146">
+                              Discover Seasonal Dishes
+                            </span>
+                          </fragment>
+                        </span>
+                                    <svg viewBox="0 0 1024 1024" class="thq-icon-small">
+                                        <path
+                                                d="M426 256l256 256-256 256-60-60 196-196-196-196z"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features4-feature2">
+                        <img
+                                alt="Wine Selection Image"
+                                src="{% static 'img/dsc09858.jpg-600w.jpeg' %}"
+                                class="thq-img-ratio-4-3"
+                        />
+                        <div class="features4-content2 thq-flex-column">
+                            <div class="features4-section-title2 thq-flex-column">
+                                <strong class="features4-title2 thq-heading-3">
+                                    <fragment class="home-fragment46">
+                          <span class="home-text143">
+                            Signature Culinary Collection
+                          </span>
+                                    </fragment>
+                                </strong>
+                                <span class="features4-description2 thq-body-small">
+                        <fragment class="home-fragment54">
+                          <span class="home-text153">
+                            Explore a refined selection of chef-crafted dishes
+                            that marry tradition with creative flair, prepared
+                            using only the finest locally sourced ingredients.
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                            <div class="features4-action6 thq-flex-row">
+                                <button class="thq-button-flat">
+                        <span class="thq-body-small">
+                          <fragment class="home-fragment50">
+                            <span class="home-text147">View Our Main Menu</span>
+                          </fragment>
+                        </span>
+                                    <svg viewBox="0 0 1024 1024" class="thq-icon-small">
+                                        <path
+                                                d="M426 256l256 256-256 256-60-60 196-196-196-196z"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features4-feature3">
+                        <img
+                                alt="Cozy Ambiance Image"
+                                src="{% static 'img/img_3780-600w.jpg' %}"
+                                class="thq-img-ratio-4-3"
+                        />
+                        <div class="features4-content3 thq-flex-column">
+                            <div class="features4-section-title3 thq-flex-column">
+                                <strong class="features4-title3 thq-heading-3">
+                                    <fragment class="home-fragment47">
+                          <span class="home-text144">
+                            Artfully Paired Wines &amp; Rakia
+                          </span>
+                                    </fragment>
+                                </strong>
+                                <span class="features4-description3 thq-body-small">
+                        <fragment class="home-fragment55">
+                          <span class="home-text154">
+                            Allow our expertly curated cellar to elevate your
+                            meal — with premium Bulgarian wines and distinctive
+                            rakias chosen to complement every flavor nuance.
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                            <div class="features4-action7 thq-flex-row">
+                                <button class="thq-button-flat">
+                        <span class="thq-body-small">
+                          <fragment class="home-fragment51">
+                            <span class="home-text148">
+                              Browse the Wine List
+                            </span>
+                          </fragment>
+                        </span>
+                                    <svg viewBox="0 0 1024 1024" class="thq-icon-small">
+                                        <path
+                                                d="M426 256l256 256-256 256-60-60 196-196-196-196z"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features4-feature4">
+                        <img
+                                alt="Exceptional Service Image"
+                                src="{% static 'img/pavaj-restaurant-plovdiv%20(2)-600w.jpg' %}"
+                                class="thq-img-ratio-4-3"
+                        />
+                        <div class="features4-content4 thq-flex-column">
+                            <div class="features4-section-title4 thq-flex-column">
+                                <strong class="features4-title4 thq-heading-3">
+                                    <fragment class="home-fragment48">
+                          <span class="home-text145">
+                            A Destination Worth Savoring
+                          </span>
+                                    </fragment>
+                                </strong>
+                                <span class="features4-description4 thq-body-small">
+                        <fragment class="home-fragment56">
+                          <span class="home-text155">
+                            Tucked in Plovdiv’s artistic quarter of Kapana,
+                            Pavaj invites you into a warm, refined setting where
+                            every detail is designed to enrich your dining
+                            journey.
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                            <div class="features4-action8 thq-flex-row">
+                                <button class="thq-button-flat">
+                        <span class="thq-body-small">
+                          <fragment class="home-fragment52">
+                            <span class="home-text149">
+                              Visit &amp; Contact Us
+                            </span>
+                          </fragment>
+                        </span>
+                                    <svg viewBox="0 0 1024 1024" class="thq-icon-small">
+                                        <path
+                                                d="M426 256l256 256-256 256-60-60 196-196-196-196z"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </features4-wrapper>
+    <cta26-wrapper class="cta26-wrapper" rootclassname="cta26undefined">
+        <!--CTA26 component-->
+        <div class="thq-section-padding cta26root-class-name">
+            <div class="thq-section-max-width">
+                <div class="cta26-accent2-bg">
+                    <div class="cta26-accent1-bg">
+                        <div class="cta26-container2">
+                            <div class="cta26-content">
+                      <span class="thq-heading-2">
+                        <fragment class="home-fragment59">
+                          <span class="home-text158">
+                            Ready to taste the soul of the Balkans?
+                          </span>
+                        </fragment>
+                      </span>
+                                <p class="thq-body-large">
+                                    <fragment class="home-fragment58">
+                          <span class="home-text157">
+                            Let our seasonal creations, local wines, and cozy
+                            atmosphere turn your visit into a story worth
+                            savoring.
+                          </span>
+                                    </fragment>
+                                </p>
+                            </div>
+                            <div class="cta26-actions">
+                                <button
+                                        type="button"
+                                        class="thq-button-filled cta26-button"
+                                >
+                        <span>
+                          <fragment class="home-fragment57">
+                            <span class="home-text156">Book a Table</span>
+                          </fragment>
+                        </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </cta26-wrapper>
+    <testimonial17-wrapper class="testimonial17-wrapper">
+        <!--Testimonial17 component-->
+        <div class="thq-section-padding">
+            <div class="testimonial17-max-width thq-section-max-width">
+                <div class="testimonial17-container10">
+                    <h2 class="thq-heading-2">
+                        <fragment class="home-fragment65">
+                            <span class="home-text164">Awards &amp; Recognition</span>
+                        </fragment>
+                    </h2>
+                    <span class="testimonial17-text11 thq-body-small">
+                  <fragment class="home-fragment64">
+                    <span class="home-text163">
+                      At Pavaj, we take pride in every plate we serve — and
+                      we’re humbled by the recognition we've received over the
+                      years. From prestigious culinary awards to heartfelt guest
+                      reviews, these honors reflect our commitment to quality,
+                      authenticity, and experience.
+                    </span>
+                  </fragment>
+                </span>
+                </div>
+                <div class="thq-grid-2">
+                    <div class="thq-animated-card-bg-2">
+                        <div class="thq-animated-card-bg-1">
+                            <div
+                                    data-animated="true"
+                                    class="thq-card testimonial17-card1"
+                            >
+                                <div class="testimonial17-container12">
+                                    <img
+                                            alt="Image of John Smith"
+                                            src="https://www.economedia.bg/shimg/zx250_2454831.jpg"
+                                            class="testimonial17-image1"
+                                    />
+                                    <div class="testimonial17-container13">
+                                        <strong class="thq-body-large">
+                                            <fragment class="home-fragment66">
+                              <span class="home-text165">
+                                Bacchus “Restaurant of the Year”
+                              </span>
+                                            </fragment>
+                                        </strong>
+                                        <span class="thq-body-small">
+                            <fragment class="home-fragment70">
+                              <span class="home-text169">2022</span>
+                            </fragment>
+                          </span>
+                                    </div>
+                                </div>
+                                <span class="testimonial17-text14 thq-body-small">
+                        <fragment class="home-fragment60">
+                          <span class="home-text159">
+                            2022 – Restaurant of the Year, Readers’ Choice
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thq-animated-card-bg-2">
+                        <div class="thq-animated-card-bg-1">
+                            <div
+                                    data-animated="true"
+                                    class="thq-card testimonial17-card2"
+                            >
+                                <div class="testimonial17-container14">
+                                    <img
+                                            alt="Image of Emily Davis"
+                                            src="https://www.economedia.bg/shimg/zx250_2454831.jpg"
+                                            class="testimonial17-image2"
+                                    />
+                                    <div class="testimonial17-container15">
+                                        <strong class="thq-body-large">
+                                            <fragment class="home-fragment67">
+                              <span class="home-text166">
+                                Bacchus “Restaurant of the Year”
+                              </span>
+                                            </fragment>
+                                        </strong>
+                                        <span class="thq-body-small">
+                            <fragment class="home-fragment71">
+                              <span class="home-text170">2018</span>
+                            </fragment>
+                          </span>
+                                    </div>
+                                </div>
+                                <span class="testimonial17-text17 thq-body-small">
+                        <fragment class="home-fragment61">
+                          <span class="home-text160">
+                            2018 – Restaurant of the Year, Readers’ Choice
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thq-animated-card-bg-2">
+                        <div class="thq-animated-card-bg-1">
+                            <div
+                                    data-animated="true"
+                                    class="thq-card testimonial17-card3"
+                            >
+                                <div class="testimonial17-container16">
+                                    <img
+                                            alt="Image of Michael Johnson"
+                                            src="https://www.economedia.bg/shimg/zx250_2454831.jpg"
+                                            class="testimonial17-image3"
+                                    />
+                                    <div class="testimonial17-container17">
+                                        <strong class="thq-body-large">
+                                            <fragment class="home-fragment68">
+                              <span class="home-text167">
+                                Bacchus “Restaurant of the Year”
+                              </span>
+                                            </fragment>
+                                        </strong>
+                                        <span class="thq-body-small">
+                            <fragment class="home-fragment72">
+                              <span class="home-text171">2017</span>
+                            </fragment>
+                          </span>
+                                    </div>
+                                </div>
+                                <span class="testimonial17-text20 thq-body-small">
+                        <fragment class="home-fragment62">
+                          <span class="home-text161">
+                            2017 – Restaurant of the Year, Readers’ Choice
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thq-animated-card-bg-2">
+                        <div class="thq-animated-card-bg-1">
+                            <div
+                                    data-animated="true"
+                                    class="thq-card testimonial17-card4"
+                            >
+                                <div class="testimonial17-container18">
+                                    <img
+                                            alt="Image of Sarah Lee"
+                                            src="https://w7.pngwing.com/pngs/264/340/png-transparent-tripadvisor-thumbnail-review-platforms-logos.png"
+                                            class="testimonial17-image4"
+                                    />
+                                    <div class="testimonial17-container19">
+                                        <strong class="thq-body-large">
+                                            <fragment class="home-fragment69">
+                              <span class="home-text168">
+                                TripAdvisor Top Ranking
+                              </span>
+                                            </fragment>
+                                        </strong>
+                                        <span class="thq-body-small">
+                            <fragment class="home-fragment73">
+                              <span class="home-text172">
+                                Top 10 Restaurant in Plovdiv
+                              </span>
+                            </fragment>
+                          </span>
+                                    </div>
+                                </div>
+                                <span class="testimonial17-text23 thq-body-small">
+                        <fragment class="home-fragment63">
+                          <span class="home-text162">
+                            Rated by hundreds of guests for food, atmosphere,
+                            and exceptional value.
+                          </span>
+                        </fragment>
+                      </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </testimonial17-wrapper>
+    <hero2-wrapper class="hero2-wrapper">
+        <!--Hero2 component-->
+        <div class="hero2-header5 thq-section-padding">
+            <img
+                    alt="Fine Dining Restaurant Image"
+                    src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
+                    class="hero2-image"
+            />
+            <div class="hero2-container1">
+                <div class="hero2-max-width thq-section-max-width">
+                    <div class="hero2-column">
+                        <div class="hero2-content">
+                            <div class="hero2-actions">
+                                <div class="hero2-container2"></div>
+                                <div class="hero2-container3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </hero2-wrapper>
+    <contact10-wrapper class="contact10-wrapper">
+        <!--Contact10 component-->
+        <div class="contact10-container1 thq-section-padding">
+            <div class="contact10-max-width thq-section-max-width">
+                <div class="contact10-content1 thq-flex-row">
+                    <div class="contact10-content2">
+                        <h2 class="thq-heading-2">
+                            <fragment class="home-fragment75">
+                                <span class="home-text174">Visit &amp; Contact</span>
+                            </fragment>
+                        </h2>
+                        <p class="thq-body-large">
+                            <fragment class="home-fragment74">
+                      <span class="home-text173">
+                        Step into Kapana, feel the charm, taste the season — and
+                        let your experience begin at Pavaj.
+                      </span>
+                            </fragment>
+                        </p>
+                    </div>
+                </div>
+                <div class="contact10-content3 thq-flex-row">
+                    <div class="contact10-container2">
+                        <img
+                                alt="image1Alt"
+                                src="{% static 'img/482007802_2636168993240376_844106144674937220_n-1400w.jpg' %}"
+                                class="contact10-image1 thq-img-ratio-16-9"
+                        />
+                        <h3 class="contact10-text12 thq-heading-3">
+                            <fragment class="home-fragment76">
+                                <span class="home-text175">Visit PAVAJ in Kapana</span>
+                            </fragment>
+                        </h3>
+                        <p class="thq-body-large">
+                            <fragment class="home-fragment78">
+                      <span class="home-text177">
+                        <span>
+                          Find us among the cobbled streets and creative energy
+                          of Plovdiv’s artistic district.
+                        </span>
+                        <br class="home-text179"/>
+                        <br class="home-text180"/>
+                        <span>Address:</span>
+                        <br/>
+                        <span>Zlatarska Street 7, 4000 Plovdiv, Bulgaria</span>
+                        <br/>
+                        <span>🕒</span>
+                        <span>Open every day from 12:00 to 00:00</span>
+                        <br/>
+                        <br/>
+                      </span>
+                            </fragment>
+                        </p>
+                        <div class="contact10-container3">
+                            <a
+                                    href="www.google.com"
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                    class="thq-button-flat thq-body-small"
+                            >
+                                Get directions
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact10-container4">
+                        <img
+                                alt="image2Alt"
+                                src="{% static 'img/494003226_2690842207773054_4871081115480862318_n-1400w.jpg' %}"
+                                class="contact10-image2 thq-img-ratio-16-9"
+                        />
+                        <h3 class="contact10-text14 thq-heading-3">
+                            <fragment class="home-fragment77">
+                                <span class="home-text176">Contact Us</span>
+                            </fragment>
+                        </h3>
+                        <p class="thq-body-large">
+                            <fragment class="home-fragment79">
+                      <span class="home-text189">
+                        <span>
+                          Whether you're planning a visit, booking a table, or
+                          just have a question — we’d love to hear from you.
+                        </span>
+                        <br/>
+                        <br/>
+                        <span>Tel: +359&nbsp;878 111 876</span>
+                        <br/>
+                        <span>Email: pavaj.plovdiv@gmail.com</span>
+                        <br/>
+                        <br/>
+                        <br/>
+                      </span>
+                            </fragment>
+                        </p>
+                        <div class="contact10-container5">
+                            <a
+                                    href="www.google.com"
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                    class="thq-button-flat thq-body-small"
+                            >
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </contact10-wrapper>
+    <gallery7-wrapper class="gallery7-wrapper">
+        <!--Gallery7 component-->
+        <div class="gallery7-gallery3 thq-section-padding">
+            <div class="gallery7-max-width">
+                <div class="gallery7-section-title">
+                    <h2 class="gallery7-text1 thq-heading-2">
+                        <fragment class="home-fragment80">
+                            <span class="home-text199">#PAVAJ</span>
+                        </fragment>
+                    </h2>
+                </div>
+                <div class="gallery7-container1">
+                    <div class="gallery7-content">
+                        <div class="gallery7-container2">
+                            <img
+                                    alt="Gourmet dish presentation"
+                                    src="{% static 'img/dsc08287.jpg-1500w.jpeg' %}"
+                                    class="gallery7-image1 thq-img-ratio-1-1"
+                            />
+                            <img
+                                    alt="Cozy ambiance with fireplace"
+                                    src="{% static 'img/img_4994-1500w.jpg' %}"
+                                    class="gallery7-image2 thq-img-ratio-1-1"
+                            />
+                        </div>
+                        <div class="gallery7-container3">
+                            <img
+                                    alt="Exquisite wine selection"
+                                    src="{% static 'img/dsc08386.jpg-1500w.jpeg' %}"
+                                    class="gallery7-image3 thq-img-ratio-4-3"
+                            />
+                            <img
+                                    alt="Exceptional service by our staff"
+                                    src="{% static 'img/dsc09855.jpg-1500w.jpeg' %}"
+                                    class="gallery7-image4 thq-img-ratio-1-1"
+                            />
+                            <img
+                                    alt="Happy customers enjoying their meal"
+                                    src="{% static 'img/img_4841-1500w.jpg' %}"
+                                    class="gallery7-image5 thq-img-ratio-4-3"
+                            />
+                        </div>
+                        <div class="gallery7-container4">
+                            <img
+                                    alt="Chef preparing a signature dish"
+                                    src="{% static 'img/dsc08160.jpg-1500w.jpeg' %}"
+                                    class="gallery7-image6 thq-img-ratio-1-1"
+                            />
+                            <img
+                                    alt="Elegant table setting with fine dining experience"
+                                    src="{% static 'img/de616b98-8657-4099-992a-9830316c8e1d-1500w.jpg' %}"
+                                    class="gallery7-image7 thq-img-ratio-1-1"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </gallery7-wrapper>
+{% endblock %}

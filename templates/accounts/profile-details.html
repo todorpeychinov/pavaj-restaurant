@@ -1,0 +1,93 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/profile-details.css' %}" rel="stylesheet"/>
+
+    <div class="profile-details-container">
+        {% include  'common/navbar.html' %}
+        <profile-details1-wrapper class="profile-details1-wrapper">
+            <!--ProfileDetails1 component-->
+            <div class="profile-details1-container1 thq-section-padding">
+                <div
+                        class="profile-details1-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="profile-details1-form-root">
+                        <div class="profile-details1-form1">
+                            <h2 class="profile-details1-text1 thq-heading-2">
+                                <fragment class="profile-details-fragment28">
+                                    <span class="profile-details-text28">Profile</span>
+                                </fragment>
+                            </h2>
+                            <form class="profile-details1-form2">
+                                <div class="profile-details1-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        First Name
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="First Name"
+                                            class="profile-details1-textinput1 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="profile-details1-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Last Name
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Last Name"
+                                            class="profile-details1-textinput2 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="profile-details1-email3">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Phone number
+                                    </label>
+                                    <input
+                                            type="tel"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Phone number"
+                                            class="profile-details1-textinput3 thq-input thq-body-large"
+                                    />
+                                </div>
+                            </form>
+                            <div class="profile-details1-container2">
+                                <button
+                                        type="submit"
+                                        class="profile-details1-button thq-button-filled"
+                                >
+                      <span class="profile-details1-text5 thq-body-small">
+                        <fragment class="profile-details-fragment27">
+                          <span class="profile-details-text27">
+                            Save Changes
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/pavaj_garden_16-1500w.jpeg' %}"
+                        class="profile-details1-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="profile-details1-container3"></div>
+            </div>
+        </profile-details1-wrapper>
+{% endblock %}

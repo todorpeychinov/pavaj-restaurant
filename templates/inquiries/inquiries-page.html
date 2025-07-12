@@ -1,0 +1,164 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/inquiries-page.css' %}" rel="stylesheet"/>
+
+    <div class="inquiries-page-container">
+        {% include  'common/navbar.html' %}
+        <inquiries-wrapper
+                class="inquiries-wrapper"
+                rootclassname="inquiriesundefined"
+        >
+            <!--Inquiries component-->
+            <div
+                    class="inquiries-container1 thq-section-padding inquiriesroot-class-name"
+            >
+                <div
+                        class="inquiries-max-width thq-section-padding thq-section-max-width"
+                >
+                    <h1>
+                        <fragment class="inquiries-page-fragment39">
+                            <span class="inquiries-page-text39">Inquiries</span>
+                        </fragment>
+                    </h1>
+                    <hr class="inquiries-separator1"/>
+                    <div class="inquiries-container2">
+                        <div
+                                data-thq="thq-dropdown"
+                                class="inquiries-thq-dropdown list-item"
+                        >
+                            <ul
+                                    data-thq="thq-dropdown-list"
+                                    class="inquiries-dropdown-list"
+                            >
+                                <li
+                                        data-thq="thq-dropdown"
+                                        class="inquiries-dropdown1 list-item"
+                                >
+                                    <div
+                                            data-thq="thq-dropdown-toggle"
+                                            class="inquiries-dropdown-toggle1"
+                                    >
+                        <span class="inquiries-text11">
+                          <fragment class="inquiries-page-fragment28">
+                            <span class="inquiries-page-text28">
+                              Sub-menu Item
+                            </span>
+                          </fragment>
+                        </span>
+                                    </div>
+                                </li>
+                                <li
+                                        data-thq="thq-dropdown"
+                                        class="inquiries-dropdown2 list-item"
+                                >
+                                    <div
+                                            data-thq="thq-dropdown-toggle"
+                                            class="inquiries-dropdown-toggle2"
+                                    >
+                        <span class="inquiries-text12">
+                          <fragment class="inquiries-page-fragment29">
+                            <span class="inquiries-page-text29">
+                              Sub-menu Item
+                            </span>
+                          </fragment>
+                        </span>
+                                    </div>
+                                </li>
+                                <li
+                                        data-thq="thq-dropdown"
+                                        class="inquiries-dropdown3 list-item"
+                                >
+                                    <div
+                                            data-thq="thq-dropdown-toggle"
+                                            class="inquiries-dropdown-toggle3"
+                                    >
+                        <span class="inquiries-text13">
+                          <fragment class="inquiries-page-fragment30">
+                            <span class="inquiries-page-text30">
+                              Sub-menu Item
+                            </span>
+                          </fragment>
+                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                                data-thq="thq-dropdown-toggle"
+                                class="inquiries-dropdown-toggle4"
+                        >
+                  <span class="inquiries-text14">
+                    <fragment class="inquiries-page-fragment27">
+                      <span class="inquiries-page-text27">Menu Item</span>
+                    </fragment>
+                  </span>
+                            <div
+                                    data-thq="thq-dropdown-arrow"
+                                    class="inquiries-dropdown-arrow"
+                            >
+                                <svg viewBox="0 0 1024 1024" class="inquiries-icon1">
+                                    <path d="M426 726v-428l214 214z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="inquiries-text15">
+                        <fragment class="inquiries-page-fragment40">
+                            <span class="inquiries-page-text40">Waiting For Answer</span>
+                        </fragment>
+                    </h1>
+                    <hr class="inquiries-separator2"/>
+                    <div class="inquiries-container3">
+                <span class="inquiries-text16">
+                  <fragment class="inquiries-page-fragment31">
+                    <span class="inquiries-page-text31">Full Name:</span>
+                  </fragment>
+                </span>
+                        <span class="inquiries-text17">
+                  <fragment class="inquiries-page-fragment33">
+                    <span class="inquiries-page-text33">Email:</span>
+                  </fragment>
+                </span>
+                        <span class="inquiries-text18">
+                  <fragment class="inquiries-page-fragment35">
+                    <span class="inquiries-page-text35">Phone Number:</span>
+                  </fragment>
+                </span>
+                        <span class="inquiries-text19">
+                  <fragment class="inquiries-page-fragment37">
+                    <span class="inquiries-page-text37">Subject</span>
+                  </fragment>
+                </span>
+                        <span class="inquiries-text20">
+                  <fragment class="inquiries-page-fragment32">
+                    <span class="inquiries-page-text32">Ivan Ivanov</span>
+                  </fragment>
+                </span>
+                        <span class="inquiries-text21">
+                  <fragment class="inquiries-page-fragment34">
+                    <span class="inquiries-page-text34">ivan@ivanov.com</span>
+                  </fragment>
+                </span>
+                        <span class="inquiries-text22">
+                  <fragment class="inquiries-page-fragment36">
+                    <span class="inquiries-page-text36">+359876123456</span>
+                  </fragment>
+                </span>
+                        <span class="inquiries-text23">
+                  <fragment class="inquiries-page-fragment38">
+                    <span class="inquiries-page-text38">Asking a question</span>
+                  </fragment>
+                </span>
+                    </div>
+                    <hr class="inquiries-separator3"/>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc09855.jpg-1500w.jpeg' %}"
+                        class="inquiries-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="inquiries-container4"></div>
+            </div>
+        </inquiries-wrapper>
+{% endblock %}

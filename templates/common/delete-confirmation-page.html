@@ -1,0 +1,66 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/delete-confirmation-page.css' %}" rel="stylesheet"/>
+
+    <div class="delete-confirmation-page-container">
+        {% include  'common/navbar.html' %}
+        <delete-confirmation-wrapper
+                class="delete-confirmation-wrapper"
+                rootclassname="delete-confirmationundefined"
+        >
+            <!--DeleteConfirmation component-->
+            <div
+                    class="delete-confirmation-container1 thq-section-padding delete-confirmationroot-class-name"
+            >
+                <div
+                        class="delete-confirmation-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="delete-confirmation-form-root">
+                        <div class="delete-confirmation-form1">
+                            <h2 class="delete-confirmation-text1 thq-heading-2">
+                                <fragment class="delete-confirmation-page-fragment29">
+                      <span class="delete-confirmation-page-text29">
+                        Are you sure you want to delete this item?
+                      </span>
+                                </fragment>
+                            </h2>
+                            <form class="delete-confirmation-form2"></form>
+                            <div class="delete-confirmation-container2">
+                                <button
+                                        type="submit"
+                                        class="delete-confirmation-button1 thq-button-filled"
+                                >
+                      <span class="delete-confirmation-text2 thq-body-small">
+                        <fragment class="delete-confirmation-page-fragment27">
+                          <span class="delete-confirmation-page-text27">
+                            Yes, I want
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                                <button
+                                        type="submit"
+                                        class="delete-confirmation-button2 thq-button-filled"
+                                >
+                      <span class="delete-confirmation-text3 thq-body-small">
+                        <fragment class="delete-confirmation-page-fragment28">
+                          <span class="delete-confirmation-page-text28">
+                            Cancel
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/img_3754-1500w.jpg' %}"
+                        class="delete-confirmation-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="delete-confirmation-container3"></div>
+            </div>
+        </delete-confirmation-wrapper>
+{% endblock %}

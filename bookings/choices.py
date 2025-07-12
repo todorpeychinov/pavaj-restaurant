@@ -6,3 +6,4 @@ class ReservationStatusChoices(models.TextChoices):
     CONFIRMED = 'confirmed', 'Confirmed'
     REJECTED = 'rejected', 'Rejected'
     CANCELLED = 'cancelled', 'Cancelled'
+    CHANGED = 'changed', 'Changed'

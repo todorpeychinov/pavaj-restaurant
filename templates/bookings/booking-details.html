@@ -1,0 +1,179 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/bookings.css' %}" rel="stylesheet"/>
+
+    <div class="bookings-container">
+        {% include  'common/navbar.html' %}
+        <booking-details-wrapper
+                class="booking-details-wrapper"
+                rootclassname="booking-detailsundefined"
+        >
+            <!--BookingDetails component-->
+            <div
+                    class="booking-details-container1 thq-section-padding booking-detailsroot-class-name"
+            >
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc08300.jpg-1500w.jpeg' %}"
+                        class="booking-details-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="booking-details-container2"></div>
+                <div
+                        class="booking-details-max-width thq-section-padding thq-section-max-width"
+                >
+                    <h2 class="booking-details-text10 thq-heading-2">
+                        <fragment class="bookings-fragment37">
+                            <span class="bookings-text37">Booking Details</span>
+                        </fragment>
+                    </h2>
+                    <hr class="booking-details-separator10"/>
+                    <div class="booking-details-form-root">
+                        <div class="booking-details-form1">
+                            <form class="booking-details-form2">
+                                <div class="booking-details-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text11 thq-body-large"
+                                    >
+                                        Full Name:
+                                    </label>
+                                    <span class="booking-details-text12">
+                        <fragment class="bookings-fragment27">
+                          <span class="bookings-text27">Ivan Ivanov</span>
+                        </fragment>
+                      </span>
+                                </div>
+                                <hr class="booking-details-separator11"/>
+                                <div class="booking-details-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text13 thq-body-large"
+                                    >
+                                        Email:
+                                    </label>
+                                    <span class="booking-details-text14">
+                        <fragment class="bookings-fragment32">
+                          <span class="bookings-text32">
+                            Ivan_ivanov@mail.bg
+                          </span>
+                        </fragment>
+                      </span>
+                                </div>
+                                <hr class="booking-details-separator12"/>
+                                <div class="booking-details-email3">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text15 thq-body-large"
+                                    >
+                                        Phone Number:
+                                    </label>
+                                    <span class="booking-details-text16">
+                        <fragment class="bookings-fragment31">
+                          <span class="bookings-text31">+359876123456</span>
+                        </fragment>
+                      </span>
+                                </div>
+                                <hr class="booking-details-separator13"/>
+                                <div class="booking-details-email4">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text17 thq-body-large"
+                                    >
+                                        Date:
+                                    </label>
+                                    <span class="booking-details-text18">
+                        <fragment class="bookings-fragment30">
+                          <span class="bookings-text30">10/10/25</span>
+                        </fragment>
+                      </span>
+                                </div>
+                                <div class="booking-details-email5">
+                                    <hr class="booking-details-separator14"/>
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text19 thq-body-large"
+                                    >
+                                        Time:&nbsp;
+                                    </label>
+                                    <span class="booking-details-text20">
+                        <fragment class="bookings-fragment29">
+                          <span class="bookings-text29">12:00</span>
+                        </fragment>
+                      </span>
+                                </div>
+                                <hr class="booking-details-separator15"/>
+                                <div class="booking-details-email6">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text21 thq-body-large"
+                                    >
+                                        Guests:
+                                    </label>
+                                    <span class="booking-details-text22">
+                        <fragment class="bookings-fragment35">
+                          <span class="bookings-text35">8</span>
+                        </fragment>
+                      </span>
+                                </div>
+                                <hr class="booking-details-separator16"/>
+                                <div class="booking-details-email7">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text23 thq-body-large"
+                                    >
+                                        Additional Info:
+                                    </label>
+                                    <span class="booking-details-text24">
+                        <fragment class="bookings-fragment34">
+                          <span class="bookings-text34">
+                            No information here!
+                          </span>
+                        </fragment>
+                      </span>
+                                    <hr class="booking-details-separator17"/>
+                                </div>
+                                <div class="booking-details-email8">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="booking-details-text25 thq-body-large"
+                                    >
+                                        Status:
+                                    </label>
+                                    <span class="booking-details-text26">
+                        <fragment class="bookings-fragment28">
+                          <span class="bookings-text28">Pending</span>
+                        </fragment>
+                      </span>
+                                </div>
+                            </form>
+                            <hr class="booking-details-separator18"/>
+                            <div class="booking-details-container3">
+                                <button
+                                        type="submit"
+                                        class="booking-details-button1 thq-button-filled"
+                                >
+                      <span class="booking-details-text27 thq-body-small">
+                        <fragment class="bookings-fragment33">
+                          <span class="bookings-text33">Confirm Booking</span>
+                        </fragment>
+                      </span>
+                                </button>
+                                <button
+                                        type="submit"
+                                        class="booking-details-button2 thq-button-filled"
+                                >
+                      <span class="booking-details-text28 thq-body-small">
+                        <fragment class="bookings-fragment36">
+                          <span class="bookings-text36">Cancel Booking</span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="booking-details-separator19"/>
+                </div>
+            </div>
+        </booking-details-wrapper>
+{% endblock %}

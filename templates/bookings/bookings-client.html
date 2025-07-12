@@ -1,0 +1,99 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/bookings-client.css' %}" rel="stylesheet"/>
+
+    <div class="bookings-client-container">
+        {% include  'common/navbar.html' %}
+        <future-bookings-client-wrapper
+                class="future-bookings-client-wrapper"
+                rootclassname="future-bookings-clientundefined"
+        >
+            <!--FutureBookingsClient component-->
+            <div
+                    class="future-bookings-client-container1 thq-section-padding future-bookings-clientroot-class-name"
+            >
+                <div
+                        class="future-bookings-client-max-width thq-section-padding thq-section-max-width"
+                >
+                    <h1>
+                        <fragment class="bookings-client-fragment38">
+                            <span class="bookings-client-text38">Future Bookings</span>
+                        </fragment>
+                    </h1>
+                    <hr class="future-bookings-client-separator1"/>
+                    <div class="future-bookings-client-container2">
+                <span class="future-bookings-client-text11">
+                  <fragment class="bookings-client-fragment27">
+                    <span class="bookings-client-text27">Full Name:</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text12">
+                  <fragment class="bookings-client-fragment29">
+                    <span class="bookings-client-text29">Date and Time:</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text13">
+                  <fragment class="bookings-client-fragment31">
+                    <span class="bookings-client-text31">Guests:&nbsp;</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text14">
+                  <fragment class="bookings-client-fragment34">
+                    <span class="bookings-client-text34">
+                      Phone Number:&nbsp;
+                    </span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text15">
+                  <fragment class="bookings-client-fragment36">
+                    <span class="bookings-client-text36">Status:&nbsp;</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text16">
+                  <fragment class="bookings-client-fragment28">
+                    <span class="bookings-client-text28">Ivan Ivanov</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text17">
+                  <fragment class="bookings-client-fragment30">
+                    <span class="bookings-client-text30">10/10/25 12:00</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text18">
+                  <fragment class="bookings-client-fragment32">
+                    <span class="bookings-client-text32">8</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text19">
+                  <fragment class="bookings-client-fragment35">
+                    <span class="bookings-client-text35">+359876123456</span>
+                  </fragment>
+                </span>
+                        <span class="future-bookings-client-text20">
+                  <fragment class="bookings-client-fragment37">
+                    <span class="bookings-client-text37">Pending</span>
+                  </fragment>
+                </span>
+                    </div>
+                    <button
+                            type="button"
+                            class="future-bookings-client-button button"
+                    >
+                <span>
+                  <fragment class="bookings-client-fragment33">
+                    <span class="bookings-client-text33">Edit</span>
+                  </fragment>
+                </span>
+                    </button>
+                    <hr class="future-bookings-client-separator2"/>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc08168.jpg-1500w.jpeg' %}"
+                        class="future-bookings-client-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="future-bookings-client-container3"></div>
+            </div>
+        </future-bookings-client-wrapper>
+{% endblock %}

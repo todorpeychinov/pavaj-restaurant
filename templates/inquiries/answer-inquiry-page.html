@@ -1,0 +1,70 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/answer-inquiry-page.css' %}" rel="stylesheet"/>
+
+    <div class="answer-inquiry-page-container">
+        {% include  'common/navbar.html' %}
+        <answer-inquiry-wrapper
+                class="answer-inquiry-wrapper"
+                rootclassname="answer-inquiryundefined"
+        >
+            <!--AnswerInquiry component-->
+            <div
+                    class="answer-inquiry-container1 thq-section-padding answer-inquiryroot-class-name"
+            >
+                <div
+                        class="answer-inquiry-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="answer-inquiry-form-root">
+                        <div class="answer-inquiry-form1">
+                            <h2 class="answer-inquiry-text1 thq-heading-2">
+                                <fragment class="answer-inquiry-page-fragment28">
+                      <span class="answer-inquiry-page-text28">
+                        Answer Inquiry
+                      </span>
+                                </fragment>
+                            </h2>
+                            <form class="answer-inquiry-form2">
+                                <div class="answer-inquiry-password">
+                                    <div class="answer-inquiry-container2">
+                                        <label
+                                                for="thq-sign-in-3-password"
+                                                class="thq-body-large"
+                                        >
+                                            Message
+                                        </label>
+                                        <div class="answer-inquiry-hide-password"></div>
+                                    </div>
+                                    <textarea
+                                            placeholder="Enter your message here..."
+                                            class="answer-inquiry-textarea textarea"
+                                    ></textarea>
+                                </div>
+                            </form>
+                            <div class="answer-inquiry-container3">
+                                <button
+                                        type="submit"
+                                        class="answer-inquiry-button thq-button-filled"
+                                >
+                      <span class="answer-inquiry-text3 thq-body-small">
+                        <fragment class="answer-inquiry-page-fragment27">
+                          <span class="answer-inquiry-page-text27">
+                            Answer Inquiry
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/img_6497-1500w.jpg' %}"
+                        class="answer-inquiry-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="answer-inquiry-container4"></div>
+            </div>
+        </answer-inquiry-wrapper>
+{% endblock %}

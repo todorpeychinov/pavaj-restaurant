@@ -1,0 +1,43 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/403.css' %}" rel="stylesheet"/>
+
+    <div class="error403-container">
+        {% include  'common/navbar.html' %}
+        <forbidden-wrapper
+                class="forbidden-wrapper"
+                rootclassname="forbiddenundefined"
+        >
+            <!--Forbidden component-->
+            <div
+                    class="forbidden-container1 thq-section-padding forbiddenroot-class-name1"
+            >
+                <div class="forbidden-container2">
+                    <h1 class="forbidden-text1 thq-heading-1">403</h1>
+                    <h2 class="forbidden-text2 thq-heading-2">
+                        <fragment class="error403-fragment28">
+                  <span class="error403-text28">
+                    You don't have permissions to visit this page!
+                  </span>
+                        </fragment>
+                    </h2>
+                    <button
+                            class="forbidden-button thq-button-outline thq-button-filled"
+                    >
+                <span class="thq-body-small">
+                  <fragment class="error403-fragment27">
+                    <span class="error403-text27">Back to homepage</span>
+                  </fragment>
+                </span>
+                    </button>
+                </div>
+                <img
+                        alt="image"
+                        src="{% static 'img/img_4963-1500w.jpg' %}"
+                        class="forbidden-image"
+                />
+                <div class="forbidden-container3"></div>
+            </div>
+        </forbidden-wrapper>
+{% endblock %}

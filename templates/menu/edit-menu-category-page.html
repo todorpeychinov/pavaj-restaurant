@@ -1,0 +1,125 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/edit-menu-category-page.css' %}" rel="stylesheet"/>
+
+    <div class="edit-menu-category-page-container">
+        {% include  'common/navbar.html' %}
+        <edit-menu-category-wrapper
+                class="edit-menu-category-wrapper"
+                rootclassname="edit-menu-categoryundefined"
+        >
+            <!--EditMenuCategory component-->
+            <div
+                    class="edit-menu-category-container1 thq-section-padding edit-menu-categoryroot-class-name"
+            >
+                <div
+                        class="edit-menu-category-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="edit-menu-category-form-root">
+                        <div class="edit-menu-category-form1">
+                            <h2 class="edit-menu-category-text10 thq-heading-2">
+                                <fragment class="edit-menu-category-page-fragment29">
+                      <span class="edit-menu-category-page-text29">
+                        Edit Menu Category
+                      </span>
+                                </fragment>
+                            </h2>
+                            <form class="edit-menu-category-form2">
+                                <div class="edit-menu-category-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Menu Category
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Menu Category"
+                                            class="edit-menu-category-textinput1 thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="edit-menu-category-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Menu Type
+                                    </label>
+                                </div>
+                                <select>
+                                    <option value="Option 1">Option 1</option>
+                                    <option value="Option 2">Option 2</option>
+                                    <option value="Option 3">Option 3</option>
+                                </select>
+                                <div class="edit-menu-category-email3">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Description
+                                    </label>
+                                    <textarea
+                                            placeholder="Enter menu type description (opional)..."
+                                            class="edit-menu-category-textarea textarea"
+                                    ></textarea>
+                                </div>
+                                <div class="edit-menu-category-password">
+                                    <div class="edit-menu-category-container2">
+                                        <label
+                                                for="thq-sign-in-3-password"
+                                                class="thq-body-large"
+                                        >
+                                            Order
+                                        </label>
+                                        <div class="edit-menu-category-hide-password"></div>
+                                    </div>
+                                    <input
+                                            type="number"
+                                            id="thq-sign-in-3-password"
+                                            required="true"
+                                            placeholder="Choose the order you want to see this category in the menu..."
+                                            class="edit-menu-category-textinput2 thq-input thq-body-large"
+                                    />
+                                </div>
+                            </form>
+                            <div class="edit-menu-category-container3">
+                                <button
+                                        type="submit"
+                                        class="edit-menu-category-button1 thq-button-filled"
+                                >
+                      <span class="edit-menu-category-text15 thq-body-small">
+                        <fragment class="edit-menu-category-page-fragment27">
+                          <span class="edit-menu-category-page-text27">
+                            Save changes
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                                <button
+                                        type="submit"
+                                        class="edit-menu-category-button2 thq-button-filled"
+                                >
+                      <span class="edit-menu-category-text16 thq-body-small">
+                        <fragment class="edit-menu-category-page-fragment28">
+                          <span class="edit-menu-category-page-text28">
+                            Delete Menu Category
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc08168.jpg-1500w.jpeg' %}"
+                        class="edit-menu-category-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="edit-menu-category-container4"></div>
+            </div>
+        </edit-menu-category-wrapper>
+{% endblock %}

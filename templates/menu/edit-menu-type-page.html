@@ -1,0 +1,94 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/edit-menu-type-page.css' %}" rel="stylesheet"/>
+
+    <div class="edit-menu-type-page-container">
+        {% include  'common/navbar.html' %}
+        <edit-menu-type-wrapper
+                class="edit-menu-type-wrapper"
+                rootclassname="edit-menu-typeundefined"
+        >
+            <!--EditMenuType component-->
+            <div
+                    class="edit-menu-type-container1 thq-section-padding edit-menu-typeroot-class-name"
+            >
+                <div
+                        class="edit-menu-type-max-width thq-section-padding thq-section-max-width"
+                >
+                    <div class="edit-menu-type-form-root">
+                        <div class="edit-menu-type-form1">
+                            <h2 class="edit-menu-type-text1 thq-heading-2">
+                                <fragment class="edit-menu-type-page-fragment29">
+                      <span class="edit-menu-type-page-text29">
+                        Edit Menu Type
+                      </span>
+                                </fragment>
+                            </h2>
+                            <form class="edit-menu-type-form2">
+                                <div class="edit-menu-type-email1">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Menu Type
+                                    </label>
+                                    <input
+                                            type="text"
+                                            id="thq-sign-in-3-email"
+                                            required="true"
+                                            placeholder="Menu Type"
+                                            class="edit-menu-type-textinput thq-input thq-body-large"
+                                    />
+                                </div>
+                                <div class="edit-menu-type-email2">
+                                    <label
+                                            for="thq-sign-in-1-password"
+                                            class="thq-body-large"
+                                    >
+                                        Description
+                                    </label>
+                                    <textarea
+                                            placeholder="Enter menu type description (opional)..."
+                                            class="edit-menu-type-textarea textarea"
+                                    ></textarea>
+                                </div>
+                            </form>
+                            <div class="edit-menu-type-container2">
+                                <button
+                                        type="submit"
+                                        class="edit-menu-type-button1 thq-button-filled"
+                                >
+                      <span class="edit-menu-type-text4 thq-body-small">
+                        <fragment class="edit-menu-type-page-fragment27">
+                          <span class="edit-menu-type-page-text27">
+                            Save Changes
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                                <button
+                                        type="submit"
+                                        class="edit-menu-type-button2 thq-button-filled"
+                                >
+                      <span class="edit-menu-type-text5 thq-body-small">
+                        <fragment class="edit-menu-type-page-fragment28">
+                          <span class="edit-menu-type-page-text28">
+                            Delete Menu Type
+                          </span>
+                        </fragment>
+                      </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc09858.jpg-1500w.jpeg' %}"
+                        class="edit-menu-type-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="edit-menu-type-container3"></div>
+            </div>
+        </edit-menu-type-wrapper>
+{% endblock %}
