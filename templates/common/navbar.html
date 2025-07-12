@@ -82,6 +82,7 @@
                     </div>
                 </nav>
                 <div class="navbar8-buttons1">
+                    {% if not request.user.is_authenticated %}
                     <a
                             href="{% url 'login' %}"
                             class="navbar8-action11 thq-button-animated thq-button-filled"
@@ -101,6 +102,27 @@
                             </fragment>
                         </a>
                     </button>
+                    {% else %}
+                                            <a
+                            href="{% url 'profile-details' %}"
+                            class="navbar8-action11 thq-button-animated thq-button-filled"
+                    >
+                    <span>
+                      <fragment class="about-fragment21">
+                        <span class="about-text21">Profile Details</span>
+                      </fragment>
+                    </span>
+                    </a>
+                    <button
+                            class="navbar8-action21 thq-button-outline thq-button-animated"
+                    >
+                        <a href="{% url 'logout' %}" class="navbar8-navlink">
+                            <fragment class="about-fragment22">
+                                <span class="about-text22">Log Out</span>
+                            </fragment>
+                        </a>
+                    </button>
+                    {% endif %}
                 </div>
             </div>
             <div data-thq="thq-burger-menu" class="navbar8-burger-menu">

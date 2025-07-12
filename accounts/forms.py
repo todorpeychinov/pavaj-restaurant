@@ -1,19 +1,14 @@
 from django import forms
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+
+UserModel = get_user_model()
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(
-        label='Username or Email',
-        max_length=150,
-        widget=forms.TextInput(attrs={
-            'placeholder': 'Enter your username',
-            'class': 'thq-input thq-body-large sign-in32-textinput1'
-        })
-    )
-    password = forms.CharField(
-        label='Password',
-        widget=forms.PasswordInput(attrs={
-            'placeholder': 'Enter your password',
-            'class': 'thq-input thq-body-large sign-in32-textinput2'
-        })
-    )
+class AppUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = UserModel
+        fields = ['username', 'email', 'password1', 'password2']
+
