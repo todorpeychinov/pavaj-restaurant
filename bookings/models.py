@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model
+from django.core.validators import MinLengthValidator, MaxValueValidator
 from django.db import models
 
 from bookings.choices import ReservationStatusChoices
+from bookings.validators import validate_booking_hour, validate_future_date
 from core.mixins import HistoryMixin
 
 # Create your models here.
@@ -19,8 +21,8 @@ class Booking(HistoryMixin):
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
 
-    date = models.DateField()
-    time = models.TimeField()
+    date = models.DateField(validators=[validate_future_date,])
+    time = models.TimeField(validators=[validate_booking_hour,])
     guests = models.PositiveIntegerField()
     additional_info = models.TextField(blank=True)
 

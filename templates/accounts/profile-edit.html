@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load form_filters %}
 {% load static %}
 {% block content %}
     <link href="{% static 'css/profile-details.css' %}" rel="stylesheet"/>
@@ -18,58 +19,39 @@
                                     <span class="profile-details-text28">Profile</span>
                                 </fragment>
                             </h2>
-                            <form class="profile-details1-form2">
+                            <form method="post" class="profile-details1-form2">
+                                {% csrf_token %}
+
                                 <div class="profile-details1-email1">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
+                                    <label for="{{ user_form.first_name.id_for_label }}" class="thq-body-large">
                                         First Name
                                     </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="First Name"
-                                            class="profile-details1-textinput1 thq-input thq-body-large"
-                                    />
+                                    {{ user_form.first_name|add_class:"profile-details1-textinput1 thq-input thq-body-large" }}
+                                    {{ user_form.first_name.errors }}
                                 </div>
+
                                 <div class="profile-details1-email2">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
+                                    <label for="{{ user_form.last_name.id_for_label }}" class="thq-body-large">
                                         Last Name
                                     </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Last Name"
-                                            class="profile-details1-textinput2 thq-input thq-body-large"
-                                    />
+                                    {{ user_form.last_name|add_class:"profile-details1-textinput2 thq-input thq-body-large" }}
+                                    {{ user_form.last_name.errors }}
                                 </div>
+
                                 <div class="profile-details1-email3">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
+                                    <label for="{{ profile_form.phone_number.id_for_label }}" class="thq-body-large">
                                         Phone number
                                     </label>
-                                    <input
-                                            type="tel"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Phone number"
-                                            class="profile-details1-textinput3 thq-input thq-body-large"
-                                    />
+                                    {{ profile_form.phone_number|add_class:"profile-details1-textinput3 thq-input thq-body-large" }}
+                                    {{ profile_form.phone_number.errors }}
                                 </div>
-                            </form>
-                            <div class="profile-details1-container2">
-                                <button
-                                        type="submit"
-                                        class="profile-details1-button thq-button-filled"
-                                >
+
+                                {#    <button type="submit" class="thq-button">Запази</button>#}
+                                <div class="profile-details1-container2">
+                                    <button
+                                            type="submit"
+                                            class="profile-details1-button thq-button-filled"
+                                    >
                       <span class="profile-details1-text5 thq-body-small">
                         <fragment class="profile-details-fragment27">
                           <span class="profile-details-text27">
@@ -77,9 +59,32 @@
                           </span>
                         </fragment>
                       </span>
-                                </button>
+                                    </button>
+                                </div>
+                            </form>
+
+                          
+                            <div class="profile-details1-container2">
+                                
+                                <a href="{% url 'profile-delete' %}"
+                                        
+                                        class="profile-details1-button thq-button-filled"
+                                        
+                                       
+                                >
+                                 
+                      <span class="profile-details1-text5 thq-body-small">
+                        <fragment class="profile-details-fragment27">
+                          <span class="profile-details-text27">
+                            Delete Profile
+                          </span>
+                        </fragment>
+                      </span>
+                                </a>
+                                    
                             </div>
                         </div>
+                        
                     </div>
                 </div>
                 <img
