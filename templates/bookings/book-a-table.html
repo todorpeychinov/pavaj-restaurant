@@ -18,317 +18,178 @@
                                     <span class="book-a-table-text30">Make a booking</span>
                                 </fragment>
                             </h2>
-
-{#                            <form class="booking-form-form2" method="post">#}
-{#                                <div class="booking-form-email1">#}
-{#                                    <label#}
-{#                                            for="thq-sign-in-1-password"#}
-{#                                            class="thq-body-large"#}
-{#                                    >#}
-{#                                        Full Name#}
-{#                                    </label>#}
-{#                                    <input#}
-{#                                            type="text"#}
-{#                                            id="thq-sign-in-3-email"#}
-{#                                            required="true"#}
-{#                                            placeholder="Enter your full name"#}
-{#                                            class="booking-form-textinput1 thq-input thq-body-large"#}
-{#                                    />#}
-{#                                </div>#}
-{#                                <div class="booking-form-email2">#}
-{#                                    <label#}
-{#                                            for="thq-sign-in-1-password"#}
-{#                                            class="thq-body-large"#}
-{#                                    >#}
-{#                                        Email#}
-{#                                    </label>#}
-{#                                    <input#}
-{#                                            type="email"#}
-{#                                            id="thq-sign-in-3-email"#}
-{#                                            required="true"#}
-{#                                            placeholder="Enter your email"#}
-{#                                            class="booking-form-textinput2 thq-input thq-body-large"#}
-{#                                    />#}
-{#                                </div>#}
-{#                                <div class="booking-form-email3">#}
-{#                                    <label#}
-{#                                            for="thq-sign-in-1-password"#}
-{#                                            class="thq-body-large"#}
-{#                                    >#}
-{#                                        Phone Number#}
-{#                                    </label>#}
-{#                                    <input#}
-{#                                            type="tel"#}
-{#                                            id="thq-sign-in-3-email"#}
-{#                                            required="true"#}
-{#                                            placeholder="Phone Number"#}
-{#                                            class="booking-form-textinput3 thq-input thq-body-large"#}
-{#                                    />#}
-{#                                </div>#}
-{#                                <div class="booking-form-email4">#}
-{#                                    <label#}
-{#                                            for="thq-sign-in-1-password"#}
-{#                                            class="thq-body-large"#}
-{#                                    >#}
-{#                                        Date#}
-{#                                    </label>#}
-{#                                    <input#}
-{#                                            type="date"#}
-{#                                            id="thq-sign-in-3-email"#}
-{#                                            required="true"#}
-{#                                            placeholder="Date"#}
-{#                                            class="booking-form-textinput4 thq-input thq-body-large"#}
-{#                                    />#}
-{#                                </div>#}
-{#                                <div class="booking-form-email5">#}
-{#                                    <label#}
-{#                                            for="thq-sign-in-1-password"#}
-{#                                            class="thq-body-large"#}
-{#                                    >#}
-{#                                        Hour#}
-{#                                    </label>#}
-{#                                    <input#}
-{#                                            type="time"#}
-{#                                            id="thq-sign-in-3-email"#}
-{#                                            required="true"#}
-{#                                            placeholder="Time"#}
-{#                                            class="booking-form-textinput5 thq-input thq-body-large"#}
-{#                                    />#}
-{#                                </div>#}
-{#                                <div class="booking-form-email6">#}
-{#                                    <label#}
-{#                                            for="thq-sign-in-1-password"#}
-{#                                            class="thq-body-large"#}
-{#                                    >#}
-{#                                        Number of guests#}
-{#                                    </label>#}
-{#                                    <input#}
-{#                                            type="number"#}
-{#                                            id="thq-sign-in-3-email"#}
-{#                                            required="true"#}
-{#                                            placeholder="Choose number of guests"#}
-{#                                            class="booking-form-textinput6 thq-input thq-body-large"#}
-{#                                    />#}
-{#                                </div>#}
-{#                                <div class="booking-form-password">#}
-{#                                    <div class="booking-form-container2">#}
-{#                                        <label#}
-{#                                                for="thq-sign-in-3-password"#}
-{#                                                class="thq-body-large"#}
-{#                                        >#}
-{#                                            Additional information#}
-{#                                        </label>#}
-{#                                    </div>#}
-{#                                    <textarea#}
-{#                                            placeholder="Any preferences or notes?"#}
-{#                                            class="booking-form-textarea textarea"#}
-{#                                    ></textarea>#}
-{#                                </div>#}
-{#                            </form>#}
-
-
                             <form method="post" class="booking-form-form2">
-    {% csrf_token %}
+                                {% csrf_token %}
 
-    <!-- Full Name -->
-    <div class="booking-form-email1">
-        <label class="thq-body-large">Full Name</label>
-        <input
-            type="text"
-            name="full_name"
-            required
-            placeholder="Enter your full name"
-            class="booking-form-textinput1 thq-input thq-body-large"
-            value="{{ form.full_name.value|default:'' }}"
-        />
-        {% if form.full_name.errors %}
-            <div class="field-error">
-                {% for error in form.full_name.errors %}
-                    <p class="error-text">{{ error }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+                                <!-- Full Name -->
+                                <div class="booking-form-email1">
+                                    <label class="thq-body-large">Full Name</label>
+                                    <input
+                                            type="text"
+                                            name="full_name"
+                                            required
+                                            placeholder="Enter your full name"
+                                            class="booking-form-textinput1 thq-input thq-body-large"
+                                            value="{{ form.full_name.value|default:'' }}"
+                                    />
+                                    {% if form.full_name.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.full_name.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-    <!-- Email -->
-    <div class="booking-form-email2">
-        <label class="thq-body-large">Email</label>
-        <input
-            type="email"
-            name="email"
-            required
-            placeholder="Enter your email"
-            class="booking-form-textinput2 thq-input thq-body-large"
-            value="{{ form.email.value|default:'' }}"
-        />
-        {% if form.email.errors %}
-            <div class="field-error">
-                {% for error in form.email.errors %}
-                    <p class="error-text">{{ error }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+                                <!-- Email -->
+                                <div class="booking-form-email2">
+                                    <label class="thq-body-large">Email</label>
+                                    <input
+                                            type="email"
+                                            name="email"
+                                            required
+                                            placeholder="Enter your email"
+                                            class="booking-form-textinput2 thq-input thq-body-large"
+                                            value="{{ form.email.value|default:'' }}"
+                                    />
+                                    {% if form.email.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.email.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-    <!-- Phone Number -->
-    <div class="booking-form-email3">
-        <label class="thq-body-large">Phone Number</label>
-        <input
-            type="tel"
-            name="phone_number"
-            required
-            placeholder="Phone Number"
-            class="booking-form-textinput3 thq-input thq-body-large"
-            value="{{ form.phone_number.value|default:'' }}"
-        />
-        {% if form.phone_number.errors %}
-            <div class="field-error">
-                {% for error in form.phone_number.errors %}
-                    <p class="error-text">{{ error }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+                                <!-- Phone Number -->
+                                <div class="booking-form-email3">
+                                    <label class="thq-body-large">Phone Number</label>
+                                    <input
+                                            type="tel"
+                                            name="phone_number"
+                                            required
+                                            placeholder="Phone Number"
+                                            class="booking-form-textinput3 thq-input thq-body-large"
+                                            value="{{ form.phone_number.value|default:'' }}"
+                                    />
+                                    {% if form.phone_number.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.phone_number.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-    <!-- Date -->
-    <div class="booking-form-email4">
-        <label class="thq-body-large">Date</label>
-        <input
-            type="date"
-            name="date"
-            required
-            placeholder="Date"
-            class="booking-form-textinput4 thq-input thq-body-large"
-            value="{{ form.date.value|default:'' }}"
-        />
-        {% if form.date.errors %}
-            <div class="field-error">
-                {% for error in form.date.errors %}
-                    <p class="error-text">{{ error }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+                                <!-- Date -->
+                                <div class="booking-form-email4">
+                                    <label class="thq-body-large">Date</label>
+                                    <input
+                                            type="date"
+                                            name="date"
+                                            required
+                                            placeholder="Date"
+                                            class="booking-form-textinput4 thq-input thq-body-large"
+                                            value="{{ form.date.value|default:'' }}"
+                                    />
+                                    {% if form.date.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.date.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-    <!-- Time -->
-    <div class="booking-form-email5">
-        <label class="thq-body-large">Time</label>
-        <input
-            type="time"
-            name="time"
-            required
-            placeholder="Time"
-            class="booking-form-textinput5 thq-input thq-body-large"
-            min="12:00"
-            max="22:00"
-            value="{{ form.time.value|default:'' }}"
-        />
-        *Bookings are allowed between 12:00 and 22:00.
-        {% if form.time.errors %}
-            <div class="field-error">
-                {% for error in form.time.errors %}
-                    <p class="error-text">{{ error }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+                                <!-- Time -->
+                                <div class="booking-form-email5">
+                                    <label class="thq-body-large">Time</label>
+                                    <input
+                                            type="time"
+                                            name="time"
+                                            required
+                                            placeholder="Time"
+                                            class="booking-form-textinput5 thq-input thq-body-large"
+                                            min="12:00"
+                                            max="22:00"
+                                            value="{{ form.time.value|default:'' }}"
+                                    />
+                                    *Bookings are allowed between 12:00 and 22:00.
+                                    {% if form.time.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.time.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-    <!-- Number of Guests -->
-    <div class="booking-form-email6">
-        <label class="thq-body-large">Number of guests</label>
-        <input
-            type="number"
-            name="guests"
-            required
-            placeholder="Choose number of guests"
-            class="booking-form-textinput6 thq-input thq-body-large"
-            value="{{ form.guests.value|default:'' }}"
-        />
-        {% if form.guests.errors %}
-            <div class="field-error">
-                {% for error in form.guests.errors %}
-                    <p class="error-text">{{ error }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+                                <!-- Number of Guests -->
+                                <div class="booking-form-email6">
+                                    <label class="thq-body-large">Number of guests</label>
+                                    <input
+                                            type="number"
+                                            name="guests"
+                                            required
+                                            placeholder="Choose number of guests"
+                                            class="booking-form-textinput6 thq-input thq-body-large"
+                                            value="{{ form.guests.value|default:'' }}"
+                                    />
+                                    {% if form.guests.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.guests.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-    <!-- Additional Information -->
-    <div class="booking-form-password">
-        <label class="thq-body-large">Additional information</label>
-        <textarea
-            name="additional_info"
-            placeholder="Any preferences or notes?"
-            class="booking-form-textarea textarea"
-        >{{ form.additional_info.value|default:'' }}</textarea>
-        {% if form.additional_info.errors %}
-            <div class="field-error">
-                {% for error in form.additional_info.errors %}
-                    <p class="error-text">{{ error }}</p>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
+                                <!-- Additional Information -->
+                                <div class="booking-form-password">
+                                    <label class="thq-body-large">Additional information</label>
+                                    <textarea
+                                            name="additional_info"
+                                            placeholder="Any preferences or notes?"
+                                            class="booking-form-textarea textarea"
+                                    >{{ form.additional_info.value|default:'' }}</textarea>
+                                    {% if form.additional_info.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.additional_info.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-<!-- Privacy Policy -->
-<div class="booking-form-container3">
-    <input
-        type="checkbox"
-        name="confirm_policy"
-        class="booking-form-checkbox"
-        {% if form.confirm_policy.value %}checked{% endif %}
-        required
-    />
-    <span class="booking-form-text18">
+                                <!-- Privacy Policy -->
+                                <div class="booking-form-container3">
+                                    <input
+                                            type="checkbox"
+                                            name="confirm_policy"
+                                            class="booking-form-checkbox"
+                                            {% if form.confirm_policy.value %}checked{% endif %}
+                                            required
+                                    />
+                                    <span class="booking-form-text18">
         I confirm that I have read and agree to the Privacy Policy and Data Protection Terms.
     </span>
 
-    {% if form.confirm_policy.errors %}
-        <div class="field-error">
-            {% for error in form.confirm_policy.errors %}
-                <p class="error-text">{{ error }}</p>
-            {% endfor %}
-        </div>
-    {% endif %}
-</div>
+                                    {% if form.confirm_policy.errors %}
+                                        <div class="field-error">
+                                            {% for error in form.confirm_policy.errors %}
+                                                <p class="error-text">{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
 
-    <!-- Submit Button -->
-    <div class="booking-form-container4">
-        <button type="submit" class="booking-form-button thq-button-filled">
-            <span class="booking-form-text19 thq-body-small">Book Now</span>
-        </button>
-    </div>
-</form>
-
-
-
-{#                            <div class="booking-form-container3">#}
-{#                                <input#}
-{#                                        type="checkbox"#}
-{#                                        checked="true"#}
-{#                                        class="booking-form-checkbox"#}
-{#                                />#}
-{#                                <span class="booking-form-text18">#}
-{#                      <fragment class="book-a-table-fragment27">#}
-{#                        <span class="book-a-table-text27">#}
-{#                          I confirm that I have read and agree to the Privacy#}
-{#                          Policy and Data Protection Terms.#}
-{#                        </span>#}
-{#                      </fragment>#}
-{#                    </span>#}
-{#                            </div>#}
-{#                            <div class="booking-form-container4">#}
-{#                                <button#}
-{#                                        type="submit"#}
-{#                                        class="booking-form-button thq-button-filled"#}
-{#                                >#}
-{#                      <span class="booking-form-text19 thq-body-small">#}
-{#                        <fragment class="book-a-table-fragment29">#}
-{#                          <span class="book-a-table-text29">Book Now</span>#}
-{#                        </fragment>#}
-{#                      </span>#}
-{#                                </button>#}
-{#                            </div>#}
+                                <!-- Submit Button -->
+                                <div class="booking-form-container4">
+                                    <button type="submit" class="booking-form-button thq-button-filled">
+                                        <span class="booking-form-text19 thq-body-small">Book Now</span>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <hr class="booking-form-separator"/>
