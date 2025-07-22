@@ -37,15 +37,23 @@
                                     {{ group.grouper.name }}
                                 </h2>
                             </li>
-                        
+
                             {% for item in group.list %}
                                 <li class="list-item">
                                     <h3 class="thq-heading-3">{{ item.name }}</h3>
                                     <p class="thq-body-small">
                                         {{ item.description }}{% if item.weight %} / {{ item.weight }} гр{% endif %}
-                                        {% if item.is_vegan %}<strong> (Vegan)</strong>{% endif %}
-                                        {% if item.is_vegetarian %}<strong> (Vegetarian)</strong>{% endif %}
-                                        {% if item.is_gluten_free %}<strong> (Gluten-Free)</strong>{% endif %}
+                                        <div style="display: flex; gap: 5px; align-items: center;">
+                                        {% if item.is_vegan %}
+                                            <img src="{% static 'img/vegan.png' %}" alt="Vegan" style="width:20px; height:20px;">
+                                        {% endif %}
+                                        {% if item.is_vegetarian %}
+                                            <img src="{% static 'img/vegan.png' %}" alt="Vegetarian" style="width:20px; height:20px;">
+                                        {% endif %}
+                                        {% if item.is_gluten_free %}
+                                            <img src="{% static 'img/gluten-free.png' %}" alt="Gluten Free" style="width:20px; height:20px;">
+                                        {% endif %}
+                                        </div>
                                     </p>
                                 </li>
                             {% endfor %}
@@ -57,7 +65,7 @@
                     {% endfor %}
 
                 </div>
-            
+
                 {% if is_paginated %}
                     <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
                         {% if page_obj.has_previous %}
