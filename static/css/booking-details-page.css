@@ -1616,3 +1616,46 @@
 .booking-details-page-text45 {
   display: inline-block;
 }
+
+.booking-status-dropdown {
+    padding: 8px 36px 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-bottom: 15px;
+}
+
+
+.booking-status-dropdown:hover {
+    background-color: #555;
+}
+
+.booking-status-dropdown:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.booking-status-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.booking-status-dropdown-wrapper::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-85%);
+    font-size: 12px;
+    color: #fff;
+    pointer-events: none;
+}
+

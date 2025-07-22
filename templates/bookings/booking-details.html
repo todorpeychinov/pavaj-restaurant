@@ -40,7 +40,7 @@
                                     </label>
                                     <span class="booking-details-text12">
                         <fragment class="bookings-fragment27">
-                          <span class="bookings-text27">Ivan Ivanov</span>
+                          <span class="bookings-text27">{{ booking.full_name }}</span>
                         </fragment>
                       </span>
                                 </div>
@@ -55,7 +55,7 @@
                                     <span class="booking-details-text14">
                         <fragment class="bookings-fragment32">
                           <span class="bookings-text32">
-                            Ivan_ivanov@mail.bg
+                            {{ booking.email }}
                           </span>
                         </fragment>
                       </span>
@@ -70,7 +70,7 @@
                                     </label>
                                     <span class="booking-details-text16">
                         <fragment class="bookings-fragment31">
-                          <span class="bookings-text31">+359876123456</span>
+                          <span class="bookings-text31">{{ booking.phone_number }}</span>
                         </fragment>
                       </span>
                                 </div>
@@ -84,7 +84,7 @@
                                     </label>
                                     <span class="booking-details-text18">
                         <fragment class="bookings-fragment30">
-                          <span class="bookings-text30">10/10/25</span>
+                          <span class="bookings-text30">{{ booking.date }}</span>
                         </fragment>
                       </span>
                                 </div>
@@ -98,7 +98,7 @@
                                     </label>
                                     <span class="booking-details-text20">
                         <fragment class="bookings-fragment29">
-                          <span class="bookings-text29">12:00</span>
+                          <span class="bookings-text29">{{ booking.time }}</span>
                         </fragment>
                       </span>
                                 </div>
@@ -112,7 +112,7 @@
                                     </label>
                                     <span class="booking-details-text22">
                         <fragment class="bookings-fragment35">
-                          <span class="bookings-text35">8</span>
+                          <span class="bookings-text35">{{ booking.guests }}</span>
                         </fragment>
                       </span>
                                 </div>
@@ -127,7 +127,11 @@
                                     <span class="booking-details-text24">
                         <fragment class="bookings-fragment34">
                           <span class="bookings-text34">
-                            No information here!
+                              {% if booking.additional_info %}
+                                  {{ booking.additional_info }}
+                              {% else %}
+                                  No additional details.
+                              {% endif %}
                           </span>
                         </fragment>
                       </span>
@@ -142,34 +146,61 @@
                                     </label>
                                     <span class="booking-details-text26">
                         <fragment class="bookings-fragment28">
-                          <span class="bookings-text28">Pending</span>
+                          <span class="bookings-text28">{{ booking.status }}</span>
                         </fragment>
                       </span>
                                 </div>
                             </form>
                             <hr class="booking-details-separator18"/>
-                            <div class="booking-details-container3">
-                                <button
-                                        type="submit"
-                                        class="booking-details-button1 thq-button-filled"
-                                >
+                            {% if booking.status == STATUS.PENDING %}
+                                <div class="booking-details-container3">
+                                    <a href="{% url 'confirm-booking' booking.pk %}"
+                                       type="submit"
+                                       class="booking-details-button1 thq-button-filled"
+                                    >
                       <span class="booking-details-text27 thq-body-small">
                         <fragment class="bookings-fragment33">
                           <span class="bookings-text33">Confirm Booking</span>
                         </fragment>
                       </span>
-                                </button>
-                                <button
-                                        type="submit"
-                                        class="booking-details-button2 thq-button-filled"
-                                >
+                                    </a>
+
+                                    <a href="{% url 'reject-booking' booking.pk %}"
+                                       type="submit"
+                                       class="booking-details-button2 thq-button-filled"
+                                    >
                       <span class="booking-details-text28 thq-body-small">
                         <fragment class="bookings-fragment36">
-                          <span class="bookings-text36">Cancel Booking</span>
+                          <span class="bookings-text36">Reject Booking</span>
                         </fragment>
                       </span>
-                                </button>
-                            </div>
+                                    </a>
+                                 <a href="{{ request.META.HTTP_REFERER|default:'/' }}"
+                                        type="submit"
+                                        class="booking-details-button1 thq-button-filled"
+                                >
+                                  <span class="booking-details-text27 thq-body-small">
+                                    <fragment class="bookings-fragment33">
+                                      <span class="bookings-text33">Back</span>
+                                    </fragment>
+                                  </span>
+                                </a>
+                                </div>
+                            {% else %}
+                                <div class="booking-details-container3">
+                                    <a href="{{ request.META.HTTP_REFERER|default:'/' }}"
+                                       type="submit"
+                                       class="booking-details-button1 thq-button-filled"
+                                    >
+                                  <span class="booking-details-text27 thq-body-small">
+                                    <fragment class="bookings-fragment33">
+                                      <span class="bookings-text33">Back</span>
+                                    </fragment>
+                                  </span>
+                                    </a>
+
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                     <hr class="booking-details-separator19"/>

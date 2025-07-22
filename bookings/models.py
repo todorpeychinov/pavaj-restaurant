@@ -42,6 +42,9 @@ class Booking(HistoryMixin):
 
     class Meta:
         ordering = ['-date', '-time']
+        permissions = [
+            ("can_manage_bookings", "Can confirm or reject bookings"),
+        ]
 
     def __str__(self):
         return f"{self.full_name} – {self.date} @ {self.time} ({self.guests} guests)"

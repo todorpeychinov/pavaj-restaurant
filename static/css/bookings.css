@@ -779,7 +779,7 @@
   justify-content: center;
   background-color: var(--dl-color-theme-neutral-light);
 }
- 
+
 .booking-details-text10 {
   align-self: center;
 }
@@ -802,7 +802,7 @@
   border-radius: var(--dl-layout-radius-radius4);
   justify-content: center;
 }
- 
+
 .booking-details-form1 {
   gap: var(--dl-layout-space-oneandhalfunits);
   width: 100%;
@@ -1608,3 +1608,4 @@
 .bookings-text42 {
   display: inline-block;
 }
+

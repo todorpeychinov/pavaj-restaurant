@@ -1,158 +1,106 @@
 {% extends 'common/base.html' %}
+{% load form_filters %}
 {% load static %}
 {% block content %}
     <link href="{% static 'css/edit-booking.css' %}" rel="stylesheet"/>
 
     <div class="edit-booking-container">
-        {% include  'common/navbar.html' %}
+        {% include 'common/navbar.html' %}
         <edit-booking-form-wrapper
                 class="edit-booking-form-wrapper"
                 rootclassname="edit-booking-formundefined"
         >
-            <!--EditBookingForm component-->
-            <div
-                    class="edit-booking-form-container1 thq-section-padding edit-booking-formroot-class-name"
-            >
-                <div
-                        class="edit-booking-form-max-width thq-section-padding thq-section-max-width"
-                >
+            <div class="edit-booking-form-container1 thq-section-padding edit-booking-formroot-class-name">
+                <div class="edit-booking-form-max-width thq-section-padding thq-section-max-width">
+
                     <div class="edit-booking-form-form-root">
                         <div class="edit-booking-form-form1">
                             <h2 class="edit-booking-form-text10 thq-heading-2">
-                                <fragment class="edit-booking-fragment29">
-                                    <span class="edit-booking-text29">Edit Booking</span>
-                                </fragment>
+                                Edit Booking
                             </h2>
-                            <form class="edit-booking-form-form2">
+
+                            <form method="post" class="edit-booking-form-form2">
+                                {% csrf_token %}
+
+                                <!-- Full Name -->
                                 <div class="edit-booking-form-email1">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Full Name
+                                    <label class="thq-body-large" for="{{ form.full_name.id_for_label }}">
+                                        Full Name:
                                     </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Enter your full name"
-                                            class="edit-booking-form-textinput1 thq-input thq-body-large"
-                                    />
+                                    {{ form.full_name|add_class:"edit-booking-form-textinput1 thq-input thq-body-large" }}
+                                    {{ form.full_name.errors }}
                                 </div>
+
+                                <!-- Email -->
                                 <div class="edit-booking-form-email2">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Email
+                                    <label class="thq-body-large" for="{{ form.email.id_for_label }}">
+                                        Email:
                                     </label>
-                                    <input
-                                            type="email"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Enter your email"
-                                            class="edit-booking-form-textinput2 thq-input thq-body-large"
-                                    />
+                                    {{ form.email|add_class:"edit-booking-form-textinput2 thq-input thq-body-large" }}
+                                    {{ form.email.errors }}
                                 </div>
+
+                                <!-- Phone Number -->
                                 <div class="edit-booking-form-email3">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Phone Number
+                                    <label class="thq-body-large" for="{{ form.phone_number.id_for_label }}">
+                                        Phone Number:
                                     </label>
-                                    <input
-                                            type="tel"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Phone Number"
-                                            class="edit-booking-form-textinput3 thq-input thq-body-large"
-                                    />
+                                    {{ form.phone_number|add_class:"edit-booking-form-textinput3 thq-input thq-body-large" }}
+                                    {{ form.phone_number.errors }}
                                 </div>
+
+                                <!-- Date -->
                                 <div class="edit-booking-form-email4">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Date
+                                    <label class="thq-body-large" for="{{ form.date.id_for_label }}">
+                                        Date:
                                     </label>
-                                    <input
-                                            type="date"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Date"
-                                            class="edit-booking-form-textinput4 thq-input thq-body-large"
-                                    />
+                                    {{ form.date|add_class:"edit-booking-form-textinput4 thq-input thq-body-large" }}
+                                    {{ form.date.errors }}
                                 </div>
+
+                                <!-- Time -->
                                 <div class="edit-booking-form-email5">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Hour
+                                    <label class="thq-body-large" for="{{ form.time.id_for_label }}">
+                                        Time:
                                     </label>
-                                    <input
-                                            type="time"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Time"
-                                            class="edit-booking-form-textinput5 thq-input thq-body-large"
-                                    />
+                                    {{ form.time|add_class:"edit-booking-form-textinput5 thq-input thq-body-large" }}
+                                    {{ form.time.errors }}
                                 </div>
+                                *Bookings are allowed between 12:00 and 22:00.
+                                <!-- Guests -->
                                 <div class="edit-booking-form-email6">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Number of guests
+                                    <label class="thq-body-large" for="{{ form.guests.id_for_label }}">
+                                        Number of guests:
                                     </label>
-                                    <input
-                                            type="number"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Choose number of guests"
-                                            class="edit-booking-form-textinput6 thq-input thq-body-large"
-                                    />
+                                    {{ form.guests|add_class:"edit-booking-form-textinput6 thq-input thq-body-large" }}
+                                    {{ form.guests.errors }}
                                 </div>
+
+                                <!-- Additional Info -->
                                 <div class="edit-booking-form-password">
-                                    <div class="edit-booking-form-container2">
-                                        <label
-                                                for="thq-sign-in-3-password"
-                                                class="thq-body-large"
-                                        >
-                                            Additional information
-                                        </label>
-                                    </div>
-                                    <textarea
-                                            placeholder="Any preferences or notes?"
-                                            class="edit-booking-form-textarea textarea"
-                                    ></textarea>
+                                    <label class="thq-body-large" for="{{ form.additional_info.id_for_label }}">
+                                        Additional information
+                                    </label>
+                                    {{ form.additional_info|add_class:"edit-booking-form-textarea textarea" }}
+                                    {{ form.additional_info.errors }}
+                                </div>
+
+                                <div class="edit-booking-form-container3">
+                                    <button type="submit" class="edit-booking-form-button thq-button-filled">
+                                        <span class="edit-booking-form-text18 thq-body-small">Save Changes</span>
+                                    </button>
                                 </div>
                             </form>
-                            <div class="edit-booking-form-container3">
-                                <button
-                                        type="submit"
-                                        class="edit-booking-form-button thq-button-filled"
-                                >
-                      <span class="edit-booking-form-text18 thq-body-small">
-                        <fragment class="edit-booking-fragment28">
-                          <span class="edit-booking-text28">Save Changes</span>
-                        </fragment>
-                      </span>
-                                </button>
-                            </div>
                         </div>
                     </div>
+
                     <hr class="edit-booking-form-separator"/>
                     <span class="edit-booking-form-text19">
-                <fragment class="edit-booking-fragment27">
-                  <span class="edit-booking-text27">
                     Please note: Your reservation is not confirmed until you
                     receive a confirmation email or a call from our team.
-                  </span>
-                </fragment>
-              </span>
+                </span>
                 </div>
+
                 <img
                         alt="SignUp Image"
                         src="{% static 'img/dsc08391.jpg-1500w.jpeg' %}"
@@ -161,4 +109,5 @@
                 <div class="edit-booking-form-container4"></div>
             </div>
         </edit-booking-form-wrapper>
+    </div>
 {% endblock %}

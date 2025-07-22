@@ -1,177 +1,169 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
-    <link href="{% static 'css/booking-details-page.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/booking-details-page.css' %}" rel="stylesheet"/>
 
-    <div class="booking-details-page-container">
-        {% include  'common/navbar.html' %}
-        <bookings-component-wrapper
-                class="bookings-component-wrapper"
-                rootclassname="bookings-componentundefined"
-        >
-            <!--BookingsComponent component-->
-            <div
-                    class="bookings-component-container1 thq-section-padding bookings-componentroot-class-name1"
-            >
-                <div
-                        class="bookings-component-max-width thq-section-padding thq-section-max-width"
-                >
-                    <h1>
-                        <fragment class="booking-details-page-fragment39">
-                            <span class="booking-details-page-text39">Bookings</span>
-                        </fragment>
-                    </h1>
-                    <hr class="bookings-component-separator1"/>
-                    <div class="bookings-component-container2">
-                        <div
-                                data-thq="thq-dropdown"
-                                class="bookings-component-thq-dropdown list-item"
-                        >
-                            <ul
-                                    data-thq="thq-dropdown-list"
-                                    class="bookings-component-dropdown-list"
-                            >
-                                <li
-                                        data-thq="thq-dropdown"
-                                        class="bookings-component-dropdown1 list-item"
-                                >
-                                    <div
-                                            data-thq="thq-dropdown-toggle"
-                                            class="bookings-component-dropdown-toggle1"
-                                    >
-                        <span class="bookings-component-text11">
-                          <fragment class="booking-details-page-fragment28">
-                            <span class="booking-details-page-text28">
-                              Sub-menu Item
-                            </span>
-                          </fragment>
-                        </span>
-                                    </div>
-                                </li>
-                                <li
-                                        data-thq="thq-dropdown"
-                                        class="bookings-component-dropdown2 list-item"
-                                >
-                                    <div
-                                            data-thq="thq-dropdown-toggle"
-                                            class="bookings-component-dropdown-toggle2"
-                                    >
-                        <span class="bookings-component-text12">
-                          <fragment class="booking-details-page-fragment29">
-                            <span class="booking-details-page-text29">
-                              Sub-menu Item
-                            </span>
-                          </fragment>
-                        </span>
-                                    </div>
-                                </li>
-                                <li
-                                        data-thq="thq-dropdown"
-                                        class="bookings-component-dropdown3 list-item"
-                                >
-                                    <div
-                                            data-thq="thq-dropdown-toggle"
-                                            class="bookings-component-dropdown-toggle3"
-                                    >
-                        <span class="bookings-component-text13">
-                          <fragment class="booking-details-page-fragment30">
-                            <span class="booking-details-page-text30">
-                              Sub-menu Item
-                            </span>
-                          </fragment>
-                        </span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div
-                                data-thq="thq-dropdown-toggle"
-                                class="bookings-component-dropdown-toggle4"
-                        >
-                  <span class="bookings-component-text14">
-                    <fragment class="booking-details-page-fragment27">
-                      <span class="booking-details-page-text27">Menu Item</span>
+<div class="booking-details-page-container">
+    {% include 'common/navbar.html' %}
+    <bookings-component-wrapper
+            class="bookings-component-wrapper"
+            rootclassname="bookings-componentundefined"
+    >
+        <!--BookingsComponent component-->
+        <div class="bookings-component-container1 thq-section-padding bookings-componentroot-class-name1">
+            <div class="bookings-component-max-width thq-section-padding thq-section-max-width">
+
+                <h1>
+                    <fragment class="booking-details-page-fragment39">
+                        <span class="booking-details-page-text39">Bookings</span>
                     </fragment>
-                  </span>
-                            <div
-                                    data-thq="thq-dropdown-arrow"
-                                    class="bookings-component-dropdown-arrow"
-                            >
-                                <svg
-                                        viewBox="0 0 1024 1024"
-                                        class="bookings-component-icon1"
-                                >
-                                    <path d="M426 726v-428l214 214z"></path>
-                                </svg>
-                            </div>
+                </h1>
+                <hr class="bookings-component-separator1"/>
+            
+                <div class="bookings-component-container2">
+                    <form method="get" action="">
+                        <div class="booking-status-dropdown-wrapper">
+                            <select name="status" onchange="this.form.submit()" class="booking-status-dropdown">
+                                {% for value, label in statuses %}
+                                    <option value="{{ value }}" {% if value == selected_status %}selected{% endif %}>
+                                        {{ label }}
+                                    </option>
+                                {% endfor %}
+                            </select>
                         </div>
-                    </div>
-                    <h1 class="bookings-component-text15">
-                        <fragment class="booking-details-page-fragment40">
-                            <span class="booking-details-page-text40">Pending</span>
-                        </fragment>
-                    </h1>
-                    <hr class="bookings-component-separator2"/>
-                    <div class="bookings-component-container3">
-                <span class="bookings-component-text16">
-                  <fragment class="booking-details-page-fragment31">
-                    <span class="booking-details-page-text31">Full Name:</span>
-                  </fragment>
-                </span>
-                        <span class="bookings-component-text17">
-                  <fragment class="booking-details-page-fragment33">
-                    <span class="booking-details-page-text33">
-                      Date and Time:
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="bookings-component-text18">
-                  <fragment class="booking-details-page-fragment35">
-                    <span class="booking-details-page-text35">
-                      Guests:&nbsp;
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="bookings-component-text19">
-                  <fragment class="booking-details-page-fragment37">
-                    <span class="booking-details-page-text37">
-                      Phone Number:&nbsp;
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="bookings-component-text20">
-                  <fragment class="booking-details-page-fragment32">
-                    <span class="booking-details-page-text32">Ivan Ivanov</span>
-                  </fragment>
-                </span>
-                        <span class="bookings-component-text21">
-                  <fragment class="booking-details-page-fragment34">
-                    <span class="booking-details-page-text34">
-                      10/10/25 12:00
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="bookings-component-text22">
-                  <fragment class="booking-details-page-fragment36">
-                    <span class="booking-details-page-text36">8</span>
-                  </fragment>
-                </span>
-                        <span class="bookings-component-text23">
-                  <fragment class="booking-details-page-fragment38">
-                    <span class="booking-details-page-text38">
-                      +359876123456
-                    </span>
-                  </fragment>
-                </span>
-                    </div>
-                    <hr class="bookings-component-separator3"/>
+                    </form>
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/pavaj-restaurant-plovdiv%20(1)-1500w.jpg' %}"
-                        class="bookings-component-sign-up-image thq-img-ratio-16-9"
-                />
-                <div class="bookings-component-container4"></div>
+
+                <h1 class="bookings-component-text15">
+                    <fragment class="booking-details-page-fragment40">
+                        <span class="booking-details-page-text40">{{ selected_status|title }}</span>
+                    </fragment>
+                </h1>
+                <hr class="bookings-component-separator2"/>
+            
+                {% for booking in bookings %}
+                    <div class="bookings-component-container3">
+                        <span class="bookings-component-text16">
+                            <fragment class="booking-details-page-fragment31">
+                                <span class="booking-details-page-text31">Full Name:</span>
+                            </fragment>
+                        </span>
+                        <span class="bookings-component-text20">
+                            <fragment class="booking-details-page-fragment32">
+                                <span class="booking-details-page-text32">{{ booking.full_name }}</span>
+                            </fragment>
+                        </span>
+
+                        <span class="bookings-component-text17">
+                            <fragment class="booking-details-page-fragment33">
+                                <span class="booking-details-page-text33">Date and Time:</span>
+                            </fragment>
+                        </span>
+                        <span class="bookings-component-text21">
+                            <fragment class="booking-details-page-fragment34">
+                                <span class="booking-details-page-text34">{{ booking.date }} {{ booking.time }}</span>
+                            </fragment>
+                        </span>
+
+                        <span class="bookings-component-text18">
+                            <fragment class="booking-details-page-fragment35">
+                                <span class="booking-details-page-text35">Guests:</span>
+                            </fragment>
+                        </span>
+                        <span class="bookings-component-text22">
+                            <fragment class="booking-details-page-fragment36">
+                                <span class="booking-details-page-text36">{{ booking.guests }}</span>
+                            </fragment>
+                        </span>
+
+                        <span class="bookings-component-text19">
+                            <fragment class="booking-details-page-fragment37">
+                                <span class="booking-details-page-text37">Phone Number:</span>
+                            </fragment>
+                        </span>
+                        <span class="bookings-component-text23">
+                            <fragment class="booking-details-page-fragment38">
+                                <span class="booking-details-page-text38">{{ booking.phone_number }}</span>
+                            </fragment>
+                        </span>
+                    </div>
+
+                    {% if booking.status == STATUS.PENDING %}
+                        <div class="booking-details-container3" style="display: flex; gap: 20px; margin-top: 10px;">
+                            <a href="{% url 'confirm-booking' booking.pk %}?status={{ selected_status }}&page={{ page_obj.number }}"
+                               class="booking-details-button1 thq-button-filled">
+                                <span class="booking-details-text27 thq-body-small">
+                                    <fragment class="bookings-fragment33">
+                                        <span class="bookings-text33">Confirm Booking</span>
+                                    </fragment>
+                                </span>
+                            </a>
+
+                            <a href="{% url 'reject-booking' booking.pk %}?status={{ selected_status }}&page={{ page_obj.number }}"
+                               class="booking-details-button2 thq-button-filled">
+                                <span class="booking-details-text28 thq-body-small">
+                                    <fragment class="bookings-fragment36">
+                                        <span class="bookings-text36">Reject Booking</span>
+                                    </fragment>
+                                </span>
+                            </a>
+                        
+                            <a href="{% url 'booking-details' booking.pk %}"
+                           class="booking-details-button2 thq-button-filled">
+                            <span class="booking-details-text28 thq-body-small">
+                                <fragment class="bookings-fragment36">
+                                    <span class="bookings-text36">Show more details</span>
+                                </fragment>
+                            </span>
+                        </a>
+                        </div>
+                    
+                    {% else %}
+                    <div class="booking-details-container3" style="margin-top: 10px;">
+                        <a href="{% url 'booking-details' booking.pk %}"
+                           class="booking-details-button2 thq-button-filled">
+                            <span class="booking-details-text28 thq-body-small">
+                                <fragment class="bookings-fragment36">
+                                    <span class="bookings-text36">Show more details</span>
+                                </fragment>
+                            </span>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    <hr class="bookings-component-separator3"/>
+                {% empty %}
+                    <p>No bookings found for this status.</p>
+                {% endfor %}
+
+                {% if is_paginated %}
+                    <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                        {% if page_obj.has_previous %}
+                            <a href="?status={{ selected_status }}&page=1" class="thq-button-filled">First</a>
+                            <a href="?status={{ selected_status }}&page={{ page_obj.previous_page_number }}" class="thq-button-filled">Previous</a>
+                        {% endif %}
+
+                        <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a href="?status={{ selected_status }}&page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
+                            <a href="?status={{ selected_status }}&page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
             </div>
-        </bookings-component-wrapper>
+
+            <img
+                alt="SignUp Image"
+                src="{% static 'img/pavaj-restaurant-plovdiv%20(1)-1500w.jpg' %}"
+                class="bookings-component-sign-up-image thq-img-ratio-16-9"
+            />
+            <div class="bookings-component-container4"></div>
+        </div>
+    </bookings-component-wrapper>
+</div>
 {% endblock %}
+

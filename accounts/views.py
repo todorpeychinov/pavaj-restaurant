@@ -12,12 +12,6 @@ UserModel = get_user_model()
 
 
 # Create your views here.
-
-
-def profile_details(request):
-    return render(request, 'accounts/profile-edit.html')
-
-
 class RegisterView(CreateView):
     model = UserModel
     form_class = AppUserCreationForm
