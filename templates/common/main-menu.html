@@ -1,175 +1,82 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
-    <link href="{% static 'css/main-menu.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/main-menu.css' %}" rel="stylesheet"/>
 
-    <div class="main-menu-container">
-        {% include  'common/navbar.html' %}
-        <hero32-wrapper class="hero32-wrapper" rootclassname="hero32undefined">
-            <!--Hero32 component-->
-            <div class="hero32-header9 hero32root-class-name">
-                <img
-                        alt="Fine dining restaurant interior"
-                        src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
-                        class="thq-img-ratio-16-9"
-                />
-                <div class="hero32-content thq-section-padding">
-                    <div class="hero32-max-width thq-flex-row thq-section-max-width">
-                        <div class="hero32-column1">
-                            <h1 class="thq-heading-1 hero32-text1">
-                                <fragment class="main-menu-fragment27">
-                                    <span class="main-menu-text27">Our Signature Menu</span>
-                                </fragment>
-                            </h1>
-                        </div>
-                        <div class="hero32-column2">
-                            <div class="hero32-actions"></div>
-                        </div>
+<div class="main-menu-container">
+    {% include 'common/navbar.html' %}
+
+    <hero32-wrapper class="hero32-wrapper" rootclassname="hero32undefined">
+        <div class="hero32-header9 hero32root-class-name">
+            <img alt="Fine dining restaurant interior"
+                 src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
+                 class="thq-img-ratio-16-9"/>
+            <div class="hero32-content thq-section-padding">
+                <div class="hero32-max-width thq-flex-row thq-section-max-width">
+                    <div class="hero32-column1">
+                        <h1 class="thq-heading-1 hero32-text1">
+                            Our Signature Menu
+                        </h1>
                     </div>
                 </div>
             </div>
-        </hero32-wrapper>
-        <content-list11-wrapper
-                class="content-list11-wrapper"
-                rootclassname="content-list11undefined"
-        >
-            <!--ContentList11 component-->
-            <div
-                    class="content-list11-container thq-section-padding content-list11root-class-name"
-            >
-                <div class="content-list11-max-width thq-section-max-width">
-                    <div class="content-list11-content thq-flex-column">
+        </div>
+    </hero32-wrapper>
+
+    <content-list11-wrapper class="content-list11-wrapper" rootclassname="content-list11undefined">
+        <div class="content-list11-container thq-section-padding content-list11root-class-name">
+            <div class="content-list11-max-width thq-section-max-width">
+                <div class="content-list11-content thq-flex-column">
+
+                    {% regroup menu_items by category as grouped_menu %}
+
+                    {% for group in grouped_menu %}
                         <ul class="content-list11-ul thq-flex-column">
                             <li class="thq-flex-column list-item">
                                 <h2 class="content-list11-heading1 thq-heading-2">
-                                    <fragment class="main-menu-fragment33">
-                                        <span class="main-menu-text48">Салати</span>
-                                    </fragment>
+                                    {{ group.grouper.name }}
                                 </h2>
                             </li>
-                            <li class="list-item">
-                                <h3 class="thq-heading-3">
-                                    <fragment class="main-menu-fragment34">
-                        <span class="main-menu-text49">
-                          САЛАТА С ПЕЧЕНО КОЗЕ СИРЕНЕ И ШАМФЪСТЪК
-                        </span>
-                                    </fragment>
-                                </h3>
-                                <p class="thq-body-small">
-                                    <fragment class="main-menu-fragment28">
-                        <span class="main-menu-text28">
-                          <span>
-                            свежи листни зеленчуци, печено козе сирене
-                          </span>
-                          <br/>
-                          <span>
-                            с шамфъстък, меден пекан, пресни ягоди и боровинки с
-                            дресинг от домашно малиново сладко, нар, горчица и
-                            мента / 400 гр
-                          </span>
-                        </span>
-                                    </fragment>
-                                </p>
-                            </li>
-                            <li class="list-item">
-                                <h3 class="thq-heading-3">
-                                    <fragment class="main-menu-fragment35">
-                        <span class="main-menu-text50">
-                          САЛАТА С ПЕЧЕНО КОЗЕ СИРЕНЕ И ШАМФЪСТЪК
-                        </span>
-                                    </fragment>
-                                </h3>
-                                <p class="thq-body-small">
-                                    <fragment class="main-menu-fragment29">
-                        <span class="main-menu-text32">
-                          <span>
-                            свежи листни зеленчуци, печено козе сирене
-                          </span>
-                          <br/>
-                          <span>
-                            с шамфъстък, меден пекан, пресни ягоди и боровинки с
-                            дресинг от домашно малиново сладко, нар, горчица и
-                            мента / 400 гр
-                          </span>
-                        </span>
-                                    </fragment>
-                                </p>
-                            </li>
-                            <li class="list-item">
-                                <h3 class="thq-heading-3">
-                                    <fragment class="main-menu-fragment36">
-                        <span class="main-menu-text51">
-                          САЛАТА С ПЕЧЕНО КОЗЕ СИРЕНЕ И ШАМФЪСТЪК
-                        </span>
-                                    </fragment>
-                                </h3>
-                                <p class="thq-body-small">
-                                    <fragment class="main-menu-fragment30">
-                        <span class="main-menu-text36">
-                          <span>
-                            свежи листни зеленчуци, печено козе сирене
-                          </span>
-                          <br/>
-                          <span>
-                            с шамфъстък, меден пекан, пресни ягоди и боровинки с
-                            дресинг от домашно малиново сладко, нар, горчица и
-                            мента / 400 гр
-                          </span>
-                        </span>
-                                    </fragment>
-                                </p>
-                            </li>
-                            <li class="list-item">
-                                <h3 class="thq-heading-3">
-                                    <fragment class="main-menu-fragment37">
-                        <span class="main-menu-text52">
-                          САЛАТА С ПЕЧЕНО КОЗЕ СИРЕНЕ И ШАМФЪСТЪК
-                        </span>
-                                    </fragment>
-                                </h3>
-                                <p class="thq-body-small">
-                                    <fragment class="main-menu-fragment31">
-                        <span class="main-menu-text40">
-                          <span>
-                            свежи листни зеленчуци, печено козе сирене
-                          </span>
-                          <br/>
-                          <span>
-                            с шамфъстък, меден пекан, пресни ягоди и боровинки с
-                            дресинг от домашно малиново сладко, нар, горчица и
-                            мента / 400 гр
-                          </span>
-                        </span>
-                                    </fragment>
-                                </p>
-                            </li>
-                            <li class="list-item">
-                                <h3 class="thq-heading-3">
-                                    <fragment class="main-menu-fragment38">
-                        <span class="main-menu-text53">
-                          САЛАТА С ПЕЧЕНО КОЗЕ СИРЕНЕ И ШАМФЪСТЪК
-                        </span>
-                                    </fragment>
-                                </h3>
-                                <p class="thq-body-small">
-                                    <fragment class="main-menu-fragment32">
-                        <span class="main-menu-text44">
-                          <span>
-                            свежи листни зеленчуци, печено козе сирене
-                          </span>
-                          <br/>
-                          <span>
-                            с шамфъстък, меден пекан, пресни ягоди и боровинки с
-                            дресинг от домашно малиново сладко, нар, горчица и
-                            мента / 400 гр
-                          </span>
-                        </span>
-                                    </fragment>
-                                </p>
-                            </li>
+                        
+                            {% for item in group.list %}
+                                <li class="list-item">
+                                    <h3 class="thq-heading-3">{{ item.name }}</h3>
+                                    <p class="thq-body-small">
+                                        {{ item.description }}{% if item.weight %} / {{ item.weight }} гр{% endif %}
+                                        {% if item.is_vegan %}<strong> (Vegan)</strong>{% endif %}
+                                        {% if item.is_vegetarian %}<strong> (Vegetarian)</strong>{% endif %}
+                                        {% if item.is_gluten_free %}<strong> (Gluten-Free)</strong>{% endif %}
+                                    </p>
+                                </li>
+                            {% endfor %}
                         </ul>
-                    </div>
+
+                        <hr class="content-list11-separator"/>
+                    {% empty %}
+                        <p>No menu items found.</p>
+                    {% endfor %}
+
                 </div>
+            
+                {% if is_paginated %}
+                    <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1" class="thq-button-filled">First</a>
+                            <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled">Previous</a>
+                        {% endif %}
+
+                        <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
             </div>
-        </content-list11-wrapper>
+        </div>
+    </content-list11-wrapper>
+</div>
 {% endblock %}

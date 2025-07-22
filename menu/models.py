@@ -48,3 +48,6 @@ class MenuItem(TimeStampedUserTrackedModel, HistoryMixin):
     weight = models.PositiveIntegerField(default=0)
     allergens = models.ManyToManyField(Allergen, blank=True)
 
+    def __str__(self):
+        return self.name
+
