@@ -2,124 +2,94 @@
 {% load static %}
 {% block content %}
     <link href="{% static 'css/edit-menu-category-page.css' %}" rel="stylesheet"/>
-
     <div class="edit-menu-category-page-container">
-        {% include  'common/navbar.html' %}
-        <edit-menu-category-wrapper
-                class="edit-menu-category-wrapper"
-                rootclassname="edit-menu-categoryundefined"
-        >
-            <!--EditMenuCategory component-->
-            <div
-                    class="edit-menu-category-container1 thq-section-padding edit-menu-categoryroot-class-name"
-            >
-                <div
-                        class="edit-menu-category-max-width thq-section-padding thq-section-max-width"
-                >
+        {% include 'common/navbar.html' %}
+        <edit-menu-category-wrapper class="edit-menu-category-wrapper" rootclassname="edit-menu-categoryundefined">
+            <div class="edit-menu-category-container1 thq-section-padding edit-menu-categoryroot-class-name">
+                <div class="edit-menu-category-max-width thq-section-padding thq-section-max-width">
                     <div class="edit-menu-category-form-root">
                         <div class="edit-menu-category-form1">
-                            <h2 class="edit-menu-category-text10 thq-heading-2">
+                            <h2 class="edit-menu-category-text10 thq-heading-2" style="text-align:center;">
                                 <fragment class="edit-menu-category-page-fragment29">
-                      <span class="edit-menu-category-page-text29">
-                        Edit Menu Category
-                      </span>
+                                    <span class="edit-menu-category-page-text29">Edit Menu Category</span>
                                 </fragment>
                             </h2>
-                            <form class="edit-menu-category-form2">
-                                <div class="edit-menu-category-email1">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Menu Category
-                                    </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Menu Category"
-                                            class="edit-menu-category-textinput1 thq-input thq-body-large"
-                                    />
+
+                            {% if form.non_field_errors %}
+                                <div style="color:red; margin-bottom:10px; text-align:center;">
+                                    {% for error in form.non_field_errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
                                 </div>
-                                <div class="edit-menu-category-email2">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
+                            {% endif %}
+
+
+                            <form method="post" class="edit-menu-category-form2">
+                                {% csrf_token %}
+                                <div class="edit-menu-category-email1">
+                                    <label for="{{ form.name.id_for_label }}" class="thq-body-large">Menu
+                                        Category:</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                        <p style="color:red;">{{ form.name.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <div class="edit-menu-category-email2" style="display:flex; flex-direction:column;">
+                                    <label for="{{ form.menu_type.id_for_label }}" class="thq-body-large"
+                                           style="margin-bottom:5px;">
                                         Menu Type
                                     </label>
+                                    {{ form.menu_type }}
+                                    {% if form.menu_type.errors %}
+                                        <p style="color:red;">{{ form.menu_type.errors.0 }}</p>
+                                    {% endif %}
                                 </div>
-                                <select>
-                                    <option value="Option 1">Option 1</option>
-                                    <option value="Option 2">Option 2</option>
-                                    <option value="Option 3">Option 3</option>
-                                </select>
+
                                 <div class="edit-menu-category-email3">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Description
-                                    </label>
-                                    <textarea
-                                            placeholder="Enter menu type description (opional)..."
-                                            class="edit-menu-category-textarea textarea"
-                                    ></textarea>
+                                    <label for="{{ form.description.id_for_label }}"
+                                           class="thq-body-large">Description:</label>
+                                    {{ form.description }}
+                                    {% if form.description.errors %}
+                                        <p style="color:red;">{{ form.description.errors.0 }}</p>
+                                    {% endif %}
                                 </div>
+
                                 <div class="edit-menu-category-password">
                                     <div class="edit-menu-category-container2">
-                                        <label
-                                                for="thq-sign-in-3-password"
-                                                class="thq-body-large"
-                                        >
-                                            Order
-                                        </label>
-                                        <div class="edit-menu-category-hide-password"></div>
+                                        <label for="{{ form.order.id_for_label }}" class="thq-body-large">Order:</label>
                                     </div>
-                                    <input
-                                            type="number"
-                                            id="thq-sign-in-3-password"
-                                            required="true"
-                                            placeholder="Choose the order you want to see this category in the menu..."
-                                            class="edit-menu-category-textinput2 thq-input thq-body-large"
-                                    />
+                                    {{ form.order }}
+                                    {% if form.order.errors %}
+                                        <p style="color:red;">{{ form.order.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <div class="edit-menu-category-container3"
+                                     style="display:flex; justify-content:center; gap:15px; margin-top:15px;">
+                                    <button type="submit" class="edit-menu-category-button1 thq-button-filled">
+                                        <span class="edit-menu-category-text15 thq-body-small">Save Changes</span>
+                                    </button>
+
+                                    <a href="javascript:history.back()"
+                                       class="edit-menu-category-button2 thq-button-filled" style="background:#777;">
+                                        <span class="edit-menu-category-text16 thq-body-small">Cancel</span>
+                                    </a>
+
+                                    <a href="{% url 'delete-menu-category' object.pk %}"
+                                       class="edit-menu-category-button2 thq-button-filled" style="background:#c0392b;">
+                                        <span class="edit-menu-category-text16 thq-body-small">Delete Menu Category</span>
+                                    </a>
                                 </div>
                             </form>
-                            <div class="edit-menu-category-container3">
-                                <button
-                                        type="submit"
-                                        class="edit-menu-category-button1 thq-button-filled"
-                                >
-                      <span class="edit-menu-category-text15 thq-body-small">
-                        <fragment class="edit-menu-category-page-fragment27">
-                          <span class="edit-menu-category-page-text27">
-                            Save changes
-                          </span>
-                        </fragment>
-                      </span>
-                                </button>
-                                <button
-                                        type="submit"
-                                        class="edit-menu-category-button2 thq-button-filled"
-                                >
-                      <span class="edit-menu-category-text16 thq-body-small">
-                        <fragment class="edit-menu-category-page-fragment28">
-                          <span class="edit-menu-category-page-text28">
-                            Delete Menu Category
-                          </span>
-                        </fragment>
-                      </span>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/dsc08168.jpg-1500w.jpeg' %}"
-                        class="edit-menu-category-sign-up-image thq-img-ratio-16-9"
-                />
+                <img alt="SignUp Image"
+                     src="{% static 'img/dsc08168.jpg-1500w.jpeg' %}"
+                     class="edit-menu-category-sign-up-image thq-img-ratio-16-9"/>
                 <div class="edit-menu-category-container4"></div>
             </div>
         </edit-menu-category-wrapper>
+    </div>
 {% endblock %}

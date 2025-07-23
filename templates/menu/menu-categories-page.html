@@ -4,91 +4,82 @@
     <link href="{% static 'css/menu-categories-page.css' %}" rel="stylesheet"/>
 
     <div class="menu-categories-page-container">
-        {% include  'common/navbar.html' %}
-        <menu-categories-wrapper
-                class="menu-categories-wrapper"
-                rootclassname="menu-categoriesundefined"
-        >
-            <!--MenuCategories component-->
-            <div
-                    class="menu-categories-container1 thq-section-padding menu-categoriesroot-class-name"
-            >
-                <div
-                        class="menu-categories-max-width thq-section-padding thq-section-max-width"
-                >
-                    <h1>
-                        <fragment class="menu-categories-page-fragment36">
-                  <span class="menu-categories-page-text36">
-                    Menu Categories
-                  </span>
-                        </fragment>
-                    </h1>
-                    <hr class="menu-categories-separator1"/>
-                    <div class="menu-categories-container2">
-                <span class="menu-categories-text11">
-                  <fragment class="menu-categories-page-fragment27">
-                    <span class="menu-categories-page-text27">
-                      Menu Category:
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="menu-categories-text12">
-                  <fragment class="menu-categories-page-fragment29">
-                    <span class="menu-categories-page-text29">
-                      Menu Type:&nbsp;
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="menu-categories-text13">
-                  <fragment class="menu-categories-page-fragment31">
-                    <span class="menu-categories-page-text31">Ncode:</span>
-                  </fragment>
-                </span>
-                        <span class="menu-categories-text14">
-                  <fragment class="menu-categories-page-fragment34">
-                    <span class="menu-categories-page-text34">
-                      Order:&nbsp;
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="menu-categories-text15">
-                  <fragment class="menu-categories-page-fragment28">
-                    <span class="menu-categories-page-text28">Starters</span>
-                  </fragment>
-                </span>
-                        <span class="menu-categories-text16">
-                  <fragment class="menu-categories-page-fragment30">
-                    <span class="menu-categories-page-text30">
-                      Seasonal Menu
-                    </span>
-                  </fragment>
-                </span>
-                        <span class="menu-categories-text17">
-                  <fragment class="menu-categories-page-fragment32">
-                    <span class="menu-categories-page-text32">100</span>
-                  </fragment>
-                </span>
-                        <span class="menu-categories-text18">
-                  <fragment class="menu-categories-page-fragment35">
-                    <span class="menu-categories-page-text35">1</span>
-                  </fragment>
-                </span>
+        {% include 'common/navbar.html' %}
+        <menu-categories-wrapper class="menu-categories-wrapper" rootclassname="menu-categoriesundefined">
+            <div class="menu-categories-container1 thq-section-padding menu-categoriesroot-class-name">
+                <div class="menu-categories-max-width thq-section-padding thq-section-max-width">
+
+                    <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; margin-bottom:15px;">
+                        <div></div>
+                        <h1 style="margin:0; text-align:center;">
+                            <fragment class="menu-categories-page-fragment36">
+                                <span class="menu-categories-page-text36">Menu Categories</span>
+                            </fragment>
+                        </h1>
+
                     </div>
-                    <button type="button" class="menu-categories-button button">
-                <span>
-                  <fragment class="menu-categories-page-fragment33">
-                    <span class="menu-categories-page-text33">Edit</span>
-                  </fragment>
-                </span>
-                    </button>
-                    <hr class="menu-categories-separator2"/>
+                    <a href="{% url 'add-menu-category' %}" class="thq-button-filled" style="justify-self:end;">
+                        <span class="thq-body-small">Add Category</span>
+                    </a>
+                    <hr class="menu-categories-separator1"/>
+
+                    {% for category in categories %}
+                        <div class="menu-categories-container2"
+                             style="display:flex; justify-content:space-between; align-items:center; padding:5px 0;">
+                            <div>
+                            <span class="menu-categories-text15">
+                                <strong>Category:</strong> {{ category.name }}
+                            </span><br>
+                                <span class="menu-categories-text16">
+                                <strong>Menu Type:</strong> {{ category.menu_type.name }}
+                            </span><br>
+                                <span class="menu-categories-text17">
+                                <strong>Ncode:</strong> {{ category.ncode }}
+                            </span><br>
+                                <span class="menu-categories-text18">
+                                <strong>Order:</strong> {{ category.order }}
+                            </span>
+                            </div>
+
+                            <div style="display:flex; gap:10px;">
+                                <a href="{% url 'edit-menu-category' category.pk %}" class="thq-button-filled">
+                                    <span class="thq-body-small">Edit</span>
+                                </a>
+                                <a href="{% url 'delete-menu-category' category.pk %}" class="thq-button-filled"
+                                   style="background:#c0392b;">
+                                    <span class="thq-body-small">Delete</span>
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="menu-categories-separator2"/>
+                    {% empty %}
+                        <p style="text-align:center;">No categories added yet.</p>
+                    {% endfor %}
+
+                    {% if is_paginated %}
+                        <div style="display:flex; justify-content:center; gap:10px; margin-top:15px;">
+                            {% if page_obj.has_previous %}
+                                <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled"
+                                   style="background:#777;">
+                                    <span class="thq-body-small">Previous</span>
+                                </a>
+                            {% endif %}
+                            <span class="thq-body-small" style="align-self:center;">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">
+                                    <span class="thq-body-small">Next</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/dsc08300.jpg-1500w.jpeg' %}"
-                        class="menu-categories-sign-up-image thq-img-ratio-16-9"
-                />
+
+                <img alt="Menu Categories" src="{% static 'img/dsc08300.jpg-1500w.jpeg' %}"
+                     class="menu-categories-sign-up-image thq-img-ratio-16-9"/>
                 <div class="menu-categories-container3"></div>
             </div>
         </menu-categories-wrapper>
+    </div>
 {% endblock %}

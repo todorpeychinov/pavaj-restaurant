@@ -10,6 +10,11 @@ class MenuType(TimeStampedUserTrackedModel, HistoryMixin):
     description = models.TextField(blank=True, null=True)
     ncode = models.PositiveIntegerField(unique=True)
 
+    class Meta:
+        permissions = [
+            ("can_manage_menu", "Can add and edit menu items"),
+        ]
+
     def __str__(self):
         return self.name
 
@@ -24,6 +29,9 @@ class MenuCategory(TimeStampedUserTrackedModel, HistoryMixin):
     class Meta:
         unique_together = (('name', 'menu_type'),)
         ordering = ('order',)
+        permissions = [
+            ("can_manage_menu", "Can add and edit menu items"),
+        ]
 
     def __str__(self):
         return f"{self.menu_type.name} – {self.name}"
@@ -33,6 +41,11 @@ class Allergen(TimeStampedUserTrackedModel, HistoryMixin):
     name = models.CharField(max_length=100, unique=True)
     ncode = models.PositiveIntegerField(unique=True)
     icon = models.URLField(blank=True, null=True)
+
+    class Meta:
+        permissions = [
+            ("can_manage_menu", "Can add and edit menu items"),
+        ]
 
     def __str__(self):
         return self.name
@@ -48,6 +61,10 @@ class MenuItem(TimeStampedUserTrackedModel, HistoryMixin):
     weight = models.PositiveIntegerField(default=0)
     allergens = models.ManyToManyField(Allergen, blank=True)
 
+    class Meta:
+        permissions = [
+            ("can_manage_menu", "Can add and edit menu items"),
+        ]
+
     def __str__(self):
         return self.name
-

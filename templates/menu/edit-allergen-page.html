@@ -4,94 +4,73 @@
     <link href="{% static 'css/edit-allergen-page.css' %}" rel="stylesheet"/>
 
     <div class="edit-allergen-page-container">
-        {% include  'common/navbar.html' %}
-        <edit-allergen-wrapper
-                class="edit-allergen-wrapper"
-                rootclassname="edit-allergenundefined"
-        >
-            <!--EditAllergen component-->
-            <div
-                    class="edit-allergen-container1 thq-section-padding edit-allergenroot-class-name"
-            >
-                <div
-                        class="edit-allergen-max-width thq-section-padding thq-section-max-width"
-                >
+        {% include 'common/navbar.html' %}
+        <edit-allergen-wrapper class="edit-allergen-wrapper" rootclassname="edit-allergenundefined">
+            <div class="edit-allergen-container1 thq-section-padding edit-allergenroot-class-name">
+                <div class="edit-allergen-max-width thq-section-padding thq-section-max-width">
                     <div class="edit-allergen-form-root">
                         <div class="edit-allergen-form1">
-                            <h2 class="edit-allergen-text1 thq-heading-2">
+                            <h2 class="edit-allergen-text1 thq-heading-2" style="text-align:center;">
                                 <fragment class="edit-allergen-page-fragment29">
-                      <span class="edit-allergen-page-text29">
-                        Edit Allergen
-                      </span>
+                                    <span class="edit-allergen-page-text29">Edit Allergen</span>
                                 </fragment>
                             </h2>
-                            <form class="edit-allergen-form2">
-                                <div class="edit-allergen-email1">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Allergen
-                                    </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Allergen"
-                                            class="edit-allergen-textinput1 thq-input thq-body-large"
-                                    />
+
+                            {% if form.non_field_errors %}
+                                <div style="color:red; margin-bottom:10px; text-align:center;">
+                                    {% for error in form.non_field_errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
                                 </div>
+                            {% endif %}
+
+                            <form method="post" class="edit-allergen-form2">
+                                {% csrf_token %}
+                                <div class="edit-allergen-email1">
+                                    <label for="{{ form.name.id_for_label }}" class="thq-body-large">Allergen</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                        <p style="color:red;">{{ form.name.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
                                 <div class="edit-allergen-email2">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Icon
-                                    </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Enter icon URL (optional)"
-                                            class="edit-allergen-textinput2 thq-input thq-body-large"
-                                    />
+                                    <label for="{{ form.icon.id_for_label }}" class="thq-body-large">Icon</label>
+                                    {{ form.icon }}
+                                    {% if form.icon.errors %}
+                                        <p style="color:red;">{{ form.icon.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <div class="edit-allergen-container2"
+                                     style="display:flex; justify-content:center; gap:15px; margin-top:15px;">
+                                    <button type="submit" class="edit-allergen-button1 thq-button-filled">
+                                    <span class="edit-allergen-text4 thq-body-small">
+                                        Save Changes
+                                    </span>
+                                    </button>
+
+                                    <a href="javascript:history.back()" class="edit-allergen-button2 thq-button-filled"
+                                       style="background:#777;">
+                                        <span class="edit-allergen-text5 thq-body-small">Cancel</span>
+                                    </a>
+
+                                    <a href="{% url 'delete-allergen' object.pk %}"
+                                       class="edit-allergen-button2 thq-button-filled"
+                                       style="background:#c0392b;">
+                                        <span class="edit-allergen-text5 thq-body-small">Delete Allergen</span>
+                                    </a>
                                 </div>
                             </form>
-                            <div class="edit-allergen-container2">
-                                <button
-                                        type="submit"
-                                        class="edit-allergen-button1 thq-button-filled"
-                                >
-                      <span class="edit-allergen-text4 thq-body-small">
-                        <fragment class="edit-allergen-page-fragment27">
-                          <span class="edit-allergen-page-text27">
-                            Save Changes
-                          </span>
-                        </fragment>
-                      </span>
-                                </button>
-                                <button
-                                        type="submit"
-                                        class="edit-allergen-button2 thq-button-filled"
-                                >
-                      <span class="edit-allergen-text5 thq-body-small">
-                        <fragment class="edit-allergen-page-fragment28">
-                          <span class="edit-allergen-page-text28">
-                            Delete Allergen
-                          </span>
-                        </fragment>
-                      </span>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/pavaj_garden_20-1500w.jpeg' %}"
-                        class="edit-allergen-sign-up-image thq-img-ratio-16-9"
-                />
+
+                <img alt="SignUp Image"
+                     src="{% static 'img/pavaj_garden_20-1500w.jpeg' %}"
+                     class="edit-allergen-sign-up-image thq-img-ratio-16-9"/>
                 <div class="edit-allergen-container3"></div>
             </div>
         </edit-allergen-wrapper>
+    </div>
 {% endblock %}

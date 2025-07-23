@@ -4,61 +4,83 @@
     <link href="{% static 'css/allergens-page.css' %}" rel="stylesheet"/>
 
     <div class="allergens-page-container">
-        {% include  'common/navbar.html' %}
-        <allergens-types-wrapper
-                class="allergens-types-wrapper"
-                rootclassname="allergens-typesundefined"
-        >
-            <!--AllergensTypes component-->
-            <div
-                    class="allergens-types-container1 thq-section-padding allergens-typesroot-class-name"
-            >
-                <div
-                        class="allergens-types-max-width thq-section-padding thq-section-max-width"
-                >
-                    <h1>
-                        <fragment class="allergens-page-fragment32">
-                            <span class="allergens-page-text32">Allergens</span>
-                        </fragment>
-                    </h1>
-                    <hr class="allergens-types-separator1"/>
-                    <div class="allergens-types-container2">
-                <span class="allergens-types-text11">
-                  <fragment class="allergens-page-fragment27">
-                    <span class="allergens-page-text27">Allergen:</span>
-                  </fragment>
-                </span>
-                        <span class="allergens-types-text12">
-                  <fragment class="allergens-page-fragment29">
-                    <span class="allergens-page-text29">Ncode:</span>
-                  </fragment>
-                </span>
-                        <span class="allergens-types-text13">
-                  <fragment class="allergens-page-fragment28">
-                    <span class="allergens-page-text28">Peanuts</span>
-                  </fragment>
-                </span>
-                        <span class="allergens-types-text14">
-                  <fragment class="allergens-page-fragment30">
-                    <span class="allergens-page-text30">100</span>
-                  </fragment>
-                </span>
+        {% include 'common/navbar.html' %}
+        <allergens-types-wrapper class="allergens-types-wrapper" rootclassname="allergens-typesundefined">
+            <div class="allergens-types-container1 thq-section-padding allergens-typesroot-class-name">
+                <div class="allergens-types-max-width thq-section-padding thq-section-max-width">
+
+                    <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; margin-bottom:15px;">
+                        <div></div>
+                        <h1 style="margin:0; text-align:center;">
+                            <fragment class="allergens-page-fragment32">
+                                <span class="allergens-page-text32">Allergens</span>
+                            </fragment>
+                        </h1>
                     </div>
-                    <button type="button" class="allergens-types-button button">
-                <span>
-                  <fragment class="allergens-page-fragment31">
-                    <span class="allergens-page-text31">Edit</span>
-                  </fragment>
-                </span>
-                    </button>
-                    <hr class="allergens-types-separator2"/>
+                    <div>
+                        <a href="{% url 'add-allergen' %}" class="thq-button-filled" style="justify-self:end;">
+                            <span class="thq-body-small">Add a new Allergen</span>
+                        </a>
+                    </div>
+                    <hr class="allergens-types-separator1"/>
+
+
+                    {% for allergen in allergens %}
+                        <div class="allergens-types-container2"
+                             style="display:flex; justify-content:space-between; align-items:center; padding:5px 0;">
+                            <div>
+                            <span class="allergens-types-text11">
+                                <strong>Allergen:</strong> {{ allergen.name }}
+                            </span><br>
+                                <span class="allergens-types-text12">
+                                <strong>Ncode:</strong> {{ allergen.ncode }}
+                            </span>
+                            </div>
+
+                            <div style="display:flex; gap:10px;">
+                                <a href="{% url 'edit-allergen' allergen.pk %}" class="thq-button-filled">
+                                    <span class="thq-body-small">Edit</span>
+                                </a>
+                                <a href="{% url 'delete-allergen' allergen.pk %}" class="thq-button-filled"
+                                   style="background:#c0392b;">
+                                    <span class="thq-body-small">Delete</span>
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="allergens-types-separator2"/>
+                    {% empty %}
+                        <p style="text-align:center;">No allergens added yet.</p>
+                    {% endfor %}
+
+                    {% if is_paginated %}
+                        <div style="display:flex; justify-content:center; gap:10px; margin-top:15px;">
+                            {% if page_obj.has_previous %}
+                                <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled"
+                                   style="background:#777;">
+                                    <span class="thq-body-small">Previous</span>
+                                </a>
+                            {% endif %}
+
+                            <span class="thq-body-small" style="align-self:center;">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">
+                                    <span class="thq-body-small">Next</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/img_5007-1500w.jpg' %}"
-                        class="allergens-types-sign-up-image thq-img-ratio-16-9"
-                />
+
+                <img alt="Allergens Image"
+                     src="{% static 'img/img_5007-1500w.jpg' %}"
+                     class="allergens-types-sign-up-image thq-img-ratio-16-9"/>
                 <div class="allergens-types-container3"></div>
             </div>
         </allergens-types-wrapper>
+    </div>
 {% endblock %}
+
+

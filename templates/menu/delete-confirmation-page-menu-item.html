@@ -1,0 +1,62 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/delete-confirmation-page.css' %}" rel="stylesheet"/>
+
+    <div class="delete-confirmation-page-container">
+        {% include 'common/navbar.html' %}
+        <delete-confirmation-wrapper class="delete-confirmation-wrapper" rootclassname="delete-confirmationundefined">
+            <div class="delete-confirmation-container1 thq-section-padding delete-confirmationroot-class-name">
+                <div class="delete-confirmation-max-width thq-section-padding thq-section-max-width">
+                    <div class="delete-confirmation-form-root">
+                        <div class="delete-confirmation-form1">
+                            <h2 class="delete-confirmation-text1 thq-heading-2" style="text-align:center;">
+                                <fragment class="delete-confirmation-page-fragment29">
+                                <span class="delete-confirmation-page-text29">
+                                    Are you sure you want to delete this menu item?
+                                </span>
+                                </fragment>
+                            </h2>
+                            <h2 class="delete-confirmation-text1 thq-heading-2" style="text-align:center;">
+                                <fragment class="delete-confirmation-page-fragment29">
+                                <span class="delete-confirmation-page-text29">
+                                    <p style="text-align:center; margin-top:5px;">
+                                        <strong>{{ object.name }}</strong>
+                                    </p>
+                                </span>
+                                </fragment>
+                            </h2>
+
+
+                            <form method="post" class="delete-confirmation-form2"
+                                  style="text-align:center; margin-top:20px;">
+                                {% csrf_token %}
+                                <div class="delete-confirmation-container2"
+                                     style="display:flex; justify-content:center; gap:15px;">
+                                    <button type="submit" class="delete-confirmation-button1 thq-button-filled"
+                                            style="background:#c0392b;">
+                                    <span class="delete-confirmation-text2 thq-body-small">
+                                        Yes, Delete
+                                    </span>
+                                    </button>
+                                    <a href="javascript:history.back()"
+                                       class="delete-confirmation-button2 thq-button-filled"
+                                       style="background:#777;">
+                                    <span class="delete-confirmation-text3 thq-body-small">
+                                        Cancel
+                                    </span>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <img alt="Delete Confirmation Image"
+                     src="{% static 'img/img_3754-1500w.jpg' %}"
+                     class="delete-confirmation-sign-up-image thq-img-ratio-16-9"/>
+                <div class="delete-confirmation-container3"></div>
+            </div>
+        </delete-confirmation-wrapper>
+    </div>
+{% endblock %}

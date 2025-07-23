@@ -4,61 +4,76 @@
     <link href="{% static 'css/menu-types-page.css' %}" rel="stylesheet"/>
 
     <div class="menu-types-page-container">
-        {% include  'common/navbar.html' %}
-        <menu-types-wrapper
-                class="menu-types-wrapper"
-                rootclassname="menu-typesundefined"
-        >
-            <!--MenuTypes component-->
-            <div
-                    class="menu-types-container1 thq-section-padding menu-typesroot-class-name"
-            >
-                <div
-                        class="menu-types-max-width thq-section-padding thq-section-max-width"
-                >
-                    <h1>
-                        <fragment class="menu-types-page-fragment32">
-                            <span class="menu-types-page-text32">Menu Types</span>
-                        </fragment>
-                    </h1>
-                    <hr class="menu-types-separator1"/>
-                    <div class="menu-types-container2">
-                <span class="menu-types-text11">
-                  <fragment class="menu-types-page-fragment27">
-                    <span class="menu-types-page-text27">Menu Type:&nbsp;</span>
-                  </fragment>
-                </span>
-                        <span class="menu-types-text12">
-                  <fragment class="menu-types-page-fragment29">
-                    <span class="menu-types-page-text29">Ncode:</span>
-                  </fragment>
-                </span>
-                        <span class="menu-types-text13">
-                  <fragment class="menu-types-page-fragment28">
-                    <span class="menu-types-page-text28">Seasonal Menu</span>
-                  </fragment>
-                </span>
-                        <span class="menu-types-text14">
-                  <fragment class="menu-types-page-fragment30">
-                    <span class="menu-types-page-text30">100</span>
-                  </fragment>
-                </span>
+        {% include 'common/navbar.html' %}
+        <menu-types-wrapper class="menu-types-wrapper" rootclassname="menu-typesundefined">
+            <div class="menu-types-container1 thq-section-padding menu-typesroot-class-name">
+                <div class="menu-types-max-width thq-section-padding thq-section-max-width">
+
+                    <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; margin-bottom:15px;">
+                        <div></div>
+                        <h1 style="margin:0; text-align:center;">
+                            <fragment class="menu-types-page-fragment32">
+                                <span class="menu-types-page-text32">Menu Types</span>
+                            </fragment>
+                        </h1>
+
                     </div>
-                    <button type="button" class="menu-types-button button">
-                <span>
-                  <fragment class="menu-types-page-fragment31">
-                    <span class="menu-types-page-text31">Edit</span>
-                  </fragment>
-                </span>
-                    </button>
-                    <hr class="menu-types-separator2"/>
+                    <a href="{% url 'add-menu-type' %}" class="thq-button-filled" style="justify-self:end;">
+                        <span class="thq-body-small">Add Menu Type</span>
+                    </a>
+                    <hr class="menu-types-separator1"/>
+
+                    {% for type in types %}
+                        <div class="menu-types-container2"
+                             style="display:flex; justify-content:space-between; align-items:center; padding:5px 0;">
+                            <div>
+                            <span class="menu-types-text11">
+                                <strong>Menu Type:</strong> {{ type.name }}
+                            </span><br>
+                                <span class="menu-types-text12">
+                                <strong>Ncode:</strong> {{ type.ncode }}
+                            </span>
+                            </div>
+
+                            <div style="display:flex; gap:10px;">
+                                <a href="{% url 'edit-menu-type' type.pk %}" class="thq-button-filled">
+                                    <span class="thq-body-small">Edit</span>
+                                </a>
+                                <a href="{% url 'delete-menu-type' type.pk %}" class="thq-button-filled"
+                                   style="background:#c0392b;">
+                                    <span class="thq-body-small">Delete</span>
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="menu-types-separator2"/>
+                    {% empty %}
+                        <p style="text-align:center;">No menu types added yet.</p>
+                    {% endfor %}
+
+                    {% if is_paginated %}
+                        <div style="display:flex; justify-content:center; gap:10px; margin-top:15px;">
+                            {% if page_obj.has_previous %}
+                                <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled"
+                                   style="background:#777;">
+                                    <span class="thq-body-small">Previous</span>
+                                </a>
+                            {% endif %}
+                            <span class="thq-body-small" style="align-self:center;">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">
+                                    <span class="thq-body-small">Next</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/pavaj_garden_74-1500w.jpeg' %}"
-                        class="menu-types-sign-up-image thq-img-ratio-16-9"
-                />
+
+                <img alt="Menu Types" src="{% static 'img/pavaj_garden_74-1500w.jpeg' %}"
+                     class="menu-types-sign-up-image thq-img-ratio-16-9"/>
                 <div class="menu-types-container3"></div>
             </div>
         </menu-types-wrapper>
- {% endblock %}
+    </div>
+{% endblock %}

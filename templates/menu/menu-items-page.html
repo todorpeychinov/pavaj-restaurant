@@ -4,71 +4,73 @@
     <link href="{% static 'css/menu-items-page.css' %}" rel="stylesheet"/>
 
     <div class="menu-items-page-container">
-        {% include  'common/navbar.html' %}
-        <menu-items-wrapper
-                class="menu-items-wrapper"
-                rootclassname="menu-itemsundefined"
-        >
-            <!--MenuItems component-->
-            <div
-                    class="menu-items-container1 thq-section-padding menu-itemsroot-class-name"
-            >
-                <div
-                        class="menu-items-max-width thq-section-padding thq-section-max-width"
-                >
-                    <h1>
-                        <fragment class="menu-items-page-fragment34">
-                            <span class="menu-items-page-text34">Menu Items</span>
-                        </fragment>
-                    </h1>
-                    <hr class="menu-items-separator1"/>
-                    <div class="menu-items-container2">
-                <span class="menu-items-text11">
-                  <fragment class="menu-items-page-fragment27">
-                    <span class="menu-items-page-text27">Meal:&nbsp;</span>
-                  </fragment>
-                </span>
-                        <span class="menu-items-text12">
-                  <fragment class="menu-items-page-fragment29">
-                    <span class="menu-items-page-text29">Category:&nbsp;</span>
-                  </fragment>
-                </span>
-                        <span class="menu-items-text13">
-                  <fragment class="menu-items-page-fragment31">
-                    <span class="menu-items-page-text31">Weight:</span>
-                  </fragment>
-                </span>
-                        <span class="menu-items-text14">
-                  <fragment class="menu-items-page-fragment28">
-                    <span class="menu-items-page-text28">Meat Balls</span>
-                  </fragment>
-                </span>
-                        <span class="menu-items-text15">
-                  <fragment class="menu-items-page-fragment30">
-                    <span class="menu-items-page-text30">Main Dishes</span>
-                  </fragment>
-                </span>
-                        <span class="menu-items-text16">
-                  <fragment class="menu-items-page-fragment32">
-                    <span class="menu-items-page-text32">300 gr.</span>
-                  </fragment>
-                </span>
+        {% include 'common/navbar.html' %}
+        <menu-items-wrapper class="menu-items-wrapper" rootclassname="menu-itemsundefined">
+            <div class="menu-items-container1 thq-section-padding menu-itemsroot-class-name">
+                <div class="menu-items-max-width thq-section-padding thq-section-max-width">
+
+                    <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; margin-bottom:15px;">
+                        <div></div>
+                        <h1 style="margin:0; text-align:center;">
+                            <fragment class="menu-items-page-fragment34">
+                                <span class="menu-items-page-text34">Menu Items</span>
+                            </fragment>
+                        </h1>
+
                     </div>
-                    <button type="button" class="menu-items-button button">
-                <span>
-                  <fragment class="menu-items-page-fragment33">
-                    <span class="menu-items-page-text33">Edit</span>
-                  </fragment>
-                </span>
-                    </button>
-                    <hr class="menu-items-separator2"/>
+                    <a href="{% url 'add-menu-item' %}" class="thq-button-filled" style="justify-self:end;">
+                        <span class="thq-body-small">Add Item</span>
+                    </a>
+                    <hr class="menu-items-separator1"/>
+
+                    {% for item in items %}
+                        <div class="menu-items-container2"
+                             style="display:flex; justify-content:space-between; align-items:center; padding:5px 0;">
+                            <div>
+                                <span class="menu-items-text11"><strong>Meal:</strong> {{ item.name }}</span><br>
+                                <span class="menu-items-text12"><strong>Category:</strong> {{ item.category.name }}</span><br>
+                                <span class="menu-items-text13"><strong>Menu type:</strong> {{ item.category.menu_type.name }}</span>
+                            </div>
+
+                            <div style="display:flex; gap:10px;">
+                                <a href="{% url 'edit-menu-item' item.pk %}" class="thq-button-filled">
+                                    <span class="thq-body-small">Edit</span>
+                                </a>
+                                <a href="{% url 'delete-menu-item' item.pk %}" class="thq-button-filled"
+                                   style="background:#c0392b;">
+                                    <span class="thq-body-small">Delete</span>
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="menu-items-separator2"/>
+                    {% empty %}
+                        <p style="text-align:center;">No menu items added yet.</p>
+                    {% endfor %}
+
+                    {% if is_paginated %}
+                        <div style="display:flex; justify-content:center; gap:10px; margin-top:15px;">
+                            {% if page_obj.has_previous %}
+                                <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled"
+                                   style="background:#777;">
+                                    <span class="thq-body-small">Previous</span>
+                                </a>
+                            {% endif %}
+                            <span class="thq-body-small" style="align-self:center;">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">
+                                    <span class="thq-body-small">Next</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/img_4994-1500w.jpg' %}"
-                        class="menu-items-sign-up-image thq-img-ratio-16-9"
-                />
+
+                <img alt="Menu Items" src="{% static 'img/img_4994-1500w.jpg' %}"
+                     class="menu-items-sign-up-image thq-img-ratio-16-9"/>
                 <div class="menu-items-container3"></div>
             </div>
         </menu-items-wrapper>
+    </div>
 {% endblock %}

@@ -4,18 +4,10 @@
     <link href="{% static 'css/add-allergen-page.css' %}" rel="stylesheet"/>
 
     <div class="add-allergen-page-container">
-        {% include  'common/navbar.html' %}
-        <add-allergen-wrapper
-                class="add-allergen-wrapper"
-                rootclassname="add-allergenundefined"
-        >
-            <!--AddAllergen component-->
-            <div
-                    class="add-allergen-container1 thq-section-padding add-allergenroot-class-name"
-            >
-                <div
-                        class="add-allergen-max-width thq-section-padding thq-section-max-width"
-                >
+        {% include 'common/navbar.html' %}
+        <add-allergen-wrapper class="add-allergen-wrapper" rootclassname="add-allergenundefined">
+            <div class="add-allergen-container1 thq-section-padding add-allergenroot-class-name">
+                <div class="add-allergen-max-width thq-section-padding thq-section-max-width">
                     <div class="add-allergen-form-root">
                         <div class="add-allergen-form1">
                             <h2 class="add-allergen-text1 thq-heading-2">
@@ -23,79 +15,68 @@
                                     <span class="add-allergen-page-text28">Add Allergen</span>
                                 </fragment>
                             </h2>
-                            <form class="add-allergen-form2">
+                            
+                            {% if form.non_field_errors %}
+                                <div style="color:red; margin-bottom:10px; text-align:center;">
+                                    {% for error in form.non_field_errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            <form method="post" class="add-allergen-form2">
+                                {% csrf_token %}
                                 <div class="add-allergen-email1">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Allergen
-                                    </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Allergen"
-                                            class="add-allergen-textinput1 thq-input thq-body-large"
-                                    />
+                                    <label for="{{ form.name.id_for_label }}" class="thq-body-large">Allergen:</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                        <p style="color:red;">{{ form.name.errors.0 }}</p>
+                                    {% endif %}
                                 </div>
+
                                 <div class="add-allergen-email2">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Icon
-                                    </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Enter icon URL (optional)"
-                                            class="add-allergen-textinput2 thq-input thq-body-large"
-                                    />
+                                    <label for="{{ form.icon.id_for_label }}" class="thq-body-large">Icon:</label>
+                                    {{ form.icon }}
+                                    {% if form.icon.errors %}
+                                        <p style="color:red;">{{ form.icon.errors.0 }}</p>
+                                    {% endif %}
                                 </div>
+
                                 <div class="add-allergen-password">
                                     <div class="add-allergen-container2">
-                                        <label
-                                                for="thq-sign-in-3-password"
-                                                class="thq-body-large"
-                                        >
-                                            Ncode
-                                        </label>
-                                        <div class="add-allergen-hide-password"></div>
+                                        <label for="{{ form.ncode.id_for_label }}" class="thq-body-large">Ncode:</label>
                                     </div>
-                                    <input
-                                            type="number"
-                                            id="thq-sign-in-3-password"
-                                            required="true"
-                                            placeholder="Enter unique code..."
-                                            class="add-allergen-textinput3 thq-input thq-body-large"
-                                    />
+                                    {{ form.ncode }}
+                                    {% if form.ncode.errors %}
+                                        <p style="color:red;">{{ form.ncode.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <div class="add-allergen-container3"
+                                     style="display:flex; justify-content:center; gap:15px; margin-top:15px;">
+                                    <button type="submit" class="add-allergen-button thq-button-filled">
+                                    <span class="add-allergen-text5 thq-body-small">
+                                        <fragment class="add-allergen-page-fragment27">
+                                            <span class="add-allergen-page-text27">Add Allergen</span>
+                                        </fragment>
+                                    </span>
+                                    </button>
+
+                                    <a href="{% url 'allergens' %}" class="add-allergen-button thq-button-filled"
+                                       style="background:#777;">
+                                        <span class="thq-body-small">Back to all allergens</span>
+                                    </a>
                                 </div>
                             </form>
-                            <div class="add-allergen-container3">
-                                <button
-                                        type="submit"
-                                        class="add-allergen-button thq-button-filled"
-                                >
-                      <span class="add-allergen-text5 thq-body-small">
-                        <fragment class="add-allergen-page-fragment27">
-                          <span class="add-allergen-page-text27">
-                            Add Allergen
-                          </span>
-                        </fragment>
-                      </span>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
-                        class="add-allergen-sign-up-image thq-img-ratio-16-9"
-                />
+
+                <img alt="SignUp Image"
+                     src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
+                     class="add-allergen-sign-up-image thq-img-ratio-16-9"/>
                 <div class="add-allergen-container4"></div>
             </div>
         </add-allergen-wrapper>
- {% endblock %}
+    </div>
+{% endblock %}
