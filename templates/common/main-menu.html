@@ -1,90 +1,93 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
-<link href="{% static 'css/main-menu.css' %}" rel="stylesheet"/>
-
-<div class="main-menu-container">
-    {% include 'common/navbar.html' %}
-
-    <hero32-wrapper class="hero32-wrapper" rootclassname="hero32undefined">
-        <div class="hero32-header9 hero32root-class-name">
-            <img alt="Fine dining restaurant interior"
-                 src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
-                 class="thq-img-ratio-16-9"/>
-            <div class="hero32-content thq-section-padding">
-                <div class="hero32-max-width thq-flex-row thq-section-max-width">
-                    <div class="hero32-column1">
-                        <h1 class="thq-heading-1 hero32-text1">
-                            Our Signature Menu
-                        </h1>
+    <link href="{% static 'css/main-menu.css' %}" rel="stylesheet"/>
+    <div class="main-menu-container">
+        {% include 'common/navbar.html' %}
+        <hero32-wrapper class="hero32-wrapper" rootclassname="hero32undefined">
+            <div class="hero32-header9 hero32root-class-name">
+                <img alt="Fine dining restaurant interior"
+                     src="{% static 'img/dsc09852.jpg-1500w.jpeg' %}"
+                     class="thq-img-ratio-16-9"/>
+                <div class="hero32-content thq-section-padding">
+                    <div class="hero32-max-width thq-flex-row thq-section-max-width">
+                        <div class="hero32-column1">
+                            <h1 class="thq-heading-1 hero32-text1">
+                                Our Signature Menu
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </hero32-wrapper>
+        </hero32-wrapper>
 
-    <content-list11-wrapper class="content-list11-wrapper" rootclassname="content-list11undefined">
-        <div class="content-list11-container thq-section-padding content-list11root-class-name">
-            <div class="content-list11-max-width thq-section-max-width">
-                <div class="content-list11-content thq-flex-column">
+        <content-list11-wrapper class="content-list11-wrapper" rootclassname="content-list11undefined">
+            <div class="content-list11-container thq-section-padding content-list11root-class-name">
+                <div class="content-list11-max-width thq-section-max-width">
+                    <div class="content-list11-content thq-flex-column">
 
-                    {% regroup menu_items by category as grouped_menu %}
+                        {% regroup menu_items by category as grouped_menu %}
 
-                    {% for group in grouped_menu %}
-                        <ul class="content-list11-ul thq-flex-column">
-                            <li class="thq-flex-column list-item">
-                                <h2 class="content-list11-heading1 thq-heading-2">
-                                    {{ group.grouper.name }}
-                                </h2>
-                            </li>
-
-                            {% for item in group.list %}
-                                <li class="list-item">
-                                    <h3 class="thq-heading-3">{{ item.name }}</h3>
-                                    <p class="thq-body-small">
-                                        {{ item.description }}{% if item.weight %} / {{ item.weight }} гр{% endif %}
-                                        <div style="display: flex; gap: 5px; align-items: center;">
-                                        {% if item.is_vegan %}
-                                            <img src="{% static 'img/vegan.png' %}" alt="Vegan" style="width:20px; height:20px;">
-                                        {% endif %}
-                                        {% if item.is_vegetarian %}
-                                            <img src="{% static 'img/vegan.png' %}" alt="Vegetarian" style="width:20px; height:20px;">
-                                        {% endif %}
-                                        {% if item.is_gluten_free %}
-                                            <img src="{% static 'img/gluten-free.png' %}" alt="Gluten Free" style="width:20px; height:20px;">
-                                        {% endif %}
-                                        </div>
-                                    </p>
+                        {% for group in grouped_menu %}
+                            <ul class="content-list11-ul thq-flex-column">
+                                <li class="thq-flex-column list-item">
+                                    <h2 class="content-list11-heading1 thq-heading-2">
+                                        {{ group.grouper.name }}
+                                    </h2>
                                 </li>
-                            {% endfor %}
-                        </ul>
 
-                        <hr class="content-list11-separator"/>
-                    {% empty %}
-                        <p>No menu items found.</p>
-                    {% endfor %}
+                                {% for item in group.list %}
+                                    <li class="list-item">
+                                        <h3 class="thq-heading-3">{{ item.name }}</h3>
+                                        <p class="thq-body-small">
+                                            {{ item.description }}{% if item.weight %} / {{ item.weight }} гр{% endif %}
+                                        <div style="display: flex; gap: 5px; align-items: center;">
+                                            {% if item.is_vegan %}
+                                                <img src="{% static 'img/vegan.png' %}" alt="Vegan"
+                                                     style="width:20px; height:20px;">
+                                            {% endif %}
+                                            {% if item.is_vegetarian %}
+                                                <img src="{% static 'img/vegan.png' %}" alt="Vegetarian"
+                                                     style="width:20px; height:20px;">
+                                            {% endif %}
+                                            {% if item.is_gluten_free %}
+                                                <img src="{% static 'img/gluten-free.png' %}" alt="Gluten Free"
+                                                     style="width:20px; height:20px;">
+                                            {% endif %}
+                                        </div>
+                                        </p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
 
-                </div>
+                            <hr class="content-list11-separator"/>
+                        {% empty %}
+                            <p>No menu items found.</p>
+                        {% endfor %}
 
-                {% if is_paginated %}
-                    <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-                        {% if page_obj.has_previous %}
-                            <a href="?page=1" class="thq-button-filled">First</a>
-                            <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled">Previous</a>
-                        {% endif %}
+                    </div>
 
-                        <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
+                    {% if is_paginated %}
+                        <div class="pagination"
+                             style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1" class="thq-button-filled">First</a>
+                                <a href="?page={{ page_obj.previous_page_number }}"
+                                   class="thq-button-filled">Previous</a>
+                            {% endif %}
+
+                            <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
                             Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
                         </span>
 
-                        {% if page_obj.has_next %}
-                            <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
-                            <a href="?page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
-                        {% endif %}
-                    </div>
-                {% endif %}
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    </content-list11-wrapper>
-</div>
+        </content-list11-wrapper>
+    </div>
 {% endblock %}

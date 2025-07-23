@@ -4,146 +4,95 @@
     <link href="{% static 'css/inquiry-details.css' %}" rel="stylesheet"/>
 
     <div class="inquiry-details-container">
-        {% include  'common/navbar.html' %}
-        <inquiries-details-wrapper
-                class="inquiries-details-wrapper"
-                rootclassname="inquiries-detailsundefined"
-        >
-            <!--InquiriesDetails component-->
-            <div
-                    class="inquiries-details-container1 thq-section-padding inquiries-detailsroot-class-name"
-            >
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/img_5007-1500w.jpg' %}"
-                        class="inquiries-details-sign-up-image thq-img-ratio-16-9"
-                />
+        {% include 'common/navbar.html' %}
+        <inquiries-details-wrapper class="inquiries-details-wrapper" rootclassname="inquiries-detailsundefined">
+            <div class="inquiries-details-container1 thq-section-padding inquiries-detailsroot-class-name">
+                <img alt="SignUp Image"
+                     src="{% static 'img/img_5007-1500w.jpg' %}"
+                     class="inquiries-details-sign-up-image thq-img-ratio-16-9"/>
                 <div class="inquiries-details-container2"></div>
-                <div
-                        class="inquiries-details-max-width thq-section-padding thq-section-max-width"
-                >
+
+                <div class="inquiries-details-max-width thq-section-padding thq-section-max-width">
                     <h2 class="inquiries-details-text10 thq-heading-2">
-                        <fragment class="inquiry-details-fragment34">
-                            <span class="inquiry-details-text34">Inquiry Details</span>
-                        </fragment>
+                        <span class="inquiry-details-text34">Inquiry Details</span>
                     </h2>
-                    <hr class="inquiries-details-separator1"/>
                     <div class="inquiries-details-form-root">
                         <div class="inquiries-details-form1">
                             <form class="inquiries-details-form2">
                                 <div class="inquiries-details-email1">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="inquiries-details-text11 thq-body-large"
-                                    >
-                                        Full Name:
-                                    </label>
-                                    <span class="inquiries-details-text12">
-                        <fragment class="inquiry-details-fragment27">
-                          <span class="inquiry-details-text27">
-                            Ivan Ivanov
-                          </span>
-                        </fragment>
-                      </span>
+                                    <label class="inquiries-details-text11 thq-body-large">Full Name:</label>
+                                    <span class="inquiries-details-text12">{{ inquiry.full_name }}</span>
                                 </div>
                                 <hr class="inquiries-details-separator2"/>
                                 <div class="inquiries-details-email2">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="inquiries-details-text13 thq-body-large"
-                                    >
-                                        Email:
-                                    </label>
-                                    <span class="inquiries-details-text14">
-                        <fragment class="inquiry-details-fragment32">
-                          <span class="inquiry-details-text32">
-                            Ivan_ivanov@mail.bg
-                          </span>
-                        </fragment>
-                      </span>
+                                    <label class="inquiries-details-text13 thq-body-large">Email:</label>
+                                    <span class="inquiries-details-text14">{{ inquiry.email }}</span>
                                 </div>
                                 <hr class="inquiries-details-separator3"/>
                                 <div class="inquiries-details-email3">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="inquiries-details-text15 thq-body-large"
-                                    >
-                                        Phone Number:
-                                    </label>
-                                    <span class="inquiries-details-text16">
-                        <fragment class="inquiry-details-fragment31">
-                          <span class="inquiry-details-text31">
-                            +359876123456
-                          </span>
-                        </fragment>
-                      </span>
+                                    <label class="inquiries-details-text15 thq-body-large">Phone Number:</label>
+                                    <span class="inquiries-details-text16">{{ inquiry.phone_number }}</span>
                                 </div>
                                 <hr class="inquiries-details-separator4"/>
                                 <div class="inquiries-details-email4">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="inquiries-details-text17 thq-body-large"
-                                    >
-                                        Subject:
-                                    </label>
-                                    <span class="inquiries-details-text18">
-                        <fragment class="inquiry-details-fragment30">
-                          <span class="inquiry-details-text30">
-                            Asking a question
-                          </span>
-                        </fragment>
-                      </span>
+                                    <label class="inquiries-details-text17 thq-body-large">Subject:</label>
+                                    <span class="inquiries-details-text18">{{ inquiry.subject }}</span>
                                 </div>
                                 <div class="inquiries-details-email5">
                                     <hr class="inquiries-details-separator5"/>
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="inquiries-details-text19 thq-body-large"
-                                    >
-                                        Message:
-                                    </label>
-                                    <span class="inquiries-details-text20">
-                        <fragment class="inquiry-details-fragment29">
-                          <span class="inquiry-details-text29">
-                            I want to ask about a booking for the next year.
-                          </span>
-                        </fragment>
-                      </span>
+                                    <label class="inquiries-details-text19 thq-body-large">Message:</label>
+                                    <span class="inquiries-details-text20">{{ inquiry.message|truncatechars:250 }}</span>
                                 </div>
                                 <hr class="inquiries-details-separator6"/>
                                 <div class="inquiries-details-email6">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="inquiries-details-text21 thq-body-large"
-                                    >
-                                        Status:
-                                    </label>
-                                    <span class="inquiries-details-text22">
-                        <fragment class="inquiry-details-fragment28">
-                          <span class="inquiry-details-text28">Answered</span>
-                        </fragment>
-                      </span>
+                                    <label class="inquiries-details-text21 thq-body-large">Status:</label>
+                                    <span class="inquiries-details-text22">{{ inquiry.get_status_display }}</span>
                                 </div>
                             </form>
                             <hr class="inquiries-details-separator7"/>
-                            <div class="inquiries-details-container3">
-                                <button
-                                        type="submit"
-                                        class="inquiries-details-button thq-button-filled"
-                                >
-                      <span class="inquiries-details-text23 thq-body-small">
-                        <fragment class="inquiry-details-fragment33">
-                          <span class="inquiry-details-text33">
-                            Answer this inquiry
-                          </span>
-                        </fragment>
-                      </span>
-                                </button>
+
+                            {% if inquiry.status == status_choices.RESOLVED and responses %}
+                                <h3 class="thq-heading-3" style="margin-bottom:10px;">Responses:</h3>
+                                {% for response in responses %}
+                                    <div style="border:1px solid #ccc; padding:10px; border-radius:6px; margin-bottom:10px;">
+                                        <strong>{{ response.responder.get_full_name|default:"System" }}</strong>
+                                        <em>({{ response.created_at|date:"Y-m-d H:i" }})</em>
+                                        
+                                        <div style="
+                                            margin-top:5px;
+                                            max-height:120px;
+                                            overflow-y:auto;
+                                            border-top:1px solid #eee;
+                                            padding-top:5px;
+                                        ">
+                                            {{ response.message }}
+                                        </div>
+                                    </div>
+                                {% empty %}
+                                    <p>No responses yet.</p>
+                                {% endfor %}
+                                <hr class="inquiries-details-separator8"/>
+                            {% endif %}
+
+                            <div class="inquiries-details-container3"
+                                 style="display:flex; justify-content:center; align-items:center; gap:15px; margin-top:10px; width:100%;">
+                                <!-- Back Button -->
+                                <a href="javascript:history.back()"
+                                   class="thq-button-filled">
+                                    <span class="thq-body-small">Back</span>
+                                </a>
+
+                                {% if inquiry.status == status_choices.IN_PROGRESS %}
+                                    <a href="{% url 'answer-inquiry' inquiry.pk %}" class="thq-button-filled">
+                                        <span class="thq-body-small">Answer this inquiry</span>
+                                    </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                    <hr class="inquiries-details-separator8"/>
                 </div>
             </div>
         </inquiries-details-wrapper>
+    </div>
 {% endblock %}
+

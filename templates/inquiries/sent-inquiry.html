@@ -1,130 +1,100 @@
 {% extends 'common/base.html' %}
+{% load form_filters %}
 {% load static %}
 {% block content %}
     <link href="{% static 'css/sent-inquiry.css' %}" rel="stylesheet"/>
 
     <div class="sent-inquiry-container">
-        {% include  'common/navbar.html' %}
+        {% include 'common/navbar.html' %}
         <make-inquiry-wrapper class="make-inquiry-wrapper">
-            <!--MakeInquiry component-->
             <div class="make-inquiry-container1 thq-section-padding">
-                <div
-                        class="make-inquiry-max-width thq-section-padding thq-section-max-width"
-                >
+                <div class="make-inquiry-max-width thq-section-padding thq-section-max-width">
                     <div class="make-inquiry-form-root">
                         <div class="make-inquiry-form1">
                             <h2 class="make-inquiry-text10 thq-heading-2">
-                                <fragment class="sent-inquiry-fragment29">
-                      <span class="sent-inquiry-text29">
-                        Your Request, Our Priority
-                      </span>
-                                </fragment>
+                                <span class="sent-inquiry-text29">Your Request, Our Priority</span>
                             </h2>
                             <h3 class="make-inquiry-text11">
-                                <fragment class="sent-inquiry-fragment28">
-                      <span class="sent-inquiry-text28">
-                        Submit your inquiry and our team will get in touch.
-                      </span>
-                                </fragment>
+                            <span class="sent-inquiry-text28">
+                                Submit your inquiry and our team will get in touch.
+                            </span>
                             </h3>
-                            <form class="make-inquiry-form2">
+
+                            <form method="post" class="make-inquiry-form2">
+                                {% csrf_token %}
+
+                                <!-- Full Name -->
                                 <div class="make-inquiry-email1">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Full Name
+                                    <label for="{{ form.full_name.id_for_label }}" class="thq-body-large">
+                                        Full Name:
                                     </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Full Name"
-                                            class="make-inquiry-textinput1 thq-input thq-body-large"
-                                    />
+                                    {{ form.full_name|add_class:"make-inquiry-textinput1 thq-input thq-body-large" }}
+                                    {{ form.full_name.errors }}
                                 </div>
+
+                                <!-- Email -->
                                 <div class="make-inquiry-email2">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Email
+                                    <label for="{{ form.email.id_for_label }}" class="thq-body-large">
+                                        Email:
                                     </label>
-                                    <input
-                                            type="email"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Email address"
-                                            class="make-inquiry-textinput2 thq-input thq-body-large"
-                                    />
+                                    {{ form.email|add_class:"make-inquiry-textinput2 thq-input thq-body-large" }}
+                                    {{ form.email.errors }}
                                 </div>
+
+                                <!-- Phone Number -->
                                 <div class="make-inquiry-email3">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
-                                        Phone Number
+                                    <label for="{{ form.phone_number.id_for_label }}" class="thq-body-large">
+                                        Phone Number:
                                     </label>
-                                    <input
-                                            type="tel"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Phone Number"
-                                            class="make-inquiry-textinput3 thq-input thq-body-large"
-                                    />
+                                    {{ form.phone_number|add_class:"make-inquiry-textinput3 thq-input thq-body-large" }}
+                                    {{ form.phone_number.errors }}
                                 </div>
+
+                                <!-- Subject -->
                                 <div class="make-inquiry-email4">
-                                    <label
-                                            for="thq-sign-in-1-password"
-                                            class="thq-body-large"
-                                    >
+                                    <label for="{{ form.subject.id_for_label }}" class="thq-body-large">
                                         Subject
                                     </label>
-                                    <input
-                                            type="text"
-                                            id="thq-sign-in-3-email"
-                                            required="true"
-                                            placeholder="Email address"
-                                            class="make-inquiry-textinput4 thq-input thq-body-large"
-                                    />
+                                    {{ form.subject|add_class:"make-inquiry-textinput4 thq-input thq-body-large" }}
+                                    {{ form.subject.errors }}
                                 </div>
+
+                                <!-- Message -->
                                 <div class="make-inquiry-password">
                                     <div class="make-inquiry-container2">
-                                        <label
-                                                for="thq-sign-in-3-password"
-                                                class="thq-body-large"
-                                        >
+                                        <label for="{{ form.message.id_for_label }}" class="thq-body-large">
                                             Message
                                         </label>
-                                        <div class="make-inquiry-hide-password"></div>
                                     </div>
-                                    <textarea
-                                            placeholder="Enter your message here..."
-                                            class="make-inquiry-textarea textarea"
-                                    ></textarea>
+                                    {{ form.message|add_class:"make-inquiry-textarea textarea" }}
+                                    {{ form.message.errors }}
+                                </div>
+
+                                <!-- Confirm Policy -->
+                                <div class="make-inquiry-policy" style="margin-top:15px;">
+                                    <label for="{{ form.confirm_policy.id_for_label }}" class="thq-body-small">
+                                        {{ form.confirm_policy }}
+                                        {{ form.confirm_policy.label }}
+                                        {{ form.confirm_policy.errors }}
+                                    </label>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="make-inquiry-container3" style="margin-top:15px;">
+                                    <button type="submit" class="make-inquiry-button thq-button-filled">
+                                        <span class="make-inquiry-text17 thq-body-small">Send Inquiry</span>
+                                    </button>
                                 </div>
                             </form>
-                            <div class="make-inquiry-container3">
-                                <button
-                                        type="submit"
-                                        class="make-inquiry-button thq-button-filled"
-                                >
-                      <span class="make-inquiry-text17 thq-body-small">
-                        <fragment class="sent-inquiry-fragment27">
-                          <span class="sent-inquiry-text27">Sent Inquiry</span>
-                        </fragment>
-                      </span>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <img
-                        alt="SignUp Image"
-                        src="{% static 'img/pavaj-restaurant-plovdiv%20(2)-1500w.jpg' %}"
-                        class="make-inquiry-sign-up-image thq-img-ratio-16-9"
-                />
+
+                <img alt="SignUp Image"
+                     src="{% static 'img/pavaj-restaurant-plovdiv%20(2)-1500w.jpg' %}"
+                     class="make-inquiry-sign-up-image thq-img-ratio-16-9"/>
                 <div class="make-inquiry-container4"></div>
             </div>
         </make-inquiry-wrapper>
+    </div>
 {% endblock %}

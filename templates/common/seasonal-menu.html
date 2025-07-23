@@ -44,17 +44,20 @@
                                         <p class="thq-body-small">
                                             {{ item.description }}
                                             {% if item.weight %} / {{ item.weight }} g{% endif %}
-                                            <div style="display: flex; gap: 5px; align-items: center;">
+                                        <div style="display: flex; gap: 5px; align-items: center;">
                                             {% if item.is_vegan %}
-                                                <img src="{% static 'img/vegan.png' %}" alt="Vegan" style="width:20px; height:20px;">
+                                                <img src="{% static 'img/vegan.png' %}" alt="Vegan"
+                                                     style="width:20px; height:20px;">
                                             {% endif %}
                                             {% if item.is_vegetarian %}
-                                                <img src="{% static 'img/vegetarian.png' %}" alt="Vegetarian" style="width:20px; height:20px;">
+                                                <img src="{% static 'img/vegetarian.png' %}" alt="Vegetarian"
+                                                     style="width:20px; height:20px;">
                                             {% endif %}
                                             {% if item.is_gluten_free %}
-                                                <img src="{% static 'img/gluten-free.png' %}" alt="Gluten Free" style="width:20px; height:20px;">
+                                                <img src="{% static 'img/gluten-free.png' %}" alt="Gluten Free"
+                                                     style="width:20px; height:20px;">
                                             {% endif %}
-                                            </div>
+                                        </div>
                                         </p>
                                     </li>
                                 {% endfor %}

@@ -1,77 +1,79 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
-<link href="{% static 'css/wine-list.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/wine-list.css' %}" rel="stylesheet"/>
 
-<div class="wine-list-container">
-    {% include 'common/navbar.html' %}
+    <div class="wine-list-container">
+        {% include 'common/navbar.html' %}
 
-    <hero34-wrapper class="hero34-wrapper" rootclassname="hero34undefined">
-        <div class="hero34-header9 hero34root-class-name">
-            <img alt="Fine dining restaurant interior"
-                 src="{% static 'img/dsc08139-1500w.jpg' %}"
-                 class="thq-img-ratio-16-9"/>
-            <div class="hero34-content thq-section-padding">
-                <div class="hero34-max-width thq-flex-row thq-section-max-width">
-                    <div class="hero34-column1">
-                        <h1 class="thq-heading-1 hero34-text1">Our Wine Selection</h1>
+        <hero34-wrapper class="hero34-wrapper" rootclassname="hero34undefined">
+            <div class="hero34-header9 hero34root-class-name">
+                <img alt="Fine dining restaurant interior"
+                     src="{% static 'img/dsc08139-1500w.jpg' %}"
+                     class="thq-img-ratio-16-9"/>
+                <div class="hero34-content thq-section-padding">
+                    <div class="hero34-max-width thq-flex-row thq-section-max-width">
+                        <div class="hero34-column1">
+                            <h1 class="thq-heading-1 hero34-text1">Our Wine Selection</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </hero34-wrapper>
+        </hero34-wrapper>
 
-    <content-list12-wrapper class="content-list12-wrapper" rootclassname="content-list12undefined">
-        <div class="content-list12-container thq-section-padding content-list12root-class-name">
-            <div class="content-list12-max-width thq-section-max-width">
-                <div class="content-list12-content thq-flex-column">
+        <content-list12-wrapper class="content-list12-wrapper" rootclassname="content-list12undefined">
+            <div class="content-list12-container thq-section-padding content-list12root-class-name">
+                <div class="content-list12-max-width thq-section-max-width">
+                    <div class="content-list12-content thq-flex-column">
 
-                    {% regroup menu_items by category as grouped_menu %}
+                        {% regroup menu_items by category as grouped_menu %}
 
-                    {% for group in grouped_menu %}
-                        <ul class="content-list12-ul thq-flex-column">
+                        {% for group in grouped_menu %}
+                            <ul class="content-list12-ul thq-flex-column">
 
-                            <li class="thq-flex-column list-item">
-                                <h2 class="content-list12-heading1 thq-heading-2">
-                                    {{ group.grouper.name }}
-                                </h2>
-                            </li>
-                        
-                            {% for item in group.list %}
-                                <li class="list-item">
-                                    <h3 class="thq-heading-3">{{ item.name }}</h3>
-                                    <p class="thq-body-small">
-                                        {{ item.description }}
-                                    </p>
+                                <li class="thq-flex-column list-item">
+                                    <h2 class="content-list12-heading1 thq-heading-2">
+                                        {{ group.grouper.name }}
+                                    </h2>
                                 </li>
-                            {% endfor %}
-                        </ul>
-                        <hr class="content-list12-separator"/>
-                    {% empty %}
-                        <p>No wines found in the list.</p>
-                    {% endfor %}
 
-                </div>
-            
-                {% if is_paginated %}
-                    <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-                        {% if page_obj.has_previous %}
-                            <a href="?page=1" class="thq-button-filled">First</a>
-                            <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled">Previous</a>
-                        {% endif %}
+                                {% for item in group.list %}
+                                    <li class="list-item">
+                                        <h3 class="thq-heading-3">{{ item.name }}</h3>
+                                        <p class="thq-body-small">
+                                            {{ item.description }}
+                                        </p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <hr class="content-list12-separator"/>
+                        {% empty %}
+                            <p>No wines found in the list.</p>
+                        {% endfor %}
 
-                        <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
+                    </div>
+
+                    {% if is_paginated %}
+                        <div class="pagination"
+                             style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1" class="thq-button-filled">First</a>
+                                <a href="?page={{ page_obj.previous_page_number }}"
+                                   class="thq-button-filled">Previous</a>
+                            {% endif %}
+
+                            <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
                             Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
                         </span>
 
-                        {% if page_obj.has_next %}
-                            <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
-                            <a href="?page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
-                        {% endif %}
-                    </div>
-                {% endif %}
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-    </content-list12-wrapper>
-</div>
+        </content-list12-wrapper>
+    </div>
 {% endblock %}

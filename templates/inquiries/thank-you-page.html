@@ -1,0 +1,42 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <link href="{% static 'css/delete-confirmation-page.css' %}" rel="stylesheet"/>
+    <div class="delete-confirmation-page-container">
+        {% include 'common/navbar.html' %}
+        <delete-confirmation-wrapper class="delete-confirmation-wrapper" rootclassname="delete-confirmationundefined">
+            <div class="delete-confirmation-container1 thq-section-padding delete-confirmationroot-class-name">
+                <div class="delete-confirmation-max-width thq-section-padding thq-section-max-width">
+                    <div class="delete-confirmation-form-root">
+                        <div class="delete-confirmation-form1">
+                            <h2 class="delete-confirmation-text1 thq-heading-2" style="text-align:center;">
+                                <fragment class="delete-confirmation-page-fragment29">
+                                <span class="delete-confirmation-page-text29">
+                                    Thank you for your inquiry!
+                                </span>
+                                </fragment>
+                            </h2>
+                            <p style="text-align:center; margin-top:10px; font-size:16px;">
+                                We have received your message and will respond as soon as possible.
+                            </p>
+                            <div class="delete-confirmation-container2"
+                                 style="display:flex; justify-content:center; margin-top:20px;">
+                                <a href="{% url 'index' %}" class="delete-confirmation-button1 thq-button-filled">
+                                <span class="delete-confirmation-text2 thq-body-small">
+                                    <fragment class="delete-confirmation-page-fragment27">
+                                        <span class="delete-confirmation-page-text27">Back Home</span>
+                                    </fragment>
+                                </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img alt="Thank You Image"
+                     src="{% static 'img/img_3754-1500w.jpg' %}"
+                     class="delete-confirmation-sign-up-image thq-img-ratio-16-9"/>
+                <div class="delete-confirmation-container3"></div>
+            </div>
+        </delete-confirmation-wrapper>
+    </div>
+{% endblock %}

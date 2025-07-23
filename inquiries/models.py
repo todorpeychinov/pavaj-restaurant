@@ -40,8 +40,33 @@ class Inquiry(HistoryMixin):
 
     class Meta:
         ordering = ['-created_at']
+        permissions = [
+            ("can_manage_inquiries", "Can view and respond to inquiries")
+        ]
 
     def __str__(self):
         return f"Inquiry from {self.full_name} – {self.status}"
+
+
+class InquiryResponse(HistoryMixin):
+    inquiry = models.ForeignKey(
+        Inquiry,
+        on_delete=models.CASCADE,
+        related_name='responses'
+    )
+    responder = models.ForeignKey(
+        UserModel,
+        on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='inquiry_responses'
+    )
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return f"Response to {self.inquiry.full_name} by {self.responder} on {self.created_at:%Y-%m-%d}"
 
 

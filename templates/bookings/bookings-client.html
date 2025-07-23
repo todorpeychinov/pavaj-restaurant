@@ -1,98 +1,100 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
-<link href="{% static 'css/bookings-client.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/bookings-client.css' %}" rel="stylesheet"/>
 
-<div class="bookings-client-container">
-    {% include 'common/navbar.html' %}
-    <future-bookings-client-wrapper
-            class="future-bookings-client-wrapper"
-            rootclassname="future-bookings-clientundefined"
-    >
-        <div class="future-bookings-client-container1 thq-section-padding future-bookings-clientroot-class-name">
-            <div class="future-bookings-client-max-width thq-section-padding thq-section-max-width">
-                <br><br><br>
-                <h1>
-                    <fragment class="bookings-client-fragment38">
-                        <span class="bookings-client-text38">Future Bookings</span>
-                    </fragment>
-                </h1>
-                <hr class="future-bookings-client-separator1"/>
+    <div class="bookings-client-container">
+        {% include 'common/navbar.html' %}
+        <future-bookings-client-wrapper
+                class="future-bookings-client-wrapper"
+                rootclassname="future-bookings-clientundefined"
+        >
+            <div class="future-bookings-client-container1 thq-section-padding future-bookings-clientroot-class-name">
+                <div class="future-bookings-client-max-width thq-section-padding thq-section-max-width">
+                    <br><br><br>
+                    <h1>
+                        <fragment class="bookings-client-fragment38">
+                            <span class="bookings-client-text38">Future Bookings</span>
+                        </fragment>
+                    </h1>
+                    <hr class="future-bookings-client-separator1"/>
 
-                {% for booking in bookings %}
-                    <div id="booking-{{ booking.pk }}" class="future-bookings-client-container2">
-                        <span class="future-bookings-client-text11">Full Name:</span>
-                        <span class="future-bookings-client-text16">{{ booking.full_name }}</span>
+                    {% for booking in bookings %}
+                        <div id="booking-{{ booking.pk }}" class="future-bookings-client-container2">
+                            <span class="future-bookings-client-text11">Full Name:</span>
+                            <span class="future-bookings-client-text16">{{ booking.full_name }}</span>
 
-                        <span class="future-bookings-client-text12">Date and Time:</span>
-                        <span class="future-bookings-client-text17">{{ booking.date }} {{ booking.time }}</span>
+                            <span class="future-bookings-client-text12">Date and Time:</span>
+                            <span class="future-bookings-client-text17">{{ booking.date }} {{ booking.time }}</span>
 
-                        <span class="future-bookings-client-text13">Guests:</span>
-                        <span class="future-bookings-client-text18">{{ booking.guests }}</span>
+                            <span class="future-bookings-client-text13">Guests:</span>
+                            <span class="future-bookings-client-text18">{{ booking.guests }}</span>
 
-                        <span class="future-bookings-client-text14">Phone Number:</span>
-                        <span class="future-bookings-client-text19">{{ booking.phone_number }}</span>
+                            <span class="future-bookings-client-text14">Phone Number:</span>
+                            <span class="future-bookings-client-text19">{{ booking.phone_number }}</span>
 
-                        <span class="future-bookings-client-text15">Status:</span>
-                        <span class="future-bookings-client-text20">{{ booking.status }}</span>
-                    </div>
-
-
-                    {% if booking.status == STATUS.PENDING %}
-                        <div style="display: flex; gap: 20px; margin-top: 10px;">
-                        <a href="{% url 'edit-booking' booking.pk %}"
-                           class="thq-button-filled"
-                           style="margin-top: 10px; display: inline-block;">
-                            <span class="booking-details-text28 thq-body-small">Edit</span>
-                        </a>
-                        <a href="{% url 'cancel-booking' booking.pk %}?page={{ page_obj.number }}#booking-{{ booking.pk }}"
-                           class="thq-button-filled"
-                           style="margin-top: 10px; display: inline-block;">
-                            <span class="booking-details-text28 thq-body-small">Cancel booking</span>
-                        </a>
+                            <span class="future-bookings-client-text15">Status:</span>
+                            <span class="future-bookings-client-text20">{{ booking.status }}</span>
                         </div>
-                    {% endif %}
 
-                    {% if booking.status == STATUS.CONFIRMED %}
-                        <a href="{% url 'cancel-booking' booking.pk %}?page={{ page_obj.number }}#booking-{{ booking.pk }}"
-                           class="thq-button-filled"
-                           style="margin-top: 10px; display: inline-block;">
-                            <span class="booking-details-text28 thq-body-small">Cancel booking</span>
-                        </a>
-                    {% endif %}
 
-                    <hr class="future-bookings-client-separator2"/>
-                {% empty %}
-                    <p>No future bookings found.</p>
-                {% endfor %}
-
-                {% if is_paginated %}
-                    <div class="pagination" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-                        {% if page_obj.has_previous %}
-                            <a href="?page=1" class="thq-button-filled">First</a>
-                            <a href="?page={{ page_obj.previous_page_number }}" class="thq-button-filled">Previous</a>
+                        {% if booking.status == STATUS.PENDING %}
+                            <div style="display: flex; gap: 20px; margin-top: 10px;">
+                                <a href="{% url 'edit-booking' booking.pk %}"
+                                   class="thq-button-filled"
+                                   style="margin-top: 10px; display: inline-block;">
+                                    <span class="booking-details-text28 thq-body-small">Edit</span>
+                                </a>
+                                <a href="{% url 'cancel-booking' booking.pk %}?page={{ page_obj.number }}#booking-{{ booking.pk }}"
+                                   class="thq-button-filled"
+                                   style="margin-top: 10px; display: inline-block;">
+                                    <span class="booking-details-text28 thq-body-small">Cancel booking</span>
+                                </a>
+                            </div>
                         {% endif %}
 
-                        <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
+                        {% if booking.status == STATUS.CONFIRMED %}
+                            <a href="{% url 'cancel-booking' booking.pk %}?page={{ page_obj.number }}#booking-{{ booking.pk }}"
+                               class="thq-button-filled"
+                               style="margin-top: 10px; display: inline-block;">
+                                <span class="booking-details-text28 thq-body-small">Cancel booking</span>
+                            </a>
+                        {% endif %}
+
+                        <hr class="future-bookings-client-separator2"/>
+                    {% empty %}
+                        <p>No future bookings found.</p>
+                    {% endfor %}
+
+                    {% if is_paginated %}
+                        <div class="pagination"
+                             style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1" class="thq-button-filled">First</a>
+                                <a href="?page={{ page_obj.previous_page_number }}"
+                                   class="thq-button-filled">Previous</a>
+                            {% endif %}
+
+                            <span style="padding: 8px 12px; background: #333; color: white; border-radius: 4px;">
                             Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
                         </span>
 
-                        {% if page_obj.has_next %}
-                            <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
-                            <a href="?page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
-                        {% endif %}
-                    </div>
-                {% endif %}
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}" class="thq-button-filled">Next</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}" class="thq-button-filled">Last</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
 
+                </div>
+
+                <img
+                        alt="SignUp Image"
+                        src="{% static 'img/dsc08168.jpg-1500w.jpeg' %}"
+                        class="future-bookings-client-sign-up-image thq-img-ratio-16-9"
+                />
+                <div class="future-bookings-client-container3"></div>
             </div>
-
-            <img
-                alt="SignUp Image"
-                src="{% static 'img/dsc08168.jpg-1500w.jpeg' %}"
-                class="future-bookings-client-sign-up-image thq-img-ratio-16-9"
-            />
-            <div class="future-bookings-client-container3"></div>
-        </div>
-    </future-bookings-client-wrapper>
-</div>
+        </future-bookings-client-wrapper>
+    </div>
 {% endblock %}
