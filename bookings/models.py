@@ -47,6 +47,6 @@ class Booking(HistoryMixin):
         ]
 
     def __str__(self):
-        return f"{self.full_name} – {self.date} @ {self.time} ({self.guests} guests)"
+        return f"{self.full_name} | {self.date} {self.time} | {self.guests} guests | {self.status.capitalize()}"
 
 
