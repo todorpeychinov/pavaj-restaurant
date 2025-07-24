@@ -266,5 +266,36 @@
     });
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const accordionTrigger = document.querySelector(".navbar8-link4-accordion .navbar8-trigger");
+        const accordionMenu = document.querySelector(".navbar8-container6");
+        const arrowDownMobile = document.querySelector(".navbar8-container4");
+        const arrowUpMobile = document.querySelector(".navbar8-container5");
+
+        if (accordionTrigger && accordionMenu && arrowDownMobile && arrowUpMobile) {
+            accordionMenu.style.display = "none";
+            arrowDownMobile.style.display = "block";
+            arrowUpMobile.style.display = "none";
+
+            accordionTrigger.addEventListener("click", function () {
+                const isVisible = accordionMenu.style.display === "block";
+
+                accordionMenu.style.display = isVisible ? "none" : "block";
+                arrowDownMobile.style.display = isVisible ? "block" : "none";
+                arrowUpMobile.style.display = isVisible ? "none" : "block";
+            });
+            
+            accordionMenu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function () {
+                    accordionMenu.style.display = "none";
+                    arrowDownMobile.style.display = "block";
+                    arrowUpMobile.style.display = "none";
+                });
+            });
+        }
+    });
+</script>
+
 
 </html>

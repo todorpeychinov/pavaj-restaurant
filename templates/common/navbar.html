@@ -60,15 +60,19 @@
                             <span class="about-text19">Book A Table</span>
                         </fragment>
                     </a>
+                    <a
+                            href="{% url 'contact' %}"
+                            class="navbar8-link33 thq-body-small thq-link"
+                    >
+                        <fragment class="about-fragment19">
+                            <span class="about-text19">Contacts</span>
+                        </fragment>
+                    </a>
+                    {% if request.user.is_authenticated %}
                     <div class="navbar8-link4-dropdown-trigger">
-                        <a
-                                href="{% url 'contact' %}"
-                                class="navbar8-link51 thq-body-small thq-link"
-                        >
                             <fragment class="about-fragment13">
-                                <span class="about-text13">Contacts</span>
+                                <span class="about-text13">More</span>
                             </fragment>
-                        </a>
                         <div class="navbar8-icon-container1">
                             <div class="navbar8-container2">
                                 <svg viewBox="0 0 1024 1024" class="navbar8-icon10">
@@ -82,6 +86,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 </nav>
                 <div class="navbar8-buttons1">
                     {% if not request.user.is_authenticated %}
@@ -152,7 +157,7 @@
                     </div>
                     <nav class="navbar8-links2">
                         <a
-                                href="https://www.teleporthq.io"
+                                href="{% url 'index' %}"
                                 class="navbar8-link12 thq-body-small thq-link"
                         >
                             <fragment class="about-fragment10">
@@ -160,7 +165,7 @@
                             </fragment>
                         </a>
                         <a
-                                href="https://www.teleporthq.io"
+                                href="{% url 'seasonal-menu' %}"
                                 class="thq-body-small thq-link"
                         >
                             <fragment class="about-fragment11">
@@ -168,18 +173,27 @@
                             </fragment>
                         </a>
                         <a
-                                href="https://www.teleporthq.io"
+                                href="{% url 'wine-list' %}"
                                 class="navbar8-link34 thq-body-small thq-link"
                         >
                             <fragment class="about-fragment12">
                                 <span class="about-text12">Wine List</span>
                             </fragment>
                         </a>
+                        <a
+                                href="{% url 'contact' %}"
+                                class="navbar8-link34 thq-body-small thq-link"
+                        >
+                            <fragment class="about-fragment12">
+                                <span class="about-text12">Contacts</span>
+                            </fragment>
+                        </a>
                         <div class="navbar8-link4-accordion">
+                            {% if request.user.is_authenticated %}
                             <div class="navbar8-trigger">
                         <span class="thq-body-small thq-link">
                           <fragment class="about-fragment13">
-                            <span class="about-text13">Contacts</span>
+                            <span class="about-text13">More options</span>
                           </fragment>
                         </span>
                                 <div class="navbar8-icon-container2">
@@ -196,116 +210,232 @@
                                 </div>
                             </div>
                             <div class="navbar8-container6">
-                                <a href="https://www.teleporthq.io">
+                                <a href="{% url 'client-bookings' %}">
                                     <div class="navbar8-menu-item1">
                                         <img
                                                 alt="image"
-                                                src="https://images.unsplash.com/photo-1699335557003-832ea67dac2c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyM3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                                                src="{% static 'img/my-bookings.png' %}"
                                                 class="navbar8-page1-image1"
                                         />
                                         <div class="navbar8-content1">
                               <span class="navbar8-page11 thq-body-large">
                                 <fragment class="about-fragment14">
-                                  <span class="about-text14">Page One</span>
+                                  <span class="about-text14">My Bookings</span>
                                 </fragment>
                               </span>
                                             <span class="thq-body-small">
                                 <fragment class="about-fragment23">
                                   <span class="about-text23">
-                                    Page One Description
+                                    View and manage your table reservations.
                                   </span>
                                 </fragment>
                               </span>
                                         </div>
                                     </div>
                                 </a>
-                                <a href="https://www.teleporthq.io">
+                                <a href="{% url 'sent-inquiry' %}">
                                     <div class="navbar8-menu-item2">
                                         <img
                                                 alt="image"
-                                                src="https://images.unsplash.com/photo-1456426333805-2dde09207a79?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyNHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                                                src="{% static 'img/send-inquiry.png' %}"
                                                 class="navbar8-page2-image1"
                                         />
                                         <div class="navbar8-content2">
                               <span class="navbar8-page21 thq-body-large">
                                 <fragment class="about-fragment15">
-                                  <span class="about-text15">Page Two</span>
+                                  <span class="about-text15">Send Inquiry</span>
                                 </fragment>
                               </span>
                                             <span class="thq-body-small">
                                 <fragment class="about-fragment24">
                                   <span class="about-text24">
-                                    Page Two Description
+                                    Have a question or special request? Share it with us here.
                                   </span>
                                 </fragment>
                               </span>
                                         </div>
                                     </div>
                                 </a>
-                                <a href="https://www.teleporthq.io">
-                                    <div class="navbar8-menu-item3">
-                                        <img
-                                                alt="image"
-                                                src="https://images.unsplash.com/photo-1707301396761-100e131af186?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyNHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                                                class="navbar8-page3-image1"
-                                        />
-                                        <div class="navbar8-content3">
-                              <span class="navbar8-page31 thq-body-large">
-                                <fragment class="about-fragment16">
-                                  <span class="about-text16">Page Three</span>
-                                </fragment>
-                              </span>
-                                            <span class="thq-body-small">
-                                <fragment class="about-fragment25">
-                                  <span class="about-text25">
-                                    Page Three Description
+                                {% if perms.bookings.can_manage_bookings %}
+                                    <a href="{% url 'bookings' %}">
+                                        <div class="navbar8-menu-item3">
+                                            <img
+                                                    alt="image"
+                                                    src="{% static 'img/manage-reservations.png' %}"
+                                                    class="navbar8-page3-image1"
+                                            />
+                                            <div class="navbar8-content3">
+                                  <span class="navbar8-page31 thq-body-large">
+                                    <fragment class="about-fragment16">
+                                      <span class="about-text16">Manage Reservations</span>
+                                    </fragment>
                                   </span>
-                                </fragment>
-                              </span>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="https://www.teleporthq.io">
-                                    <div class="navbar8-menu-item4">
-                                        <img
-                                                alt="image"
-                                                src="https://images.unsplash.com/photo-1709159124025-025379104e2f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyM3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                                                class="navbar8-page4-image1"
-                                        />
-                                        <div class="navbar8-content4">
-                              <span class="navbar8-page41 thq-body-large">
-                                <fragment class="about-fragment17">
-                                  <span class="about-text17">Page Four</span>
-                                </fragment>
-                              </span>
-                                            <span class="thq-body-small">
-                                <fragment class="about-fragment26">
-                                  <span class="about-text26">
-                                    Page Four Description
+                                                <span class="thq-body-small">
+                                    <fragment class="about-fragment25">
+                                      <span class="about-text25">
+                                        View, confirm, or reject customer reservations.
+                                      </span>
+                                    </fragment>
                                   </span>
-                                </fragment>
-                              </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                {% endif %}
+                                {% if perms.inquiries.can_manage_inquiries %}
+                                    <a href="{% url 'inquiries-list' %}">
+                                        <div class="navbar8-menu-item4">
+                                            <img
+                                                    alt="image"
+                                                    src="{% static 'img/manage-inquiries.png' %}"
+                                                    class="navbar8-page4-image1"
+                                            />
+                                            <div class="navbar8-content4">
+                                  <span class="navbar8-page41 thq-body-large">
+                                    <fragment class="about-fragment17">
+                                      <span class="about-text17">Manage Inquiries</span>
+                                    </fragment>
+                                  </span>
+                                                <span class="thq-body-small">
+                                    <fragment class="about-fragment26">
+                                      <span class="about-text26">
+                                        View and respond to all customer inquiries.
+                                      </span>
+                                    </fragment>
+                                  </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                                {% if perms.menu.can_manage_menu %}
+                                    <a href="{% url 'menu-items' %}">
+                                        <div class="navbar8-menu-item4">
+                                            <img
+                                                    alt="image"
+                                                    src="{% static 'img/manage-menu-items.png' %}"
+                                                    class="navbar8-page4-image1"
+                                            />
+                                            <div class="navbar8-content4">
+                                  <span class="navbar8-page41 thq-body-large">
+                                    <fragment class="about-fragment17">
+                                      <span class="about-text17">Manage Menu Items</span>
+                                    </fragment>
+                                  </span>
+                                                <span class="thq-body-small">
+                                    <fragment class="about-fragment26">
+                                      <span class="about-text26">
+                                        View, edit, or remove items from the restaurant menu.
+                                      </span>
+                                    </fragment>
+                                  </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="{% url 'menu-categories' %}">
+                                        <div class="navbar8-menu-item4">
+                                            <img
+                                                    alt="image"
+                                                    src="{% static 'img/manage-menu-categories.png' %}"
+                                                    class="navbar8-page4-image1"
+                                            />
+                                            <div class="navbar8-content4">
+                                  <span class="navbar8-page41 thq-body-large">
+                                    <fragment class="about-fragment17">
+                                      <span class="about-text17">Manage Menu Categories</span>
+                                    </fragment>
+                                  </span>
+                                                <span class="thq-body-small">
+                                    <fragment class="about-fragment26">
+                                      <span class="about-text26">
+                                        Browse and manage all categories used in the menu.
+                                      </span>
+                                    </fragment>
+                                  </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="{% url 'menu-types' %}">
+                                        <div class="navbar8-menu-item4">
+                                            <img
+                                                    alt="image"
+                                                    src="{% static 'img/manage-menu-types.png' %}"
+                                                    class="navbar8-page4-image1"
+                                            />
+                                            <div class="navbar8-content4">
+                                  <span class="navbar8-page41 thq-body-large">
+                                    <fragment class="about-fragment17">
+                                      <span class="about-text17">Manage Menu Types</span>
+                                    </fragment>
+                                  </span>
+                                                <span class="thq-body-small">
+                                    <fragment class="about-fragment26">
+                                      <span class="about-text26">
+                                        Update and organize all available menu types.
+                                      </span>
+                                    </fragment>
+                                  </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="{% url 'allergens' %}">
+                                        <div class="navbar8-menu-item4">
+                                            <img
+                                                    alt="image"
+                                                    src="{% static 'img/manage-allergens.png' %}"
+                                                    class="navbar8-page4-image1"
+                                            />
+                                            <div class="navbar8-content4">
+                                  <span class="navbar8-page41 thq-body-large">
+                                    <fragment class="about-fragment17">
+                                      <span class="about-text17">Manage Allergens</span>
+                                    </fragment>
+                                  </span>
+                                                <span class="thq-body-small">
+                                    <fragment class="about-fragment26">
+                                      <span class="about-text26">
+                                        View, add, or edit allergens used in the menu.
+                                      </span>
+                                    </fragment>
+                                  </span>
+                                            </div>
+                                        </div>
+                                    </a>                                    
+                                {% endif %}
                             </div>
+                            {% endif %}
                         </div>
                     </nav>
                     <div class="navbar8-buttons2">
-                        <button class="thq-button-filled">
+                        {% if not request.user.is_authenticated %}
+                        <a href="{% url 'login' %}" class="thq-button-filled">
                       <span>
                         <fragment class="about-fragment21">
                           <span class="about-text21">Login</span>
                         </fragment>
                       </span>
-                        </button>
-                        <button class="thq-button-outline">
+                        </a>
+                        <a href="{% url 'register' %}" class="thq-button-outline">
                       <span>
                         <fragment class="about-fragment22">
                           <span class="about-text22">Register</span>
                         </fragment>
                       </span>
-                        </button>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'profile-edit' %}" class="thq-button-filled">
+                      <span>
+                        <fragment class="about-fragment21">
+                          <span class="about-text21">Profile Details</span>
+                        </fragment>
+                      </span>
+                        </a>
+                        <a href="{% url 'logout' %}" class="thq-button-outline">
+                      <span>
+                        <fragment class="about-fragment22">
+                          <span class="about-text22">Log Out</span>
+                        </fragment>
+                      </span>
+                        </a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="navbar8-icon-group">
@@ -337,102 +467,202 @@
                     </svg>
                 </div>
             </div>
+            {% if request.user.is_authenticated %}
             <div class="navbar8-container7 thq-box-shadow">
                 <div class="navbar8-link5-menu-list">
-                    <a href="https://www.teleporthq.io">
+                    <a href="{% url 'client-bookings' %}">
                         <div class="navbar8-menu-item5">
                             <img
                                     alt="image"
-                                    src="https://images.unsplash.com/photo-1699335557003-832ea67dac2c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyM3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                                    src="{% static 'img/my-bookings.png' %}"
                                     class="navbar8-page1-image2 thq-img-ratio-1-1"
                             />
                             <div class="navbar8-content5">
                         <span class="navbar8-page12 thq-body-large">
                           <fragment class="about-fragment14">
-                            <span class="about-text14">Page One</span>
+                            <span class="about-text14">My Bookings</span>
                           </fragment>
                         </span>
                                 <span class="thq-body-small">
                           <fragment class="about-fragment23">
                             <span class="about-text23">
-                              Page One Description
+                              View and manage your table reservations.
                             </span>
                           </fragment>
                         </span>
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.teleporthq.io">
+                    <a href="{% url 'sent-inquiry' %}">
                         <div class="navbar8-menu-item6">
                             <img
                                     alt="image"
-                                    src="https://images.unsplash.com/photo-1456426333805-2dde09207a79?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyNHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                                    src="{% static 'img/send-inquiry.png' %}"
                                     class="navbar8-page2-image2 thq-img-ratio-1-1"
                             />
                             <div class="navbar8-content6">
                         <span class="navbar8-page22 thq-body-large">
                           <fragment class="about-fragment15">
-                            <span class="about-text15">Page Two</span>
+                            <span class="about-text15">Send Inquiry</span>
                           </fragment>
                         </span>
                                 <span class="thq-body-small">
                           <fragment class="about-fragment24">
                             <span class="about-text24">
-                              Page Two Description
+                              Have a question or special request? Share it with us here.
                             </span>
                           </fragment>
                         </span>
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.teleporthq.io">
-                        <div class="navbar8-menu-item7">
-                            <img
-                                    alt="image"
-                                    src="https://images.unsplash.com/photo-1707301396761-100e131af186?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyNHw&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                                    class="navbar8-page3-image2 thq-img-ratio-1-1"
-                            />
-                            <div class="navbar8-content7">
-                        <span class="navbar8-page32 thq-body-large">
-                          <fragment class="about-fragment16">
-                            <span class="about-text16">Page Three</span>
-                          </fragment>
-                        </span>
-                                <span class="thq-body-small">
-                          <fragment class="about-fragment25">
-                            <span class="about-text25">
-                              Page Three Description
+                    {% if perms.bookings.can_manage_bookings %}
+                        <a href="{% url 'bookings' %}">
+                            <div class="navbar8-menu-item7">
+                                <img
+                                        alt="image"
+                                        src="{% static 'img/manage-reservations.png' %}"
+                                        class="navbar8-page3-image2 thq-img-ratio-1-1"
+                                />
+                                <div class="navbar8-content7">
+                            <span class="navbar8-page32 thq-body-large">
+                              <fragment class="about-fragment16">
+                                <span class="about-text16">Manage Reservations</span>
+                              </fragment>
                             </span>
-                          </fragment>
-                        </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.teleporthq.io">
-                        <div class="navbar8-menu-item8">
-                            <img
-                                    alt="image"
-                                    src="https://images.unsplash.com/photo-1709159124025-025379104e2f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc1MjEzMzIyM3w&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-                                    class="navbar8-page4-image2 thq-img-ratio-1-1"
-                            />
-                            <div class="navbar8-content8">
-                        <span class="navbar8-page42 thq-body-large">
-                          <fragment class="about-fragment17">
-                            <span class="about-text17">Page Four</span>
-                          </fragment>
-                        </span>
-                                <span class="thq-body-small">
-                          <fragment class="about-fragment26">
-                            <span class="about-text26">
-                              Page Four Description
+                                    <span class="thq-body-small">
+                              <fragment class="about-fragment25">
+                                <span class="about-text25">
+                                  View, confirm, or reject customer reservations.
+                                </span>
+                              </fragment>
                             </span>
-                          </fragment>
-                        </span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    {% endif %}
+                    {% if perms.inquiries.can_manage_inquiries %}
+                            <a href="{% url 'inquiries-list' %}">
+                                <div class="navbar8-menu-item8">
+                                    <img
+                                            alt="image"
+                                            src="{% static 'img/manage-inquiries.png' %}"
+                                            class="navbar8-page4-image2 thq-img-ratio-1-1"
+                                    />
+                                    <div class="navbar8-content8">
+                                <span class="navbar8-page42 thq-body-large">
+                                  <fragment class="about-fragment17">
+                                    <span class="about-text17">Manage Inquiries</span>
+                                  </fragment>
+                                </span>
+                                        <span class="thq-body-small">
+                                  <fragment class="about-fragment26">
+                                    <span class="about-text26">
+                                      View and respond to all customer inquiries.
+                                    </span>
+                                  </fragment>
+                                </span>
+                                    </div>
+                                </div>
+                            </a>
+                    {% endif %}
+                    {% if perms.menu.can_manage_menu %}
+                            <a href="{% url 'menu-items' %}">
+                                <div class="navbar8-menu-item8">
+                                    <img
+                                            alt="image"
+                                            src="{% static 'img/manage-menu-items.png' %}"
+                                            class="navbar8-page4-image2 thq-img-ratio-1-1"
+                                    />
+                                    <div class="navbar8-content8">
+                                <span class="navbar8-page42 thq-body-large">
+                                  <fragment class="about-fragment17">
+                                    <span class="about-text17">Manage Menu Items</span>
+                                  </fragment>
+                                </span>
+                                        <span class="thq-body-small">
+                                  <fragment class="about-fragment26">
+                                    <span class="about-text26">
+                                      View, edit, or remove items from the restaurant menu.
+                                    </span>
+                                  </fragment>
+                                </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{% url 'menu-categories' %}">
+                                <div class="navbar8-menu-item8">
+                                    <img
+                                            alt="image"
+                                            src="{% static 'img/manage-menu-categories.png' %}"
+                                            class="navbar8-page4-image2 thq-img-ratio-1-1"
+                                    />
+                                    <div class="navbar8-content8">
+                                <span class="navbar8-page42 thq-body-large">
+                                  <fragment class="about-fragment17">
+                                    <span class="about-text17">Manage Menu Categories</span>
+                                  </fragment>
+                                </span>
+                                        <span class="thq-body-small">
+                                  <fragment class="about-fragment26">
+                                    <span class="about-text26">
+                                      Browse and manage all categories used in the menu.
+                                    </span>
+                                  </fragment>
+                                </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{% url 'menu-types' %}">
+                                <div class="navbar8-menu-item8">
+                                    <img
+                                            alt="image"
+                                            src="{% static 'img/manage-menu-types.png' %}"
+                                            class="navbar8-page4-image2 thq-img-ratio-1-1"
+                                    />
+                                    <div class="navbar8-content8">
+                                <span class="navbar8-page42 thq-body-large">
+                                  <fragment class="about-fragment17">
+                                    <span class="about-text17">Manage Menu Types</span>
+                                  </fragment>
+                                </span>
+                                        <span class="thq-body-small">
+                                  <fragment class="about-fragment26">
+                                    <span class="about-text26">
+                                      Update and organize all available menu types.
+                                    </span>
+                                  </fragment>
+                                </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{% url 'allergens' %}">
+                                <div class="navbar8-menu-item8">
+                                    <img
+                                            alt="image"
+                                            src="{% static 'img/manage-allergens.png' %}"
+                                            class="navbar8-page4-image2 thq-img-ratio-1-1"
+                                    />
+                                    <div class="navbar8-content8">
+                                <span class="navbar8-page42 thq-body-large">
+                                  <fragment class="about-fragment17">
+                                    <span class="about-text17">Manage Allergens</span>
+                                  </fragment>
+                                </span>
+                                        <span class="thq-body-small">
+                                  <fragment class="about-fragment26">
+                                    <span class="about-text26">
+                                      View, add, or edit allergens used in the menu.
+                                    </span>
+                                  </fragment>
+                                </span>
+                                    </div>
+                                </div>
+                            </a>
+                    {% endif %}
                 </div>
             </div>
+            {% endif %}
         </header>
     </header>
 </navbar8-wrapper>

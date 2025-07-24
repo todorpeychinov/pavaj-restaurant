@@ -4,8 +4,8 @@ from bookings import views
 
 urlpatterns = [
     path('book-table/', views.BookATableView.as_view(), name='book-table'),
-    path('bookings/', views.BookingsListView.as_view(), name='bookings'),
-    path('client-bookings/', views.FutureBookingsClientView.as_view(), name='client-bookings'),
+    path('clients-bookings/', views.BookingsListView.as_view(), name='bookings'),
+    path('bookings/', views.FutureBookingsClientView.as_view(), name='client-bookings'),
     path('<int:pk>/', include([
         path('booking-details/', views.BookingDetailsView.as_view(), name='booking-details'),
         path('confirm-booking/', views.confirm_booking, name='confirm-booking'),
