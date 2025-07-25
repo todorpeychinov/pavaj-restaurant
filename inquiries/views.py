@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
@@ -7,6 +8,8 @@ from django.views.generic import FormView, CreateView, ListView, DetailView, Tem
 from inquiries.choices import InquiryStatusChoices
 from inquiries.forms import InquiryCreateForm, InquiryResponseForm
 from inquiries.models import Inquiry
+
+from core.tasks import send_async_email
 
 
 # Create your views here.
@@ -30,7 +33,34 @@ class InquiryCreateView(LoginRequiredMixin, CreateView):
         return initial
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+
+        try:
+            send_async_email.delay(
+                "Thank you for your inquiry",
+                f"Hello {self.object.full_name},\n\n"
+                f"Thank you for reaching out to us. We will respond as soon as possible.\n\n"
+                f"Best regards,\nPavaj Restaurant",
+                [self.object.email]
+            )
+        except Exception as e:
+            print(f"Email sending failed: {e}")
+
+        try:
+            send_async_email.delay(
+                "New Inquiry Received",
+                f"New inquiry:\n\n"
+                f"Name: {self.object.full_name}\n"
+                f"Email: {self.object.email}\n"
+                f"Phone Number: {self.object.phone_number}\n"
+                f"Message: {self.object.message}\n\n",
+                [settings.DEFAULT_FROM_EMAIL]
+            )
+        except Exception as e:
+            print(f"Email sending failed: {e}")
+
         return super().form_valid(form)
 
 
@@ -97,6 +127,20 @@ class InquiryAnswerView(PermissionRequiredMixin, FormView):
 
         inquiry.status = InquiryStatusChoices.RESOLVED
         inquiry.responded_by = self.request.user
+
+        try:
+            send_async_email.delay(
+                "Response to Your Inquiry",
+                f"Hello {inquiry.full_name},\n\n"
+                f"Our response:\n\n"
+                f"{response.message}\n\n"
+                f"Best regards,\nPavaj Restaurant",
+                [inquiry.email]
+            )
+        except Exception as e:
+            print(f"Email sending failed: {e}")
+
+        inquiry.sent_email = True
         inquiry.save()
 
         return super().form_valid(form)

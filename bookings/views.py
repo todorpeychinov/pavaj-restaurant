@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect, get_object_or_404
@@ -8,6 +9,7 @@ from django.views.generic import FormView, DetailView, ListView, UpdateView
 from bookings.choices import ReservationStatusChoices
 from bookings.forms import BookingCreateForm, BookingEditForm
 from bookings.models import Booking
+from core.tasks import send_async_email
 
 
 # Create your views here.
@@ -31,6 +33,36 @@ class BookATableView(LoginRequiredMixin, FormView):
         self.object = form.save(commit=False)
         self.object.user = self.request.user
         self.object.save()
+
+        try:
+            send_async_email.delay(
+                "Reservation Request Received",
+                f"Hello {self.object.full_name},\n\n"
+                f"Thank you for your reservation request.\n"
+                f"We will confirm or reject it shortly.\n\n"
+                f"Best regards,\nPavaj Restaurant",
+                [self.object.email]
+            )
+        except Exception as e:
+            print(f"Email sending failed: {e}")
+
+        try:
+            send_async_email.delay(
+                "New Reservation Request Received",
+                f"A new reservation request has been received:\n\n"
+                f"Name: {self.object.full_name}\n"
+                f"Email: {self.object.email}\n"
+                f"Phone: {self.object.phone_number}\n"
+                f"Date: {self.object.date}\n"
+                f"Time: {self.object.time}\n"
+                f"Guests: {self.object.guests}\n"
+                f"Additional Info: {self.object.additional_info or 'N/A'}\n\n"
+                f"Please review the reservation in the management panel.",
+                [settings.DEFAULT_FROM_EMAIL]  # имейлът на ресторанта
+            )
+        except Exception as e:
+            print(f"Email sending failed: {e}")
+
         return super().form_valid(form)
 
 
@@ -50,6 +82,19 @@ def confirm_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk, status=ReservationStatusChoices.PENDING)
     booking.status = ReservationStatusChoices.CONFIRMED
     booking.confirmed_by = request.user
+
+    try:
+        send_async_email.delay(
+            "Reservation Confirmed",
+            f"Hello {booking.full_name},\n\n"
+            f"Your reservation for {booking.date} at {booking.time} has been confirmed.\n\n"
+            f"Best regards,\nPavaj Restaurant",
+            [booking.email]
+        )
+    except Exception as e:
+        print(f"Email sending failed: {e}")
+
+    booking.is_email_sent = True
     booking.save()
 
     status = request.GET.get('status', 'pending')
@@ -62,6 +107,19 @@ def reject_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk, status=ReservationStatusChoices.PENDING)
     booking.status = ReservationStatusChoices.REJECTED
     booking.confirmed_by = request.user
+
+    try:
+        send_async_email.delay(
+            "Reservation Rejected",
+            f"Hello {booking.full_name},\n\n"
+            f"Unfortunately, we cannot confirm your reservation for {booking.date} at {booking.time}.\n\n"
+            f"Best regards,\nPavaj Restaurant",
+            [booking.email]
+        )
+    except Exception as e:
+        print(f"Email sending failed: {e}")
+
+    booking.is_email_sent = True
     booking.save()
 
     status = request.GET.get('status', 'pending')
@@ -111,6 +169,36 @@ def cancel_booking(request, pk):
     booking = get_object_or_404(Booking, pk=pk, user=request.user)
     booking.status = ReservationStatusChoices.CANCELLED
     booking.save()
+
+    try:
+        send_async_email.delay(
+            "Reservation Cancelled",
+            f"Hello {booking.full_name},\n\n"
+            f"Your reservation for {booking.date} at {booking.time} has been successfully cancelled.\n\n"
+            f"If this was a mistake or you wish to make a new reservation, "
+            f"feel free to contact us or book again through our website.\n\n"
+            f"Best regards,\nPavaj Restaurant",
+            [booking.email]
+        )
+    except Exception as e:
+        print(f"Email sending failed: {e}")
+
+    try:
+        send_async_email.delay(
+            "Reservation Cancelled by Customer",
+            f"The following reservation has been cancelled by the customer:\n\n"
+            f"Name: {booking.full_name}\n"
+            f"Email: {booking.email}\n"
+            f"Phone: {booking.phone_number}\n"
+            f"Date: {booking.date}\n"
+            f"Time: {booking.time}\n"
+            f"Guests: {booking.guests}\n\n"
+            f"No further action is required.",
+            [settings.DEFAULT_FROM_EMAIL]
+        )
+    except Exception as e:
+        print(f"Email sending failed: {e}")
+
     page = request.GET.get('page', '1')
     return redirect(f"{reverse('client-bookings')}?page={page}#booking-{pk}")
 
