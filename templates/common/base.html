@@ -101,6 +101,37 @@
         html {
             scroll-behavior: smooth
         }
+
+        .navbar8-mobile-menu {
+            max-height: 100vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .navbar8-mobile-menu::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .navbar8-mobile-menu {
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .navbar8-container6 {
+            max-height: 70vh;           /* скрол само в "More options" ако е много дълго */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .navbar8-container6::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        .navbar8-container6 {
+            scrollbar-width: none;
+        }
+
     </style>
     <style data-tag="default-style-sheet">
         html {
