@@ -90,7 +90,7 @@ docker run --name redis -p 6379:6379 -d redis
 ### **7. Start Celery Worker**
 
 ```bash
-celery -A pavaj_restaurant worker -l info --pool=solo
+celery -A pavajWebsite worker -l info --pool=solo
 ```
 
 ### **8. Run Development Server**
