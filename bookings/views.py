@@ -58,7 +58,7 @@ class BookATableView(LoginRequiredMixin, FormView):
                 f"Guests: {self.object.guests}\n"
                 f"Additional Info: {self.object.additional_info or 'N/A'}\n\n"
                 f"Please review the reservation in the management panel.",
-                [settings.DEFAULT_FROM_EMAIL]  # имейлът на ресторанта
+                [settings.DEFAULT_FROM_EMAIL]
             )
         except Exception as e:
             print(f"Email sending failed: {e}")
