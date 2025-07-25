@@ -190,12 +190,6 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 🖼️ **Screenshots** *(Optional)*
-
-*(You can add screenshots here – e.g., admin dashboard, menu page, etc.)*
-
----
-
 ### 🔥 **Enjoy Pavaj Restaurant!**
 
 Made with ❤️ using Django & Celery.
