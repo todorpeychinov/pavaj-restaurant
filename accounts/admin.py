@@ -1,9 +1,12 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-from accounts.models import Profile
-
+from accounts.models import Profile, CustomUser
 
 # Register your models here.
+admin.site.register(CustomUser, UserAdmin)
+
+
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('get_username', 'get_email', 'phone_number')
